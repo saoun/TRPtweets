@@ -5,7 +5,7 @@ var mustache = require('mustache-express');
 app.engine('html',mustache()); //tell Express to use mustache templating engine
 app.set('view engine', 'html'); //tell Express to use html templates
 app.set('views', __dirname+'/../client/views'); //tell Express where to find the html files
-app.use("/public", express.static(__dirname+'/../client/public')); //tell Express where find the other dynamic files like css/js
+app.use("/", express.static(__dirname+'/../client/public')); //tell Express where find the other dynamic files like css/js
 
 //Define the port
 var port = 8080;
