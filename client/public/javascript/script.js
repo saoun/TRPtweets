@@ -1,8 +1,13 @@
 "use strict";
 (function(){
 
+//global variables
+var width = 500;
+var height = 500;
 var data
 
+
+//rendering data from server
 $.ajax({
   url: '/get-data',
   type: 'GET',
@@ -16,11 +21,7 @@ $.ajax({
   console.log("error");
 });
 
-
-var width = 500;
-var height = 500;
-
-
+//d3 code
 var svg = d3.select('.chart')
             .append('svg')
             .attr('height', height)
@@ -28,7 +29,7 @@ var svg = d3.select('.chart')
             .append('g')
             .attr('transform', 'translate(0,0)');
 
-var radiusScale = d3.scaleSqrt().domain([1, 445]).range([1,40])
+var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
 
 function makeCircles(d){
   var circles = svg.selectAll('.target')
