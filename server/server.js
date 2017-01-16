@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var mustache = require('mustache-express');
-var d3 = require('d3');
+
 
 app.engine('html',mustache()); //tell Express to use mustache templating engine
 app.set('view engine', 'html'); //tell Express to use html templates
