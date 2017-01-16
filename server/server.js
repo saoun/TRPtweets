@@ -10,6 +10,17 @@ app.use("/", express.static(__dirname+'/../client/public')); //tell Express wher
 
 //Define the port
 var port = 8080;
+var trumptweets
+
+csv()
+  .fromFile('./server/db/trumptweets.csv', function(error, results){
+    if (error){
+      console.log(error)
+    } else {
+      trumptweets = results
+    }
+  })
+
 
 //Define what happens then a user visits the root route
 app.get('/',function(req,res)
@@ -17,8 +28,13 @@ app.get('/',function(req,res)
   res.render("index"); //Tell Express which html file to render for this route
 });
 
+app.get('/get-data', function(req, res){
+  res.json(trumptweets)
+})
+
 //Start the server on the defined port
 app.listen(port, function()
 {
   console.log('Server running on port: '+port);
 })
+
