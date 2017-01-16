@@ -21,7 +21,8 @@ $.ajax({
   console.log("error");
 });
 
-//d3 code
+//d3 code starts here
+//
 var svg = d3.select('.chart')
             .append('svg')
             .attr('height', height)
@@ -29,6 +30,7 @@ var svg = d3.select('.chart')
             .append('g')
             .attr('transform', 'translate(0,0)');
 
+//445 refers max tweets for one person
 var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
 
 function makeCircles(d){
@@ -50,9 +52,29 @@ function stringToNb (data) {
 };
 
 
+function applyForce(d){
 
+  //READ DOCS
+var forceXSplit = d3.forceX(function(d){
+  width * (d.gender === "m" ? 0.3 : 0.7)
+}).strength(0.2);
 
+//READ DOCS
+var forceXCombine = d3.forceX(width/2).strength(0.1)
+var forceYCombine = d3.forceY((height/3) + 10).strength(0.15)
 
+//READ DOCS
+var forceCollide = d3.forceCollide(function(d){
+  return radiusScale(d.tweets) + 1
+}).iterations(10);
+
+//READ DOCS
+var simulation = d3.forceSimulation()
+                   .force('x', forceXCombine)
+                   .force('y', forceYCombine)
+                   .force('collide', forceCollide)
+
+}
 
 
 
