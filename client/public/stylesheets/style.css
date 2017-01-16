@@ -1,0 +1,16 @@
+.tooltip {
+  position: absolute;
+  z-index: 20;
+  visibility: hidden;
+  color: white;
+  padding: 8px;
+  background-color: darkgray;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: helvetica;
+  text-anchor: middle
+}
+
+.target {
+
+}
