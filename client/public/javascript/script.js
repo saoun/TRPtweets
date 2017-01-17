@@ -50,9 +50,8 @@ $.ajax({
   type: 'GET',
 })
 .done(function(response) {
-  data = response
   console.log(response);
-  stringToNb(response);
+  makeMagic(response);
 })
 .fail(function() {
   console.log("error");
@@ -62,29 +61,26 @@ $.ajax({
 //
 //turns back the string for number of tweets to an integer
 function stringToNb (data) {
-  data.forEach(function(d){
+  var parsedData = data.forEach(function(d){
     d.tweets = +d.tweets
-    makeCircles(d)
   })
+  return parsedData
 };
 
 //tooltip function
-var showTooltip = function(d){
-  var mouseover = function(d){
+
+  var mouseover = function(){
     return tooltip.style('visibility','visible');
   };
 
-  var mouseout = function(d) {
+  var mouseout = function() {
     return tooltip.style('visibility', 'hidden')
   };
 
-  var mousemove = function(d){
+  var mousemove = function(){
     return tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
   };
-  mouseout(mouseout(d));
-  mouseover(mouseover(d));
-  mousemove(mousemove(d));
-}
+
 
 //
 var ticked = function(circles){
@@ -97,7 +93,7 @@ var ticked = function(circles){
 }
 
 //starting forces simulation
-var startForces = function(){
+var startForces = function(data){
   simulation.nodes(data)
             .on('tick', ticked)
 }
@@ -110,17 +106,21 @@ function makeCircles(d){
                    .attr('class', 'target')
                    .attr('r', function(d){
                       return radiusScale(d.tweets)
-                   });
-                   showTooltip(d)
-                   simulation
-                   ticked(circles)
-                   startForces
-} //missing the style fill element. see line 69
+                   })
+                   .on('mouseout', mouseout)
+                   .on('mouseover', mouseover)
+                   .on('mousemove', mousemove);
+  return circles
+}
+//missing the style fill element. see line 69
 
 
-
-
-
+function makeMagic(data){
+  var parsedData = stringToNb(data)
+  var circles = makeCircles(parsedData)
+  startForces(parsedData)
+  ticked(circles)
+}
 
 
 
@@ -134,3 +134,17 @@ function makeCircles(d){
 
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
