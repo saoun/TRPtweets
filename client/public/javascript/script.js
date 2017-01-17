@@ -6,20 +6,23 @@ var width = 500;
 var height = 500;
 var data
 //READ DOCS
+//separating the circles along x axis
 var forceXSplit = d3.forceX(function(d){
   width * (d.gender === "m" ? 0.3 : 0.7)
 }).strength(0.2);
 
-//READ DOCS
+//combining the circles along x axis at half the width of svg box
 var forceXCombine = d3.forceX(width/2).strength(0.1)
+
 var forceYCombine = d3.forceY((height/3) + 10).strength(0.15)
 
-//READ DOCS
+//prevents the circles from overlapping. Radius of force is scaled based on circle
+//size, so larger circles push others further from their center than smaller ones
 var forceCollide = d3.forceCollide(function(d){
   return radiusScale(d.tweets) + 1
 }).iterations(10);
 
-//READ DOCS
+//simulation to determine proper location of each circle in group
 var simulation = d3.forceSimulation()
                    .force('x', forceXCombine)
                    .force('y', forceYCombine)
@@ -36,7 +39,7 @@ var svg = d3.select('.chart')
 var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
 var tooltip = d3.select('body')
                 .append('div')
-                .attr('class', 'tooltip');
+                .attr('class', 'tooltip')
                 .text('')
 
 
