@@ -57,18 +57,6 @@ $.ajax({
 
 //
 //
-function makeCircles(d){
-  var circles = svg.selectAll('.target')
-                   .data(data)
-                   .enter().append('circle')
-                   .attr('class', 'target')
-                   .attr('r', function(d){
-                    return radiusScale(d.tweets)
-                   });
-                   showTooltip
-                   simulation
-}
-
 //turns back the string for number of tweets to an integer
 function stringToNb (data) {
   data.forEach(function(d){
@@ -77,26 +65,54 @@ function stringToNb (data) {
   })
 };
 
-
-
-var showTooltip = function(){
-  var mouseover = function(){
+//tooltip function
+var showTooltip = function(d){
+  var mouseover = function(d){
     return tooltip.style('visibility','visible');
   };
 
-  var mouseout = function() {
+  var mouseout = function(d) {
     return tooltip.style('visibility', 'hidden')
   };
 
-  var mousemove = function(){
+  var mousemove = function(d){
     return tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
   };
+  mouseout(mouseout(d));
+  mouseover(mouseover(d));
+  mousemove(mousemove(d));
+}
+
+//
+var ticked = function(circles){
+  circles.attr('cx', function(d){
+    return d.x
+  })
+          .attr('cy', function(d){
+    return d.y
+          })
+}
+
+//starting forces simulation
+var startForces = function(){
+  simulation.nodes(data)
+            .on('tick', ticked)
 }
 
 
-
-
-
+function makeCircles(d){
+  var circles = svg.selectAll('.target')
+                   .data(data)
+                   .enter().append('circle')
+                   .attr('class', 'target')
+                   .attr('r', function(d){
+                      return radiusScale(d.tweets)
+                   });
+                   showTooltip(d)
+                   simulation
+                   ticked(circles)
+                   startForces
+} //missing the style fill element. see line 69
 
 
 
