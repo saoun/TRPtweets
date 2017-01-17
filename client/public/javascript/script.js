@@ -61,10 +61,11 @@ $.ajax({
 //
 //turns back the string for number of tweets to an integer
 function stringToNb (data) {
-  var parsedData = data.forEach(function(d){
+
+  data.forEach(function(d){
     d.tweets = +d.tweets
   })
-  return parsedData
+  return data
 };
 
 //tooltip function
@@ -99,7 +100,7 @@ var startForces = function(data){
 }
 
 
-function makeCircles(d){
+function makeCircles(data){
   var circles = svg.selectAll('.target')
                    .data(data)
                    .enter().append('circle')
