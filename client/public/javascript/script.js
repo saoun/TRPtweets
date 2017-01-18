@@ -94,9 +94,9 @@ var ticked = function(circles){
 }
 
 //starting forces simulation
-var startForces = function(data){
+var startForces = function(data, circles){
   simulation.nodes(data)
-            .on('tick', ticked)
+            .on('tick', ticked(circles))
 }
 
 
@@ -119,8 +119,7 @@ function makeCircles(data){
 function makeMagic(data){
   var parsedData = stringToNb(data)
   var circles = makeCircles(parsedData)
-  startForces(parsedData)
-  ticked(circles)
+  startForces(parsedData, circles)
 }
 
 
