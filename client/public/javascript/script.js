@@ -71,8 +71,9 @@ function stringToNb (data) {
 
 //tooltip function
 
-  var mouseover = function(){
-    return tooltip.style('visibility','visible');
+  var mouseover = function(d){
+    tooltip.style('visibility','visible');
+    tooltip.html(d.person + "<br> Trump tweets: " + d.tweets)
   };
 
   var mouseout = function() {
@@ -122,8 +123,6 @@ function makeMagic(data){
   var circles = makeCircles(parsedData)
   startForces(parsedData, circles)
 }
-
-
 
 
 
