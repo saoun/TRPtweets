@@ -71,28 +71,23 @@ function stringToNb (data) {
 
 //tooltip function
 
-  var mouseover = function(d){
-    tooltip.style('visibility','visible');
-    tooltip.html(d.person + "<br> Trump tweets: " + d.tweets)
-  };
+var mouseover = function(d){
+  tooltip.style('visibility','visible');
+  tooltip.html(d.person + "<br> Trump tweets: " + d.tweets)
+};
 
-  var mouseout = function() {
-    tooltip.style('visibility', 'hidden')
-  };
+var mouseout = function() {
+  tooltip.style('visibility', 'hidden')
+};
 
-  var mousemove = function(){
-    tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
-  };
-
+var mousemove = function(){
+  tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
+};
 
 //
 var ticked = function(circles){
-  circles.attr('cx', function(d){
-    return d.x
-  })
-          .attr('cy', function(d){
-    return d.y
-          })
+  circles.attr('cx', function(d) { return d.x })
+         .attr('cy', function(d) { return d.y })
 }
 
 //starting forces simulation
@@ -112,7 +107,10 @@ function makeCircles(data){
                    })
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)
-                   .on('mousemove', mousemove);
+                   .on('mousemove', mousemove)
+                   .style('fill', function(d){
+                      d.gender === "m" ? 'blue' : 'red'
+                   });
   return circles
 }
 //missing the style fill element. see line 69
