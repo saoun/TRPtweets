@@ -10,3 +10,9 @@ we created a function called makeCircles which returns the circles array
 and we assigned it to a variables called 'circles'
 then we passed this variable to startForces()
 inside startForces, we pass it to ticked();
+
+
+Figure out why es6 works in 111-113 but not function(d){}
+
+figure out force collision isn't working
+and why toggle isn't working.
