@@ -33,7 +33,8 @@ var svg = d3.select('.chart')
             .attr('height', height)
             .attr('width', width)
             .append('g')
-            .attr('transform', 'translate(0,0)');
+            .attr('transform', 'translate(250,250)');
+            //TODO find a responsive solution
 
 //445 refers max tweets for one person
 var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
