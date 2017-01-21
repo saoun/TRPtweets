@@ -4,9 +4,9 @@
   visibility: hidden;
   color: white;
   padding: 8px;
-  background-color: darkgray;
+  background-color: rgba(105, 105, 105, 0.8);
   border-radius: 6px;
-  font-size: 11px;
+  font-size: 14px;
   font-family: helvetica;
   text-anchor: middle
 }

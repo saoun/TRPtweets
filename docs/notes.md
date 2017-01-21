@@ -37,3 +37,7 @@ STUCK FOR SO LONG. it was the fuckin return d=> on forceXsplit
 once we are done with this, next step: seperating on filters
 
 change colors --> switch statement
+
+other docs: http://bl.ocks.org/mbostock/1748247
+
+tooltips library: https://github.com/caged/d3-tip
