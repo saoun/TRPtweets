@@ -95,6 +95,15 @@ var startForces = function(data, circles) {
             .on('tick', ticked)
 }
 
+var colorSplit = function(d){
+    switch (d.gender){
+      case 'm': return 'dodgerblue'
+      case 'f': return 'salmon'
+      case 'n': return 'lightgreen'
+    }
+  }
+
+
 function makeCircles(data){
   var circles = svg.selectAll('.target')
                    .data(data)
@@ -106,13 +115,7 @@ function makeCircles(data){
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)
                    .on('mousemove', mousemove)
-                   .style('fill', function(d){
-                      switch (d.gender){
-                        case "m": return 'dodgerblue'
-                        case 'f': return 'salmon'
-                        case 'n': return 'lightgreen'
-                      }
-                   });
+                   .style('fill', colorSplit);
   return circles
 }
 
