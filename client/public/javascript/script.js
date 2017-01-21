@@ -21,8 +21,8 @@ var forceYCombine = d3.forceY(height/2).strength(0.15)
 //prevents the circles from overlapping. Radius of force is scaled based on circle
 //size, so larger circles push others further from their center than smaller ones
 var forceCollide = d3.forceCollide(function(d){
-  return radiusScale(d.tweets) + 1
-}).iterations(10);
+  return radiusScale(d.tweets) + 1 // +1 for distance between circles
+}).iterations(10); //the higher the iteration is, the more rigid the circle bounce is
 
 //simulation to determine proper location of each circle in group
 var simulation = d3.forceSimulation()
