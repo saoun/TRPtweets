@@ -12,9 +12,10 @@ var forceXSplit = d3.forceX(function(d){
 }).strength(0.2);
 
 //combining the circles along x axis at half the width of svg box
+//strength is defined between 0 and 1
 var forceXCombine = d3.forceX(width/2).strength(0.1)
 
-var forceYCombine = d3.forceY((height/3) + 10).strength(0.15)
+var forceYCombine = d3.forceY(height/2).strength(0.15)
 
 //prevents the circles from overlapping. Radius of force is scaled based on circle
 //size, so larger circles push others further from their center than smaller ones
