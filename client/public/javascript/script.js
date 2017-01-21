@@ -133,7 +133,7 @@ function makeCircles(data){
         .attr('cx', (atRight ? 27 : 51))
         .style('fill', 'white');
         rect.transition().duration(250)
-        .style('fill', atRight ? 'lightgray' : 'blue');
+        .style('fill', atRight ? 'lightgray' : 'darkgrey');
 }
 
 var atRight = true
