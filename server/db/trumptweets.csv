@@ -1,290 +1,306 @@
 id,person,tweets,gender,title,category
-0,Lincoln Chafee,1,m,former rhode island governor,democratic presidential candidates
-1,Hillary Clinton,445,f,democratic presidential nominee,democratic presidential candidates
-2,Martin O'Malley,3,m,former maryland governor,democratic presidential candidates
-3,Bernie Sanders,26,m,united states senator,democratic presidential candidates
+0,Hillary Clinton,446,f,democratic presidential nominee,democratic presidential candidates
+1,Ted Cruz,110,m,united states senator,republican presidential candidates
+2,The New York Times,102,n,newspaper,media organizations
+3,The mainstream media,94,n,,other
 4,Jeb Bush,93,m,former florida governor,republican presidential candidates
-5,Ben Carson,7,m,retired neurosurgeon,republican presidential candidates
-6,Chris Christie,1,m,new jersey governor,republican presidential candidates
-7,Ted Cruz,110,m,united states senator,republican presidential candidates
-8,Carly Fiorina,8,f,former business executive,republican presidential candidates
-9,Lindsey Graham,15,m,united states senator,republican presidential candidates
-10,Bobby Jindal,3,m,former louisiana governor,republican presidential candidates
-11,John Kasich,25,m,ohio governor,republican presidential candidates
-12,George Pataki,6,m,former new york governor,republican presidential candidates
-13,Rand Paul,8,m,united states senator,republican presidential candidates
-14,Rick Perry,7,m,former texas governor,republican presidential candidates
-15,Marco Rubio,82,m,united states senator,republican presidential candidates
-16,Scott Walker,6,m,wisconsin governor,republican presidential candidates
-17,Joseph R. Biden Jr.,1,m,vice president of the united states,democratic politicians
-18,Cory Booker,2,m,united states senator,democratic politicians
-19,Ben Cardin,1,m,united states senator,democratic politicians
-20,Bill Clinton,10,m,former president of the united states,democratic politicians
-21,Bill and Hillary Clinton,1,n,,democratic politicians
-22,Tim Kaine,4,m,democratic vice-presidential nominee,democratic politicians
-23,Sam Liccardo,1,m,"mayor of san jose, calif.",democratic politicians
-24,Michael Nutter,3,m,former mayor of philadelphia,democratic politicians
-25,President Obama,27,m,current president,democratic politicians
-26,Stephanie Rawlings-Blake,1,m,mayor of baltimore,democratic politicians
-27,Bakari Sellers,1,m,former south carolina congressman,democratic politicians
-28,Marty Walsh,1,m,mayor of boston,democratic politicians
-29,Elizabeth Warren,54,f,united states senator,democratic politicians
-30,Debbie Wasserman Schultz,2,f,united states congresswoman,democratic politicians
-31,Anthony D. Weiner,2,m,former united states congressman,democratic politicians
-32,Bill de Blasio,5,m,mayor of new york city,democratic politicians
-33,George Bush,1,m,former president of the united states,republican politicians
-34,George W. Bush,4,m,former president of the united states,republican politicians
-35,Jeff Flake,4,m,united states senator,republican politicians
-36,Nikki Haley,1,f,south carolina governor,republican politicians
-37,John McCain,12,m,united states senator,republican politicians
-38,Tom Ridge,3,m,former pennsylvania governor,republican politicians
-39,Mitt Romney,24,m,former massachusetts governor,republican politicians
-40,Paul D. Ryan,6,m,house speaker,republican politicians
-41,Ben Sasse,4,m,united states senator,republican politicians
-42,Rick Scott,1,m,florida governor,republican politicians
-43,John Sununu,3,m,former new hampshire governor,republican politicians
-44,Matt Bai,1,m,"national political columnist, yahoo news",journalists and other media figures
-45,Michael Barbaro,3,m,"reporter, the new york times",journalists and other media figures
-46,Glenn Beck,18,m,television personality,journalists and other media figures
-47,Joy Behar,1,f,television host,journalists and other media figures
-48,Lisa Belkin,1,f,"chief national correspondent, yahoo news",journalists and other media figures
-49,Charles Blow,1,m,"columnist, the new york times",journalists and other media figures
-50,Brent Bozell,1,m,"president, media research center",journalists and other media figures
-51,David Brooks,6,m,"columnist, the new york times",journalists and other media figures
-52,Frank Bruni,1,m,"columnist, the new york times",journalists and other media figures
-53,Mika Brzezinski,10,f,"co-host, “morning joe”",journalists and other media figures
-54,Carl Cameron,2,m,"reporter, fox news",journalists and other media figures
-55,Alisyn Camerota,1,f,"co-host, “new day”",journalists and other media figures
-56,Graydon Carter,3,m,"editor, vanity fair",journalists and other media figures
-57,Amy Chozick,2,f,"reporter, the new york times",journalists and other media figures
-58,Anderson Cooper,1,m,"anchor, cnn",journalists and other media figures
-59,Katie Couric,4,f,"global anchor, yahoo news",journalists and other media figures
-60,S.E. Cupp,8,f,columnist,journalists and other media figures
-61,Sopan Deb,4,m,"reporter, cbs news",journalists and other media figures
-62,Donny Deutsch,2,m,television personality,journalists and other media figures
-63,Maureen Dowd,8,f,"columnist, the new york times",journalists and other media figures
-64,Erick Erickson,8,m,conservative commentator,journalists and other media figures
-65,Major Garrett,3,m,"white house correspondent, cbs news",journalists and other media figures
-66,Willie Geist,1,m,"host, “sunday today”",journalists and other media figures
-67,Bernard Goldberg,2,m,journalist,journalists and other media figures
-68,David Gregory,3,m,"political analyst, cnn",journalists and other media figures
-69,Maggie Haberman,3,f,"journalist, the new york times",journalists and other media figures
-70,Mark Halperin,2,m,political analyst,journalists and other media figures
-71,Mary Katharine Ham,1,f,journalist,journalists and other media figures
-72,John Harwood,1,m,"chief washington correspondent, cnbc",journalists and other media figures
-73,Melinda Henneberger,1,f,"former editor in chief, roll call",journalists and other media figures
-74,Dan Henninger,1,m,"deputy editor, wall street journal editorial page",journalists and other media figures
-75,Hugh Hewitt,2,m,"host, “the hugh hewitt show”",journalists and other media figures
-76,Jeff Horwitz,2,m,"reporter, the associated press",journalists and other media figures
-77,Arianna Huffington,2,f,"founder, the huffington post",journalists and other media figures
-78,Brit Hume,2,m,"political analyst, fox news",journalists and other media figures
-79,Kasie Hunt,1,f,"political correspondent, msnbc",journalists and other media figures
-80,Hallie Jackson,1,f,"correspondent, nbc news",journalists and other media figures
-81,Megyn Kelly,38,f,"anchor, fox news",journalists and other media figures
-82,John King,1,m,"chief national correspondent, cnn",journalists and other media figures
-83,Serge Kovaleski,1,m,"reporter, the new york times",journalists and other media figures
-84,Charles Krauthammer,9,m,columnist,journalists and other media figures
-85,Bill Kristol,8,m,"editor, the weekly standard",journalists and other media figures
-86,Charles Lane,1,m,"opinion writer, the washington post",journalists and other media figures
-87,Don Lemon,2,m,"anchor, cnn",journalists and other media figures
-88,Tom Llamas,2,m,"reporter, abc news",journalists and other media figures
-89,Rich Lowry,5,m,"editor, national review",journalists and other media figures
-90,Ruth Marcus,2,f,"columnist, the washington post",journalists and other media figures
-91,Jonathan Martin,3,m,"journalist, the new york times",journalists and other media figures
-92,Meghan McCain,3,f,"host, “america now,” and fox news contributor",journalists and other media figures
-93,Joe McQuaid,1,m,"publisher, new hampshire union leader",journalists and other media figures
-94,Ana Navarro,3,f,"contributor, cnn",journalists and other media figures
-95,Tim O'Brien,3,m,"journalist, bloomberg",journalists and other media figures
-96,Clare O'Connor,3,f,"staff writer, forbes",journalists and other media figures
-97,Lawrence O'Donnell,4,m,"television host, msnbc",journalists and other media figures
-98,Steve Rattner,1,m,wall street executive and new york times contributing writer,journalists and other media figures
-99,Cokie Roberts,2,f,"contributor, “morning edition”",journalists and other media figures
-100,Jennifer Rubin,2,f,"blogger, the washington post",journalists and other media figures
-101,Joe Scarborough,4,m,"host, “morning joe”",journalists and other media figures
-102,Ben Schreckinger,2,m,"reporter, politico",journalists and other media figures
-103,Molly Sims,1,f,model and actress,journalists and other media figures
-104,Tavis Smiley,1,m,"journalist, pbs",journalists and other media figures
-105,Shep Smith,2,m,"anchor, fox news",journalists and other media figures
-106,Chris Stirewalt,3,m,"editor, fox news channel",journalists and other media figures
-107,Marc Thiessen,4,m,columnist and fox news contributor,journalists and other media figures
-108,Chuck Todd,20,m,"moderator, “meet the press”",journalists and other media figures
-109,Katy Tur,7,f,"journalist, nbc news",journalists and other media figures
-110,The Wall Street Journal editorial board,1,n,opinion pages of the wall street journal,journalists and other media figures
-111,Nicolle Wallace,2,f,"former co-host, “the view”",journalists and other media figures
-112,George Will,12,m,columnist,journalists and other media figures
-113,Juan Williams,2,m,"political analyst, fox news",journalists and other media figures
-114,Jeff Zeleny,1,m,"senior washington correspondent, cnn",journalists and other media figures
-115,Jeff Zucker,1,m,"president, cnn",journalists and other media figures
-116,Mort Zuckerman,4,m,"owner, the new york daily news",journalists and other media figures
-117,Huma Abedin,1,f,aide to hillary clinton,other people
-118,John R. Allen,2,m,retired united states marine general,other people
-119,Ruth Bader Ginsburg,4,f,supreme court justice,other people
-120,Elizabeth Beck,6,f,lawyer,other people
-121,Paul Begala,2,m,former political adviser to bill clinton,other people
-122,Michael Bloomberg,3,m,former mayor of new york city,other people
-123,Donna Brazile,2,f,"interim chairwoman, democratic national committee",other people
-124,Jeb Bush campaign staffer,2,n,campaign staffer,other people
-125,CNN panelists,5,n,cnn panelists,other people
-126,Mark Cuban,1,m,"owner, dallas mavericks",other people
-127,Gonzalo P. Curiel,5,m,judge of the united states district court for the southern district of california,other people
-128,Rodrigo Duterte,1,m,president of the philippines,other people
-129,Robert Gates,5,m,former secretary of defense,other people
-130,The cast of “Hamilton”,2,n,cast of the broadway show,other people
-131,Harry Hurt III,4,m,"author, “lost tycoon: the many lives of donald j. trump”",other people
-132,Cheri Jacobus,8,f,g.o.p. consultant,other people
-133,John Kasich's ad guy,1,n,ad guy,other people
-134,Charles Koch,1,m,"conservative donor, billionaire, philanthropist",other people
-135,John Legere,2,m,"chief executive, t-mobile",other people
-136,Errol Louis,1,m,political commentator,other people
-137,Frank Luntz,6,m,political consultant,other people
-138,Alicia Machado,3,f,former miss universe,other people
-139,Angela Merkel,1,f,chancellor of germany,other people
-140,Russell Moore,2,m,evangelical leader,other people
-141,Michael J. Morell,3,m,former deputy director of the c.i.a.,other people
-142,Dana Perino,1,f,former white house press secretary,other people
-143,Colin Powell,2,m,former secretary of state,other people
-144,Barbara Res,1,f,former trump executive and author of “all alone on the 68th floor”,other people
-145,John Roberts,2,m,united states chief justice,other people
-146,Karl Rove,48,m,former deputy white house chief of staff,other people
-147,Tony Schwartz,6,m,"ghostwriter, ""the art of the deal""",other people
-148,Paul Singer,1,m,hedge fund manager,other people
-149,Stuart Stevens,12,m,political consultant,other people
-150,Alwaleed bin Talal,2,m,"prince, saudi arabia",other people
-151,Vandals,1,n,"whoever firebombed a g.o.p. office in orange county, n.c.",other people
-152,Bob Vander Plaats,7,m,"president and chief executive, the family leader",other people
-153,Frank VanderSloot,1,m,entrepreneur,other people
-154,Rick Wilson,2,m,political consultant,other people
-155,Alec Baldwin,2,m,actor,celebrities
-156,Brandon Victor Dixon,2,m,"actor portraying aaron burr in ""hamilton""",celebrities
-157,Whoopi Goldberg,3,f,actress and television personality,celebrities
-158,Samuel L. Jackson,4,m,actor,celebrities
-159,Penn Jillette,7,m,performer,celebrities
-160,Woody Johnson,1,m,"owner, the new york jets",celebrities
-161,John Oliver,1,m,"comedian, host, “last week tonight”",celebrities
-162,Ronda Rousey,1,f,mixed martial artist,celebrities
-163,Paulina Vega,1,f,former miss universe,celebrities
-164,Neil Young,1,m,musician,celebrities
-165,Britain,1,n,country,places
-166,China,1,n,country,places
-167,Germany,2,n,country,places
-168,Iran,1,n,country,places
-169,Mexico,6,n,country,places
-170,Saudi Arabia,1,n,country,places
-171,United States,14,n,country,places
-172,"Washington, D.C.",2,n,state,places
-173,New Jersey,1,n,state,places
-174,Jeb Bush campaign,2,n,,groups and political organizations
-175,Jeb Bush supporters,1,n,,groups and political organizations
-176,Club for Growth,18,n,antitax political group,groups and political organizations
-177,Ted Cruz campaign,2,n,,groups and political organizations
-178,Democratic presidential candidates,2,n,,groups and political organizations
-179,Democrats,7,n,,groups and political organizations
-180,European leaders,1,n,terrorist group,groups and political organizations
-181,Islamic State,3,n,,groups and political organizations
-182,The Obama administration,1,n,,groups and political organizations
-183,Other presidential candidates,4,n,mostly republican politicians,groups and political organizations
-184,‘Politically correct fools’,2,n,,groups and political organizations
-185,Politicians,9,n,,groups and political organizations
-186,The public,2,n,,groups and political organizations
-187,Pundits,1,n,,groups and political organizations
-188,The Republican establishment,4,n,,groups and political organizations
-189,Republican Party,1,n,political party,groups and political organizations
-190,Republican Party of Virginia,6,n,political party,groups and political organizations
-191,Other Republican candidates,1,n,,groups and political organizations
-192,Republican presidential candidates,4,n,,groups and political organizations
-193,Republicans,6,n,,groups and political organizations
-194,“Super PACs”,1,n,political fund-raising committees,groups and political organizations
-195,Donald Trump opposition,1,n,,groups and political organizations
-196,U.S. leaders,3,n,,groups and political organizations
-197,Washington insiders,1,n,,groups and political organizations
-198,ABC News Politics,2,n,news organization,media organizations
-199,The Associated Press,9,n,news organization,media organizations
-200,CNBC,6,n,news organization,media organizations
-201,CNN,76,n,news organization,media organizations
-202,The Daily Beast,2,n,news website,media organizations
-203,The Des Moines Register,8,n,newspaper,media organizations
-204,Forbes,4,n,magazine,media organizations
-205,Fortune,1,n,magazine,media organizations
-206,Fox News,20,n,news organization,media organizations
-207,The Huffington Post,5,n,news organization,media organizations
-208,NBC News,1,n,news organization,media organizations
-209,National Review,8,n,magazine,media organizations
-210,The New Hampshire Union Leader,21,n,newspaper,media organizations
-211,New York Daily News,10,n,newspaper,media organizations
-212,The New York Times,102,n,newspaper,media organizations
-213,Politico,27,n,news organization,media organizations
-214,RedState.com,1,n,conservative website,media organizations
-215,USA Today,1,n,newspaper,media organizations
-216,Univision,4,n,media organization,media organizations
-217,Vanity Fair,4,n,magazine,media organizations
-218,The Wall Street Journal,14,n,newspaper,media organizations
-219,The Washington Post,11,n,newspaper,media organizations
-220,The Weekly Standard,1,n,magazine,media organizations
-221,Anderson Cooper “360”,1,n,cnn news program,television shows
-222,“Inside Politics”,1,n,cnn political show,television shows
-223,“The Last Word with Lawrence O'Donnell”,1,n,television show,television shows
-224,“Meet the Press”,7,n,television show,television shows
-225,“Morning Joe”,18,n,television show,television shows
-226,“New Day”,2,n,cnn news program,television shows
-227,“The O'Reilly Factor”,2,n,fox news program,television shows
-228,“The View”,5,n,television show,television shows
-229,“World News Tonight”,1,n,abc news program,television shows
-230,The 2016 election,5,n,,other
-231,ABC News-Washington Post poll,2,n,polling group,other
-232,All Business: The Essential Donald Trump,2,n,documentary film,other
-233,Amazon,3,n,online retailer,other
-234,The American delegate system,17,n,,other
-235,Assault allegations,9,n,allegations of sexual assault brought forward by several women,other
-236,Bandon Dunes Golf Resort,1,n,golf course,other
-237,The Benghazi hearings,1,n,congressional hearings,other
-238,“The Bias-Free Language Guide”,1,n,guide to politically sensitive speaking,other
-239,"The Bill, Hillary and Chelsea Clinton Foundation",1,n,philanthropic organization,other
-240,Common Core standards,,n,education policy,other
-241,Ted Cruz’s Iowa caucus speech,1,n,victory speech,other
-242,The Cruz-Kasich pact,7,n,failed attempt at political cooperation,other
-243,Leaked D.N.C. emails,4,n,,other
-244,Debates,1,n,,other
-245,The Democratic debate,2,n,,other
-246,Democratic National Convention,5,n,,other
-247,The electoral process,18,n,,other
-248,The Fox News debate,2,n,republican presidential debate,other
-249,Fox News polls,1,n,polling group,other
-250,“Hamilton”,1,n,smash broadway musical,other
-251,Illegal immigration,1,n,,other
-252,Internal Revenue Service,1,n,government agency,other
-253,The Iran nuclear deal,16,n,international agreement,other
-254,Macy's,17,n,department store,other
-255,The mainstream media,83,n,,other
-256,Major League Baseball,1,n,sports organization,other
-257,Microphone at the first presidential debate,2,n,,other
-258,New York Times articles,4,n,,other
-259,North American Free Trade Agreement,2,n,,other
-260,North Atlantic Treaty Organization,1,n,international alliance,other
-261,Obamacare,15,n,health care law,other
-262,A podium in the Oval Office,2,n,,other
-263,Political ads in Indiana,1,n,,other
-264,Protesters,7,n,at mr. trump's rallies,other
-265,Recount effort in Pennsylvania,1,n,,other
-266,Republican National Committee,3,n,,other
-267,The Rexnord Corporation,1,n,manufacturing company,other
-268,“Rockin’ in the Free World”,1,n,popular song,other
-269,“Saturday Night Live”,7,n,television program,other
-270,Special interests,3,n,,other
-271,The State of the Union address,3,n,,other
-272,Super Bowl 50,1,n,sporting event,other
-273,T-Mobile,1,n,telecommunications company,other
-274,Trans-Pacific Partnership,4,n,trade deal,other
-275,Transportation Security Administration,1,n,government agency,other
-276,“The Triumph of William McKinley”,1,n,book,other
-277,United States employment situation,2,n,government jobs report,other
-278,U.S.-Mexico border,2,n,political boundary,other
-279,U.S. trade pacts,2,n,,other
-280,The United States government,1,n,,other
-281,U.S. visa system,1,n,,other
-282,Veterans Affairs,1,n,government agency,other
-283,Vote recount in Wisconsin,1,n,,other
-284,Voters,1,n,,other
-285,Wall Street Journal-NBC News poll,5,n,polling group,other
-286,Early voting in Florida,2,n,,other
-287,Investigation of Hillary Clinton's email,1,n,,other
-288,Television commercials,4,n,advertisements critical of mr. trump,other
+5,Marco Rubio,82,m,united states senator,republican presidential candidates
+6,CNN,82,n,news organization,media organizations
+7,Elizabeth Warren,54,f,united states senator,democratic politicians
+8,Karl Rove,48,m,former deputy white house chief of staff,other people
+9,Megyn Kelly,38,f,"anchor, fox news",journalists and other media figures
+10,President Obama,28,m,current president,democratic politicians
+11,Politico,27,n,news organization,media organizations
+12,Bernie Sanders,26,m,united states senator,democratic presidential candidates
+13,John Kasich,25,m,ohio governor,republican presidential candidates
+14,Mitt Romney,24,m,former massachusetts governor,republican politicians
+15,Obamacare,23,n,health care law,other
+16,The New Hampshire Union Leader,21,n,newspaper,media organizations
+17,Fox News,20,n,news organization,media organizations
+18,Chuck Todd,20,m,"moderator, “meet the press”",journalists and other media figures
+19,“Morning Joe”,18,n,television show,television shows
+20,The electoral process,18,n,,other
+21,Glenn Beck,18,m,television personality,journalists and other media figures
+22,Club for Growth,18,n,antitax political group,groups and political organizations
+23,The American delegate system,17,n,,other
+24,The Iran nuclear deal,17,n,international agreement,other
+25,Macy's,17,n,department store,other
+26,Lindsey Graham,15,m,united states senator,republican presidential candidates
+27,United States,14,n,country,places
+28,The Wall Street Journal,14,n,newspaper,media organizations
+29,John McCain,12,m,united states senator,republican politicians
+30,Stuart Stevens,12,m,political consultant,other people
+31,“Saturday Night Live”,12,n,television program,other
+32,George Will,12,m,columnist,journalists and other media figures
+33,The Washington Post,11,n,newspaper,media organizations
+34,Bill Clinton,11,m,former president of the united states,democratic politicians
+35,New York Daily News,10,n,newspaper,media organizations
+36,Mika Brzezinski,10,f,"co-host, “morning joe”",journalists and other media figures
+37,Assault allegations,9,n,allegations of sexual assault brought forward by several women,other
+38,The Associated Press,9,n,news organization,media organizations
+39,Charles Krauthammer,9,m,columnist,journalists and other media figures
+40,Politicians,9,n,,groups and political organizations
+41,Carly Fiorina,8,f,former business executive,republican presidential candidates
+42,Rand Paul,8,m,united states senator,republican presidential candidates
+43,Cheri Jacobus,8,f,g.o.p. consultant,other people
+44,The Des Moines Register,8,n,newspaper,media organizations
+45,National Review,8,n,magazine,media organizations
+46,S.E. Cupp,8,f,columnist,journalists and other media figures
+47,Maureen Dowd,8,f,"columnist, the new york times",journalists and other media figures
+48,Erick Erickson,8,m,conservative commentator,journalists and other media figures
+49,Bill Kristol,8,m,"editor, the weekly standard",journalists and other media figures
+50,Democrats,8,n,,groups and political organizations
+51,“Meet the Press”,7,n,television show,television shows
+52,Ben Carson,7,m,retired neurosurgeon,republican presidential candidates
+53,Rick Perry,7,m,former texas governor,republican presidential candidates
+54,Bob Vander Plaats,7,m,"president and chief executive, the family leader",other people
+55,The Cruz-Kasich pact,7,n,failed attempt at political cooperation,other
+56,Protesters,7,n,at mr. trump's rallies,other
+57,Trump/Russia Report,7,n,unsubstantiated report that russia had damaging information on mr. trump,other
+58,Katy Tur,7,f,"journalist, nbc news",journalists and other media figures
+59,Penn Jillette,7,m,performer,celebrities
+60,George Pataki,6,m,former new york governor,republican presidential candidates
+61,Scott Walker,6,m,wisconsin governor,republican presidential candidates
+62,Paul D. Ryan,6,m,house speaker,republican politicians
+63,Mexico,6,n,country,places
+64,Elizabeth Beck,6,f,lawyer,other people
+65,Frank Luntz,6,m,political consultant,other people
+66,Tony Schwartz,6,m,"ghostwriter, ""the art of the deal""",other people
+67,CNBC,6,n,news organization,media organizations
+68,Vanity Fair,6,n,magazine,media organizations
+69,David Brooks,6,m,"columnist, the new york times",journalists and other media figures
+70,Republican Party of Virginia,6,n,political party,groups and political organizations
+71,Republicans,6,n,,groups and political organizations
+72,“The View”,5,n,television show,television shows
+73,CNN panelists,5,n,cnn panelists,other people
+74,Gonzalo P. Curiel,5,m,judge of the united states district court for the southern district of california,other people
+75,Robert Gates,5,m,former secretary of defense,other people
+76,The 2016 election,5,n,,other
+77,Democratic National Convention,5,n,,other
+78,Wall Street Journal-NBC News poll,5,n,polling group,other
+79,The Huffington Post,5,n,news organization,media organizations
+80,NBC News,5,n,news organization,media organizations
+81,Graydon Carter,5,m,"editor, vanity fair",journalists and other media figures
+82,Rich Lowry,5,m,"editor, national review",journalists and other media figures
+83,Bill de Blasio,5,m,mayor of new york city,democratic politicians
+84,George W. Bush,4,m,former president of the united states,republican politicians
+85,Jeff Flake,4,m,united states senator,republican politicians
+86,Ben Sasse,4,m,united states senator,republican politicians
+87,Ruth Bader Ginsburg,4,f,supreme court justice,other people
+88,Harry Hurt III,4,m,"author, “lost tycoon: the many lives of donald j. trump”",other people
+89,Leaked D.N.C. emails,4,n,,other
+90,New York Times articles,4,n,,other
+91,Trans-Pacific Partnership,4,n,trade deal,other
+92,Television commercials,4,n,advertisements critical of mr. trump,other
+93,Democratic National Committee,4,n,,other
+94,Forbes,4,n,magazine,media organizations
+95,Univision,4,n,media organization,media organizations
+96,Katie Couric,4,f,"global anchor, yahoo news",journalists and other media figures
+97,Sopan Deb,4,m,"reporter, cbs news",journalists and other media figures
+98,Lawrence O'Donnell,4,m,"television host, msnbc",journalists and other media figures
+99,Joe Scarborough,4,m,"host, “morning joe”",journalists and other media figures
+100,Marc Thiessen,4,m,columnist and fox news contributor,journalists and other media figures
+101,Mort Zuckerman,4,m,"owner, the new york daily news",journalists and other media figures
+102,Other presidential candidates,4,n,mostly republican politicians,groups and political organizations
+103,The Republican establishment,4,n,,groups and political organizations
+104,Republican presidential candidates,4,n,,groups and political organizations
+105,Donald Trump opposition,4,n,,groups and political organizations
+106,Tim Kaine,4,m,democratic vice-presidential nominee,democratic politicians
+107,Samuel L. Jackson,4,m,actor,celebrities
+108,Bobby Jindal,3,m,former louisiana governor,republican presidential candidates
+109,Tom Ridge,3,m,former pennsylvania governor,republican politicians
+110,John Sununu,3,m,former new hampshire governor,republican politicians
+111,Michael Bloomberg,3,m,former mayor of new york city,other people
+112,Alicia Machado,3,f,former miss universe,other people
+113,Michael J. Morell,3,m,former deputy director of the c.i.a.,other people
+114,Amazon,3,n,online retailer,other
+115,Republican National Committee,3,n,,other
+116,Special interests,3,n,,other
+117,The State of the Union address,3,n,,other
+118,Election Pollsters,3,n,,other
+119,Michael Barbaro,3,m,"reporter, the new york times",journalists and other media figures
+120,Major Garrett,3,m,"white house correspondent, cbs news",journalists and other media figures
+121,David Gregory,3,m,"political analyst, cnn",journalists and other media figures
+122,Maggie Haberman,3,f,"journalist, the new york times",journalists and other media figures
+123,Jonathan Martin,3,m,"journalist, the new york times",journalists and other media figures
+124,Meghan McCain,3,f,"host, “america now,” and fox news contributor",journalists and other media figures
+125,Ana Navarro,3,f,"contributor, cnn",journalists and other media figures
+126,Tim O'Brien,3,m,"journalist, bloomberg",journalists and other media figures
+127,Clare O'Connor,3,f,"staff writer, forbes",journalists and other media figures
+128,Chris Stirewalt,3,m,"editor, fox news channel",journalists and other media figures
+129,Islamic State,3,n,,groups and political organizations
+130,U.S. leaders,3,n,,groups and political organizations
+131,Martin O'Malley,3,m,former maryland governor,democratic presidential candidates
+132,Michael Nutter,3,m,former mayor of philadelphia,democratic politicians
+133,John Lewis,3,m,united states congressman,democratic politicians
+134,Whoopi Goldberg,3,f,actress and television personality,celebrities
+135,Today,2,n,television show,television shows
+136,“New Day”,2,n,cnn news program,television shows
+137,“The O'Reilly Factor”,2,n,fox news program,television shows
+138,Germany,2,n,country,places
+139,"Washington, D.C.",2,n,state,places
+140,John R. Allen,2,m,retired united states marine general,other people
+141,Paul Begala,2,m,former political adviser to bill clinton,other people
+142,Donna Brazile,2,f,"interim chairwoman, democratic national committee",other people
+143,Jeb Bush campaign staffer,2,n,campaign staffer,other people
+144,The cast of “Hamilton”,2,n,cast of the broadway show,other people
+145,John Legere,2,m,"chief executive, t-mobile",other people
+146,Russell Moore,2,m,evangelical leader,other people
+147,Colin Powell,2,m,former secretary of state,other people
+148,John Roberts,2,m,united states chief justice,other people
+149,Alwaleed bin Talal,2,m,"prince, saudi arabia",other people
+150,Rick Wilson,2,m,political consultant,other people
+151,Chuck Jones,2,m,president of united steelworkers local 99,other people
+152,ABC News-Washington Post poll,2,n,polling group,other
+153,All Business: The Essential Donald Trump,2,n,documentary film,other
+154,The Democratic debate,2,n,,other
+155,The Fox News debate,2,n,republican presidential debate,other
+156,Microphone at the first presidential debate,2,n,,other
+157,North American Free Trade Agreement,2,n,,other
+158,A podium in the Oval Office,2,n,,other
+159,United States employment situation,2,n,government jobs report,other
+160,U.S.-Mexico border,2,n,political boundary,other
+161,U.S. trade pacts,2,n,,other
+162,Vote recount in Wisconsin,2,n,,other
+163,Early voting in Florida,2,n,,other
+164,New 747 Air force One,2,n,Airplane,other
+165,United Nations,2,n,international organization,other
+166,ABC News Politics,2,n,news organization,media organizations
+167,The Daily Beast,2,n,news website,media organizations
+168,Carl Cameron,2,m,"reporter, fox news",journalists and other media figures
+169,Amy Chozick,2,f,"reporter, the new york times",journalists and other media figures
+170,Donny Deutsch,2,m,television personality,journalists and other media figures
+171,Bernard Goldberg,2,m,journalist,journalists and other media figures
+172,Mark Halperin,2,m,political analyst,journalists and other media figures
+173,Hugh Hewitt,2,m,"host, “the hugh hewitt show”",journalists and other media figures
+174,Jeff Horwitz,2,m,"reporter, the associated press",journalists and other media figures
+175,Arianna Huffington,2,f,"founder, the huffington post",journalists and other media figures
+176,Brit Hume,2,m,"political analyst, fox news",journalists and other media figures
+177,Don Lemon,2,m,"anchor, cnn",journalists and other media figures
+178,Tom Llamas,2,m,"reporter, abc news",journalists and other media figures
+179,Ruth Marcus,2,f,"columnist, the washington post",journalists and other media figures
+180,Cokie Roberts,2,f,"contributor, “morning edition”",journalists and other media figures
+181,Jennifer Rubin,2,f,"blogger, the washington post",journalists and other media figures
+182,Ben Schreckinger,2,m,"reporter, politico",journalists and other media figures
+183,Shep Smith,2,m,"anchor, fox news",journalists and other media figures
+184,Nicolle Wallace,2,f,"former co-host, “the view”",journalists and other media figures
+185,Juan Williams,2,m,"political analyst, fox news",journalists and other media figures
+186,Jeb Bush campaign,2,n,,groups and political organizations
+187,Ted Cruz campaign,2,n,,groups and political organizations
+188,Democratic presidential candidates,2,n,,groups and political organizations
+189,‘Politically correct fools’,2,n,,groups and political organizations
+190,The public,2,n,,groups and political organizations
+191,Cory Booker,2,m,united states senator,democratic politicians
+192,Debbie Wasserman Schultz,2,f,united states congresswoman,democratic politicians
+193,Anthony D. Weiner,2,m,former united states congressman,democratic politicians
+194,Alec Baldwin,2,m,actor,celebrities
+195,Brandon Victor Dixon,2,m,"actor portraying aaron burr in ""hamilton""",celebrities
+196,Meryl Streep,2,f,actress and television personality,celebrities
+197,Anderson Cooper “360”,1,n,cnn news program,television shows
+198,“Inside Politics”,1,n,cnn political show,television shows
+199,“The Last Word with Lawrence O'Donnell”,1,n,television show,television shows
+200,“World News Tonight”,1,n,abc news program,television shows
+201,Chris Christie,1,m,new jersey governor,republican presidential candidates
+202,George Bush,1,m,former president of the united states,republican politicians
+203,Nikki Haley,1,f,south carolina governor,republican politicians
+204,Rick Scott,1,m,florida governor,republican politicians
+205,Britain,1,n,country,places
+206,China,1,n,country,places
+207,Iran,1,n,country,places
+208,Saudi Arabia,1,n,country,places
+209,New Jersey,1,n,state,places
+210,Huma Abedin,1,f,aide to hillary clinton,other people
+211,Mark Cuban,1,m,"owner, dallas mavericks",other people
+212,Rodrigo Duterte,1,m,president of the philippines,other people
+213,John Kasich's ad guy,1,n,ad guy,other people
+214,Charles Koch,1,m,"conservative donor, billionaire, philanthropist",other people
+215,Errol Louis,1,m,political commentator,other people
+216,Angela Merkel,1,f,chancellor of germany,other people
+217,Dana Perino,1,f,former white house press secretary,other people
+218,Barbara Res,1,f,former trump executive and author of “all alone on the 68th floor”,other people
+219,Paul Singer,1,m,hedge fund manager,other people
+220,Vandals,1,n,"whoever firebombed a g.o.p. office in orange county, n.c.",other people
+221,Frank VanderSloot,1,m,entrepreneur,other people
+222,John O. Brennan,1,m,director of the c.i.a,other people
+223,Bandon Dunes Golf Resort,1,n,golf course,other
+224,The Benghazi hearings,1,n,congressional hearings,other
+225,“The Bias-Free Language Guide”,1,n,guide to politically sensitive speaking,other
+226,"The Bill, Hillary and Chelsea Clinton Foundation",1,n,philanthropic organization,other
+227,Ted Cruz’s Iowa caucus speech,1,n,victory speech,other
+228,Debates,1,n,,other
+229,Fox News polls,1,n,polling group,other
+230,“Hamilton”,1,n,smash broadway musical,other
+231,Illegal immigration,1,n,,other
+232,Internal Revenue Service,1,n,government agency,other
+233,Major League Baseball,1,n,sports organization,other
+234,North Atlantic Treaty Organization,1,n,international alliance,other
+235,Political ads in Indiana,1,n,,other
+236,Recount effort in Pennsylvania,1,n,,other
+237,The Rexnord Corporation,1,n,manufacturing company,other
+238,“Rockin’ in the Free World”,1,n,popular song,other
+239,Super Bowl 50,1,n,sporting event,other
+240,T-Mobile,1,n,telecommunications company,other
+241,Transportation Security Administration,1,n,government agency,other
+242,“The Triumph of William McKinley”,1,n,book,other
+243,The United States government,1,n,,other
+244,U.S. visa system,1,n,,other
+245,Veterans Affairs,1,n,government agency,other
+246,Voters,1,n,,other
+247,Investigation of Hillary Clinton's email,1,n,,other
+248,Lockheed Martin  F-35 Program,1,n,fighter jet,other
+249,United Steelworkers Local 1999,1,n,indianapolis union,other
+250,Fortune,1,n,magazine,media organizations
+251,RedState.com,1,n,conservative website,media organizations
+252,USA Today,1,n,newspaper,media organizations
+253,The Weekly Standard,1,n,magazine,media organizations
+254,NBC Nightly News,1,n,television show,media organizations
+255,NBC,1,n,television network,media organizations
+256,Matt Bai,1,m,"national political columnist, yahoo news",journalists and other media figures
+257,Joy Behar,1,f,television host,journalists and other media figures
+258,Lisa Belkin,1,f,"chief national correspondent, yahoo news",journalists and other media figures
+259,Charles Blow,1,m,"columnist, the new york times",journalists and other media figures
+260,Brent Bozell,1,m,"president, media research center",journalists and other media figures
+261,Frank Bruni,1,m,"columnist, the new york times",journalists and other media figures
+262,Alisyn Camerota,1,f,"co-host, “new day”",journalists and other media figures
+263,Anderson Cooper,1,m,"anchor, cnn",journalists and other media figures
+264,Willie Geist,1,m,"host, “sunday today”",journalists and other media figures
+265,Mary Katharine Ham,1,f,journalist,journalists and other media figures
+266,John Harwood,1,m,"chief washington correspondent, cnbc",journalists and other media figures
+267,Melinda Henneberger,1,f,"former editor in chief, roll call",journalists and other media figures
+268,Dan Henninger,1,m,"deputy editor, wall street journal editorial page",journalists and other media figures
+269,Kasie Hunt,1,f,"political correspondent, msnbc",journalists and other media figures
+270,Hallie Jackson,1,f,"correspondent, nbc news",journalists and other media figures
+271,John King,1,m,"chief national correspondent, cnn",journalists and other media figures
+272,Serge Kovaleski,1,m,"reporter, the new york times",journalists and other media figures
+273,Charles Lane,1,m,"opinion writer, the washington post",journalists and other media figures
+274,Joe McQuaid,1,m,"publisher, new hampshire union leader",journalists and other media figures
+275,Steve Rattner,1,m,wall street executive and new york times contributing writer,journalists and other media figures
+276,Molly Sims,1,f,model and actress,journalists and other media figures
+277,Tavis Smiley,1,m,"journalist, pbs",journalists and other media figures
+278,The Wall Street Journal editorial board,1,n,opinion pages of the wall street journal,journalists and other media figures
+279,Jeff Zeleny,1,m,"senior washington correspondent, cnn",journalists and other media figures
+280,Jeff Zucker,1,m,"president, cnn",journalists and other media figures
+281,Jeb Bush supporters,1,n,,groups and political organizations
+282,European leaders,1,n,terrorist group,groups and political organizations
+283,The Obama administration,1,n,,groups and political organizations
+284,Pundits,1,n,,groups and political organizations
+285,Republican Party,1,n,political party,groups and political organizations
+286,Other Republican candidates,1,n,,groups and political organizations
+287,“Super PACs”,1,n,political fund-raising committees,groups and political organizations
+288,Washington insiders,1,n,,groups and political organizations
+289,Lincoln Chafee,1,m,former rhode island governor,democratic presidential candidates
+290,Joseph R. Biden Jr.,1,m,vice president of the united states,democratic politicians
+291,Ben Cardin,1,m,united states senator,democratic politicians
+292,Bill and Hillary Clinton,1,n,,democratic politicians
+293,Sam Liccardo,1,m,"mayor of san jose, calif.",democratic politicians
+294,Stephanie Rawlings-Blake,1,m,mayor of baltimore,democratic politicians
+295,Bakari Sellers,1,m,former south carolina congressman,democratic politicians
+296,Marty Walsh,1,m,mayor of boston,democratic politicians
+297,Chuck Schumer,1,m,united states senator,democratic politicians
+298,Woody Johnson,1,m,"owner, the new york jets",celebrities
+299,John Oliver,1,m,"comedian, host, “last week tonight”",celebrities
+300,Ronda Rousey,1,f,mixed martial artist,celebrities
+301,Paulina Vega,1,f,former miss universe,celebrities
+302,Neil Young,1,m,musician,celebrities
+303,Arnold Schwarzenegger,1,m,actor and former governor of california,celebrities
+304,Common Core standards,1,n,education policy,other
