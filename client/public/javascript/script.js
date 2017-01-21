@@ -11,8 +11,9 @@ var forceXSplit = d3.forceX(function(d){
   width * (d.gender === "m" ? 0.3 : 0.7)
 }).strength(0.2);
 
-//combining the circles along x axis at half the width of svg box
-//strength is defined between 0 and 1
+//combining the circles along x axis at half the width of svg box.
+//strength is defined between 0 and 1, and is the speed of circles
+//moving onto the screen
 var forceXCombine = d3.forceX(width/2).strength(0.1)
 
 var forceYCombine = d3.forceY(height/2).strength(0.15)
