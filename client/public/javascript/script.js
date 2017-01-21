@@ -7,9 +7,17 @@ var height = window.innerHeight;
 var data;
 //READ DOCS
 //separating the circles along x axis
+var pageSpread = function(d){
+    switch (d.gender){
+      case 'm': return 0.3
+      case 'f': return 0.5
+      case 'n': return 0.7
+    }
+}
+
 var forceXSplit = d3.forceX(function(d){
-  return width * (d.gender === "m" ? 0.3 : 0.7)
-}).strength(0.2);
+  return width * pageSpread(d)
+  }).strength(0.2);
 
 //combining the circles along x axis at half the width of svg box.
 //strength is defined between 0 and 1, and is the speed of circles
@@ -101,8 +109,7 @@ var colorSplit = function(d){
       case 'f': return 'salmon'
       case 'n': return 'lightgreen'
     }
-  }
-
+}
 
 function makeCircles(data){
   var circles = svg.selectAll('.target')
