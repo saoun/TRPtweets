@@ -113,7 +113,7 @@ function makeCircles(data){
                    .on('mouseover', mouseover)
                    .on('mousemove', mousemove)
                    .style('fill', function(d){
-                      d.gender === "m" ? 'blue' : 'red'
+                      return d.gender === "m" ? 'blue' : 'red'
                    });
   return circles
 }

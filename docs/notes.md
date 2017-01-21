@@ -22,3 +22,12 @@ https://www.youtube.com/watch?v=lPr60pexvEM
 
 stackoverflow help: 
 https://stackoverflow.com/questions/41774665/why-does-event-listener-callback-function-only-work-inside-function-scope
+
+difference: 'd=>'' has implicit return, which is why the first one doesn't work. 
+var circle = svg.style('fill', function(d){
+                      d.gender === "m" ? 'blue' : 'red'
+                   });
+
+var circle = svg.style('fill', d =>
+  d.gender === "m" ? 'blue' : 'red'
+);
