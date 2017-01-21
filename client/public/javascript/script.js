@@ -8,7 +8,7 @@ var data
 //READ DOCS
 //separating the circles along x axis
 var forceXSplit = d3.forceX(function(d){
-  width * (d.gender === "m" ? 0.3 : 0.7)
+  return width * (d.gender === "m" ? 0.3 : 0.7)
 }).strength(0.2);
 
 //combining the circles along x axis at half the width of svg box.
@@ -144,12 +144,6 @@ function makeMagic(data){
     .restart()
     pushRight(!atRight);
   }
-
-
-
-
-
-
 
   var rect = svg.append('rect')
                 .attr('x', 7)
