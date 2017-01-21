@@ -16,3 +16,9 @@ Figure out why es6 works in 111-113 but not function(d){}
 
 figure out force collision isn't working
 and why toggle isn't working.
+
+video help from this guy:
+https://www.youtube.com/watch?v=lPr60pexvEM
+
+stackoverflow help: 
+https://stackoverflow.com/questions/41774665/why-does-event-listener-callback-function-only-work-inside-function-scope
