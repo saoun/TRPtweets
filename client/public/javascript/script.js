@@ -33,7 +33,7 @@ var svg = d3.select('.chart')
             .attr('height', height)
             .attr('width', width)
             .append('g')
-            .attr('transform', 'translate(250,250)');
+            .attr('transform', 'translate(0,0)');
             //TODO find a responsive solution
 
 //445 refers max tweets for one person
@@ -85,15 +85,20 @@ var mousemove = function(){
 };
 
 //
-var ticked = function(circles){
-  circles.attr('cx', function(d) { return d.x })
-         .attr('cy', function(d) { return d.y })
-}
+// var ticked = function(circles){
+//   circles.attr('cx', function(d) { return d.x })
+//          .attr('cy', function(d) { return d.y })
+// }
 
 //starting forces simulation
 var startForces = function(data, circles){
   simulation.nodes(data)
-            .on('tick', ticked(circles))
+            .on('tick', ticked)
+
+  function ticked(){
+  circles.attr('cx', function(d) { return d.x })
+         .attr('cy', function(d) { return d.y })
+  }
 }
 
 
