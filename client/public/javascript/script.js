@@ -84,21 +84,18 @@ var mousemove = function(){
   tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
 };
 
-//
-// var ticked = function(circles){
-//   circles.attr('cx', function(d) { return d.x })
-//          .attr('cy', function(d) { return d.y })
-// }
-
 //starting forces simulation
-var startForces = function(data, circles){
+var startForces = function(data, circles) {
+
+  var ticked = function() {
+    circles.attr('cx', function(d) { return d.x })
+         .attr('cy', function(d) { return d.y })
+  }
+
   simulation.nodes(data)
             .on('tick', ticked)
 
-  function ticked(){
-  circles.attr('cx', function(d) { return d.x })
-         .attr('cy', function(d) { return d.y })
-  }
+
 }
 
 
