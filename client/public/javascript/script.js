@@ -107,7 +107,12 @@ function makeCircles(data){
                    .on('mouseover', mouseover)
                    .on('mousemove', mousemove)
                    .style('fill', function(d){
-                      return d.gender === "m" ? 'blue' : 'red'
+                      switch (d.gender){
+                        case "m": return 'blue'
+                        case 'f': return 'red'
+                        case 'n': return 'yellow'
+                      }
+
                    });
   return circles
 }
