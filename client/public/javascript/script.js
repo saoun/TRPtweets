@@ -46,7 +46,6 @@ var tooltip = d3.select('body')
                 .text('')
 
 
-
 //rendering data from server
 $.ajax({
   url: '/get-data',
@@ -88,18 +87,13 @@ var mousemove = function(){
 
 //starting forces simulation
 var startForces = function(data, circles) {
-
   var ticked = function() {
     circles.attr('cx', function(d) { return d.x })
          .attr('cy', function(d) { return d.y })
   }
-
   simulation.nodes(data)
             .on('tick', ticked)
-
-
 }
-
 
 function makeCircles(data){
   var circles = svg.selectAll('.target')
@@ -117,14 +111,8 @@ function makeCircles(data){
                    });
   return circles
 }
-//missing the style fill element. see line 69
 
-
-function makeMagic(data){
-  var parsedData = stringToNb(data)
-  var circles = makeCircles(parsedData)
-  startForces(parsedData, circles)
-
+//toggles
   var pushRight = function(x) {
   atRight = x;
   toggleSwitch.transition().duration(250)
@@ -134,42 +122,45 @@ function makeMagic(data){
         .style('fill', atRight ? 'lightgray' : 'blue');
 }
 
-  //toggles
-  var atRight = true
+var atRight = true
 
-  var onClick = function(){
-    simulation
-    .force('x', atRight ? forceXSplit : forceXCombine)
-    .alpha(0.7)
-    .restart()
-    pushRight(!atRight);
-  }
-
-  var rect = svg.append('rect')
-                .attr('x', 7)
-                .attr('y', 7)
-                .attr('rx', 22) //border radius
-                .attr('ry', 22)
-                .style('fill', 'lightgray')
-                .attr('width', 64)
-                .attr('height', 40)
-                .on('click', onClick)
-
-  var toggleSwitch = svg.append('circle')
-                  .attr('cx', 27)
-                  .attr('cy', 27)
-                  .attr('r', 16)
-                  .style('fill', 'white')
-                  .on('click', onClick)
-
-  var res = {
-      'getValue': function() { return atRight; },
-      'setValue': pushRight,
-      'remove': function() { toggleSwitch.remove(); }
-  };
+var onClick = function(){
+  simulation
+  .force('x', atRight ? forceXSplit : forceXCombine)
+  .alpha(0.7)
+  .restart()
+  pushRight(!atRight);
 }
 
+var rect = svg.append('rect')
+              .attr('x', 7)
+              .attr('y', 7)
+              .attr('rx', 22) //border radius
+              .attr('ry', 22)
+              .style('fill', 'lightgray')
+              .attr('width', 64)
+              .attr('height', 40)
+              .on('click', onClick)
 
+var toggleSwitch = svg.append('circle')
+                .attr('cx', 27)
+                .attr('cy', 27)
+                .attr('r', 16)
+                .style('fill', 'white')
+                .on('click', onClick)
+
+var res = {
+    'getValue': function() { return atRight; },
+    'setValue': pushRight,
+    'remove': function() { toggleSwitch.remove(); }
+};
+
+//readyyyyy
+function makeMagic(data){
+  var parsedData = stringToNb(data)
+  var circles = makeCircles(parsedData)
+  startForces(parsedData, circles)
+}
 
 
 })();
