@@ -132,21 +132,21 @@ var onClick = function(){
   .force('x', atRight ? forceXSplit : forceXCombine)
   .alpha(0.7)
   .restart()
-  setAtRight(!atRight);
+  pushRight(!atRight);
 }
 
 var atRight = true
 
-var toggle = svg.append('toggle')
+var toggleSwitch = svg.append('toggle')
                 .attr('cx', 27)
                 .attr('cy', 27)
                 .attr('r', 16)
                 .style('fill', 'white')
                 .on('click', onClick)
 
-var setAtRight = function(x) {
+var pushRight = function(x) {
   atRight = x;
-  toggle.transition().duration(250)
+  toggleSwitch.transition().duration(250)
         .attr('cx', (atRight ? 27 : 51))
         .style('fill', 'white');
         rect.transition().duration(250)
@@ -156,7 +156,7 @@ var setAtRight = function(x) {
 var rect = svg.append('rect')
               .attr('x', 7)
               .attr('y', 7)
-              .attr('rx', 22)
+              .attr('rx', 22) //border radius
               .attr('ry', 22)
               .style('fill', 'lightgray')
               .attr('width', 64)
@@ -165,7 +165,7 @@ var rect = svg.append('rect')
 
 var res = {
     'getValue': function() { return atRight; },
-    'setValue': setAtRight,
+    'setValue': pushRight,
     'remove': function() { circle.remove(); }
 };
 
