@@ -2,9 +2,9 @@
 (function(){
 
 //declaring variables
-var width = 500;
-var height = 500;
-var data
+var width = window.innerWidth;
+var height = window.innerHeight;
+var data;
 //READ DOCS
 //separating the circles along x axis
 var forceXSplit = d3.forceX(function(d){
