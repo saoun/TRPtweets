@@ -31,3 +31,5 @@ var circle = svg.style('fill', function(d){
 var circle = svg.style('fill', d =>
   d.gender === "m" ? 'blue' : 'red'
 );
+
+STUCK FOR SO LONG. it was the fuckin return d=> on forceXsplit
