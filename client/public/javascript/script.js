@@ -142,7 +142,7 @@ var onClick = function(){
   simulation
   .force('x', atRight ? forceXSplit : forceXCombine)
   .alpha(0.7)
-  // .restart()
+  // .restart() //dont think we need this
   pushRight(!atRight);
 }
 
