@@ -87,12 +87,10 @@ var mousemove = function(){
 
 //starting forces simulation
 var startForces = function(data, circles) {
-
   var ticked = function() {
     circles.attr('cx', function(d) { return d.x })
          .attr('cy', function(d) { return d.y })
   }
-
   simulation.nodes(data)
             .on('tick', ticked)
 }
@@ -156,7 +154,6 @@ var res = {
     'setValue': pushRight,
     'remove': function() { toggleSwitch.remove(); }
 };
-
 
 //readyyyyy
 function makeMagic(data){
