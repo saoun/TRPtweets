@@ -137,7 +137,7 @@ var onClick = function(){
 
 var atRight = true
 
-var toggleSwitch = svg.append('toggle')
+var toggleSwitch = svg.append('toggleSwitch')
                 .attr('cx', 27)
                 .attr('cy', 27)
                 .attr('r', 16)
@@ -166,7 +166,7 @@ var rect = svg.append('rect')
 var res = {
     'getValue': function() { return atRight; },
     'setValue': pushRight,
-    'remove': function() { circle.remove(); }
+    'remove': function() { toggleSwitch.remove(); }
 };
 
 
