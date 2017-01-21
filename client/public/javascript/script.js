@@ -108,11 +108,10 @@ function makeCircles(data){
                    .on('mousemove', mousemove)
                    .style('fill', function(d){
                       switch (d.gender){
-                        case "m": return 'blue'
-                        case 'f': return 'red'
-                        case 'n': return 'yellow'
+                        case "m": return 'dodgerblue'
+                        case 'f': return 'salmon'
+                        case 'n': return 'lightgreen'
                       }
-
                    });
   return circles
 }
