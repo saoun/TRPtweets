@@ -30,11 +30,37 @@ var pageGenderSpread = function(d){
 }
 
 //separating the circles along x and y axis for category
-var pageCategorySpread = function(d){
+var pageXCategorySpread = function(d){
     switch (d.category){
-      case 'democratic presidential candidates': return 0.3
+      case 'democratic presidential candidates': return 0.2
+      case 'republican presidential candidates': return 0.4
+      case 'journalists and other media figures': return 0.6
+      case 'television shows': return 0.8
+      case 'republican politicians': return 0.2
+      case 'places': return 0.4
+      case 'other people': return 0.6
+      case 'other': return 0.8
+      case 'media organizations': return 0.2
+      case 'groups and political organizations': return 0.4
+      case 'democratic politicians': return 0.6
+      case 'celebrities': return 0.8
+    }
+}
+
+var pageYCategorySpread = function(d){
+    switch (d.category){
+      case 'democratic presidential candidates': return 0.25
       case 'republican presidential candidates': return 0.5
-      case 'journalists and other media figures': return 0.7
+      case 'journalists and other media figures': return 0.75
+      case 'television shows': return 0.25
+      case 'republican politicians': return 0.5
+      case 'places': return 0.75
+      case 'other people': return 0.25
+      case 'other': return 0.5
+      case 'media organizations': return 0.75
+      case 'groups and political organizations': return 0.25
+      case 'democratic politicians': return 0.5
+      case 'celebrities': return 0.75
     }
 }
 
@@ -43,8 +69,12 @@ var forceXGenderSplit = d3.forceX(function(d){
   }).strength(0.2);
 
 var forceXCategorySplit = d3.forceX(function(d){
-  return width * pageCategorySpread(d)
+  return width * pageXCategorySpread(d)
   }).strength(0.2);
+
+var forceYCategorySplit = d3.forceY(function(d){
+  return height * pageYCategorySpread(d)
+}).strength(0.2)
 
 //combining the circles along x axis at half the width of svg box.
 //strength is defined between 0 and 1, and is the speed of circles
@@ -149,7 +179,7 @@ var pushRight = function(x) {
 
 var atRight = true
 
-var chooseForce = function(buttonId) {
+var chooseXForce = function(buttonId) {
   switch (buttonId){
     case "all":
       return forceXCombine
@@ -160,9 +190,16 @@ var chooseForce = function(buttonId) {
   }
 }
 
+var chooseYForce = function(buttonId){
+  if (buttonId === "category") {
+    return forceYCategorySplit
+  }
+}
+
 var onClick = function(buttonId){
   simulation
-  .force('x', chooseForce(buttonId))
+  .force('x', chooseXForce(buttonId))
+  .force('y', chooseYForce(buttonId))
   .alpha(0.7)
 }
 
