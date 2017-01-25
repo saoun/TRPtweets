@@ -193,6 +193,8 @@ var chooseXForce = function(buttonId) {
 var chooseYForce = function(buttonId){
   if (buttonId === "category") {
     return forceYCategorySplit
+  } else {
+    return forceYCombine
   }
 }
 
