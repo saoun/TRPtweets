@@ -7,7 +7,7 @@ var height = window.innerHeight;
 var data;
 //READ DOCS
 //separating the circles along x axis
-var pageSpread = function(d){
+var pageGenderSpread = function(d){
     switch (d.gender){
       case 'm': return 0.3
       case 'f': return 0.5
@@ -15,8 +15,20 @@ var pageSpread = function(d){
     }
 }
 
-var forceXSplit = d3.forceX(function(d){
-  return width * pageSpread(d)
+var pageCategorySpread = function(d){
+    switch (d.category){
+      case 'democratic presidential candidates': return 0.3
+      case 'republican presidential candidates': return 0.5
+      case 'journalists and other media figures': return 0.7
+    }
+}
+
+var forceXGenderSplit = d3.forceX(function(d){
+  return width * pageGenderSpread(d)
+  }).strength(0.2);
+
+var forceXCategorySplit = d3.forceX(function(d){
+  return width * pageCategorySpread(d)
   }).strength(0.2);
 
 //combining the circles along x axis at half the width of svg box.
@@ -127,7 +139,7 @@ function makeCircles(data){
 }
 
 //toggles
-  var pushRight = function(x) {
+var pushRight = function(x) {
   atRight = x;
   toggleSwitch.transition().duration(250)
         .attr('cx', (atRight ? 27 : 51))
@@ -138,12 +150,28 @@ function makeCircles(data){
 
 var atRight = true
 
-var onClick = function(){
+var chooseForce = function(buttonId) {
+  switch (buttonId){
+    case "all":
+      return forceXCombine
+    case "gender":
+      return forceXGenderSplit
+    case "category":
+      return forceXCategorySplit
+  }
+}
+
+var onClick = function(buttonId){
   simulation
-  .force('x', atRight ? forceXSplit : forceXCombine)
+  .force('x', chooseForce(buttonId))
   .alpha(0.7)
+  //switch statement to decide which of 3 forces to apply
+  //
+
+  //.force('x', atRight ? forceXGenderSplit : forceXCombine)
+  //.alpha(0.7)
   // .restart() //dont think we need this
-  pushRight(!atRight);
+  //pushRight(!atRight);
 }
 
 var rect = svg.append('rect')
@@ -184,8 +212,12 @@ function setupButtons(){
       var button = d3.select(this);
       button.classed('active', true);
       var buttonId = button.attr('id');
+      onClick(buttonId)
+      //call a functionality function
 
     })
+
+
 }
 
 setupButtons()
