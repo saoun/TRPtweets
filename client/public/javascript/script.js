@@ -5,7 +5,7 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
 var data;
-//READ DOCS
+
 //separating the circles along x axis
 var pageSpread = function(d){
     switch (d.gender){
@@ -79,7 +79,6 @@ function stringToNb (data) {
 };
 
 //tooltip function
-
 var mouseover = function(d){
   tooltip.style('visibility','visible');
   tooltip.html(d.person + "<br> Trump tweets: " + d.tweets)
@@ -163,11 +162,11 @@ var toggleSwitch = svg.append('circle')
                 .style('fill', 'white')
                 .on('click', onClick)
 
-var res = {
-    'getValue': function() { return atRight; },
-    'setValue': pushRight,
-    'remove': function() { toggleSwitch.remove(); }
-};
+// var res = {
+//     'getValue': function() { return atRight; },
+//     'setValue': pushRight,
+//     'remove': function() { toggleSwitch.remove(); }
+// };
 
 //readyyyyy
 function makeMagic(data){
@@ -188,7 +187,6 @@ function setupButtons(){
       button.classed('active', true);
       // Get the id of the button
       var buttonId = button.attr('id');
-
     })
 }
 
