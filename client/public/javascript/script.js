@@ -1,12 +1,26 @@
 "use strict";
 (function(){
 
+//rendering data from server
+$.ajax({
+  url: '/get-data',
+  type: 'GET',
+})
+.done(function(response) {
+  console.log(response);
+  makeMagic(response);
+})
+.fail(function() {
+  console.log("error");
+});
+
+
 //declaring variables
 var width = window.innerWidth;
 var height = window.innerHeight;
 var data;
 
-//separating the circles along x axis
+//separating the circles along x axis for gender
 var pageGenderSpread = function(d){
     switch (d.gender){
       case 'm': return 0.3
@@ -15,6 +29,7 @@ var pageGenderSpread = function(d){
     }
 }
 
+//separating the circles along x and y axis for category
 var pageCategorySpread = function(d){
     switch (d.category){
       case 'democratic presidential candidates': return 0.3
@@ -65,21 +80,6 @@ var tooltip = d3.select('body')
                 .attr('class', 'tooltip')
                 .text('')
 
-
-//rendering data from server
-$.ajax({
-  url: '/get-data',
-  type: 'GET',
-})
-.done(function(response) {
-  console.log(response);
-  makeMagic(response);
-})
-.fail(function() {
-  console.log("error");
-});
-
-//
 //
 //turns back the string for number of tweets to an integer
 function stringToNb (data) {
@@ -164,43 +164,6 @@ var onClick = function(buttonId){
   simulation
   .force('x', chooseForce(buttonId))
   .alpha(0.7)
-  //switch statement to decide which of 3 forces to apply
-  //
-
-  //.force('x', atRight ? forceXGenderSplit : forceXCombine)
-  //.alpha(0.7)
-  // .restart() //dont think we need this
-  //pushRight(!atRight);
-}
-
-var rect = svg.append('rect')
-              .attr('x', 7)
-              .attr('y', 7)
-              .attr('rx', 22) //border radius
-              .attr('ry', 22)
-              .style('fill', 'lightgray')
-              .attr('width', 64)
-              .attr('height', 40)
-              .on('click', onClick)
-
-var toggleSwitch = svg.append('circle')
-                .attr('cx', 27)
-                .attr('cy', 27)
-                .attr('r', 16)
-                .style('fill', 'white')
-                .on('click', onClick)
-
-// var res = {
-//     'getValue': function() { return atRight; },
-//     'setValue': pushRight,
-//     'remove': function() { toggleSwitch.remove(); }
-// };
-
-//readyyyyy
-function makeMagic(data){
-  var parsedData = stringToNb(data)
-  var circles = makeCircles(parsedData)
-  startForces(parsedData, circles)
 }
 
 function setupButtons(){
@@ -215,17 +178,18 @@ function setupButtons(){
       button.classed('active', true);
       // Get the id of the button
       var buttonId = button.attr('id');
-
+      // call click switch function
       onClick(buttonId)
-
     })
-
-
 }
 
-setupButtons()
-
-
+//readyyyyy
+function makeMagic(data){
+  var parsedData = stringToNb(data)
+  var circles = makeCircles(parsedData)
+  startForces(parsedData, circles)
+  setupButtons()
+}
 
 
 })();
