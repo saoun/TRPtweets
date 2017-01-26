@@ -41,3 +41,10 @@ change colors --> switch statement
 other docs: http://bl.ocks.org/mbostock/1748247
 
 tooltips library: https://github.com/caged/d3-tip
+
+changed the toggles
+
+split the categories along y and x
+
+figure out how to automatically organize by largest to smallest nb for categories, without
+doing it manually
