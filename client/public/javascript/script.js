@@ -47,7 +47,37 @@ var pageXCategorySpread = function(d){
     }
 }
 
+function countCategoryTweets(data){
+  var unsortedArray = [0,0,0,0,0,0,0,0,0,0,0,0]
+  data.forEach( function(item) {
+    switch(item.category){
+      case 'democratic presidential candidates': return unsortedArray[0]++
+      case 'republican presidential candidates': return unsortedArray[1]++
+      case 'journalists and other media figures': return unsortedArray[2]++
+      case 'television shows': return unsortedArray[3]++
+      case 'republican politicians': return unsortedArray[4]++
+      case 'places': return unsortedArray[5]++
+      case 'other people': return unsortedArray[6]++
+      case 'other': return unsortedArray[7]++
+      case 'media organizations': return unsortedArray[8]++
+      case 'groups and political organizations': return unsortedArray[9]++
+      case 'democratic politicians': return unsortedArray[10]++
+      case 'celebrities': return unsortedArray[11]++
+    }
+  })
+  console.log(unsortedArray);
+}
+
+function sortingFunction(){
+  var unsortedArray = ['democratic presidential candidates', 'republican presidential candidates',]
+
+  return
+}
+
+
+
 var pageYCategorySpread = function(d){
+  var categoryArray = sortingFunction();
     switch (d.category){
       case 'democratic presidential candidates': return 0.25
       case 'republican presidential candidates': return 0.5
@@ -228,6 +258,7 @@ function makeMagic(data){
   var circles = makeCircles(parsedData)
   startForces(parsedData, circles)
   setupButtons()
+  countCategoryTweets(data);
 }
 
 
