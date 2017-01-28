@@ -20,3 +20,22 @@
 //     'setValue': pushRight,
 //     'remove': function() { toggleSwitch.remove(); }
 // };
+
+
+
+
+
+    // switch (d.category){
+    //   case 'democratic presidential candidates': return 0.25
+    //   case 'republican presidential candidates': return 0.5
+    //   case 'journalists and other media figures': return 0.75
+    //   case 'television shows': return 0.25
+    //   case 'republican politicians': return 0.5
+    //   case 'places': return 0.75
+    //   case 'other people': return 0.25
+    //   case 'other': return 0.5
+    //   case 'media organizations': return 0.75
+    //   case 'groups and political organizations': return 0.25
+    //   case 'democratic politicians': return 0.5
+    //   case 'celebrities': return 0.75
+    // }

@@ -30,8 +30,8 @@ var pageGenderSpread = function(d){
     }
 }
 
-//separating the circles along x and y axis for category
 
+//sorting categories by number of people
 function countCategoryTweets(data){
   var unsortedArray = [
     {category: 'democratic presidential candidates', count: 0},
@@ -67,16 +67,15 @@ function countCategoryTweets(data){
   sortingFunction(unsortedArray)
 }
 
+//sorting them in order
 function sortingFunction(unsortedArray){
   sortedCategories = unsortedArray.sort(function(a,b){
     return (b.count - a.count)
   })
-  //console.log(sortedArray)
-  //pageXCategorySpread(sortedArray)
 }
 
+//separating the circles along x and y axis for category
 var pageXCategorySpread = function(d){
-
   if (d.category == sortedCategories[0].category) { return 0.2 }
   if (d.category == sortedCategories[1].category) { return 0.4 }
   if (d.category == sortedCategories[2].category) { return 0.6 }
@@ -89,26 +88,9 @@ var pageXCategorySpread = function(d){
   if (d.category == sortedCategories[9].category) { return 0.4 }
   if (d.category == sortedCategories[10].category) { return 0.6 }
   if (d.category == sortedCategories[11].category) { return 0.8 }
-
-
-    // switch (d.category){
-    //   case 'democratic presidential candidates': return 0.2
-    //   case 'republican presidential candidates': return 0.4
-    //   case 'journalists and other media figures': return 0.6
-    //   case 'television shows': return 0.8
-    //   case 'republican politicians': return 0.2
-    //   case 'places': return 0.4
-    //   case 'other people': return 0.6
-    //   case 'other': return 0.8
-    //   case 'media organizations': return 0.2
-    //   case 'groups and political organizations': return 0.4
-    //   case 'democratic politicians': return 0.6
-    //   case 'celebrities': return 0.8
-    // }
 }
 
 var pageYCategorySpread = function(d){
-
   if (d.category == sortedCategories[0].category) { return 0.25 }
   if (d.category == sortedCategories[1].category) { return 0.25 }
   if (d.category == sortedCategories[2].category) { return 0.25 }
@@ -121,23 +103,9 @@ var pageYCategorySpread = function(d){
   if (d.category == sortedCategories[9].category) { return 0.75 }
   if (d.category == sortedCategories[10].category) { return 0.75 }
   if (d.category == sortedCategories[11].category) { return 0.75 }
-
-    // switch (d.category){
-    //   case 'democratic presidential candidates': return 0.25
-    //   case 'republican presidential candidates': return 0.5
-    //   case 'journalists and other media figures': return 0.75
-    //   case 'television shows': return 0.25
-    //   case 'republican politicians': return 0.5
-    //   case 'places': return 0.75
-    //   case 'other people': return 0.25
-    //   case 'other': return 0.5
-    //   case 'media organizations': return 0.75
-    //   case 'groups and political organizations': return 0.25
-    //   case 'democratic politicians': return 0.5
-    //   case 'celebrities': return 0.75
-    // }
 }
 
+//
 var forceXGenderSplit = d3.forceX(function(d){
   return width * pageGenderSpread(d)
   }).strength(0.2);
