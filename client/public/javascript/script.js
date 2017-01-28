@@ -268,7 +268,12 @@ function setupButtons(){
 //adding titles + info
 
 function placeCategoryTitles() {
-  var categoryTitlesData = d3.keys(sortedCategories.category);
+  var categoryTitlesData = [];
+
+  sortedCategories.forEach(function(object) {
+    categoryTitlesData.push(object.category);
+  });
+
   var titles = svg.selectAll('.title')
     .data(categoryTitlesData);
 
@@ -276,6 +281,8 @@ function placeCategoryTitles() {
           .attr('class', 'title')
           .attr('text-anchor', 'middle')
           .text(function(title) { return title });
+
+    console.log(categoryTitlesData)
 }
 
 
