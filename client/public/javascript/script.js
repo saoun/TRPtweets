@@ -30,7 +30,110 @@ var pageGenderSpread = function(d){
     }
 }
 
+//
+var forceXGenderSplit = d3.forceX(function(dot){
+  return width * pageGenderSpread(dot)
+  }).strength(0.2);
 
+var forceXCategorySplit = d3.forceX(function(dot){
+  return width * pageXCategorySpread(dot)
+  }).strength(0.2);
+
+var forceYCategorySplit = d3.forceY(function(dot){
+  return height * pageYCategorySpread(dot)
+}).strength(0.2)
+
+//combining the circles along x axis at half the width of svg box.
+//strength is defined between 0 and 1, and is the speed of circles
+//moving onto the screen
+var forceXCombine = d3.forceX(width/2).strength(0.2)
+
+var forceYCombine = d3.forceY(height/2).strength(0.15)
+
+//prevents the circles from overlapping. Radius of force is scaled based on circle
+//size, so larger circles push others further from their center than smaller ones
+var forceCollide = d3.forceCollide(function(dot){
+  return radiusScale(dot.tweets) + 1 // +1 for distance between circles
+}).iterations(10); //the higher the iteration is, the more rigid the circle bounce is
+
+//simulation to determine proper location of each circle in group
+var simulation = d3.forceSimulation()
+                   .force('x', forceXCombine)
+                   .force('y', forceYCombine)
+                   .force('collide', forceCollide);
+
+var svg = d3.select('.chart')
+            .append('svg')
+            .attr('height', height)
+            .attr('width', width)
+            .append('g')
+            .attr('transform', 'translate(0,0)');
+            //TODO find a responsive solution
+
+//445 refers max tweets for one person
+var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
+var tooltip = d3.select('body')
+                .append('div')
+                .attr('class', 'tooltip')
+                .text('')
+
+//turns back the string for number of tweets to an integer
+function stringToNb (data) {
+
+  data.forEach(function(dot){
+    dot.tweets = +dot.tweets
+  })
+  return data
+};
+
+//tooltip function
+var mouseover = function(dot){
+  tooltip.style('visibility','visible');
+  tooltip.html(dot.person + "<br> Trump tweets: " + dot.tweets)
+};
+
+var mouseout = function() {
+  tooltip.style('visibility', 'hidden')
+};
+
+var mousemove = function(){
+  tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
+};
+
+//starting forces simulation
+var startForces = function(data, circles) {
+  var ticked = function() {
+    circles.attr('cx', function(dot) { return dot.x })
+         .attr('cy', function(dot) { return dot.y })
+  }
+  simulation.nodes(data)
+            .on('tick', ticked)
+}
+
+var colorSplit = function(dot){
+    switch (dot.gender){
+      case 'm': return 'dodgerblue'
+      case 'f': return 'salmon'
+      case 'n': return 'lightgreen'
+    }
+}
+
+function makeCircles(data){
+  var circles = svg.selectAll('.target')
+                   .data(data)
+                   .enter().append('circle')
+                   .attr('class', 'target')
+                   .attr('r', function(dot){
+                      return radiusScale(dot.tweets)
+                   })
+                   .on('mouseout', mouseout)
+                   .on('mouseover', mouseover)
+                   .on('mousemove', mousemove)
+                   .style('fill', colorSplit);
+  return circles
+}
+
+//
 //sorting categories by number of people
 function countCategoryTweets(data){
   var unsortedArray = [
@@ -103,110 +206,6 @@ var pageYCategorySpread = function(dot){
   if (dot.category == sortedCategories[9].category) { return 0.75 }
   if (dot.category == sortedCategories[10].category) { return 0.75 }
   if (dot.category == sortedCategories[11].category) { return 0.75 }
-}
-
-//
-var forceXGenderSplit = d3.forceX(function(dot){
-  return width * pageGenderSpread(dot)
-  }).strength(0.2);
-
-var forceXCategorySplit = d3.forceX(function(dot){
-  return width * pageXCategorySpread(dot)
-  }).strength(0.2);
-
-var forceYCategorySplit = d3.forceY(function(dot){
-  return height * pageYCategorySpread(dot)
-}).strength(0.2)
-
-//combining the circles along x axis at half the width of svg box.
-//strength is defined between 0 and 1, and is the speed of circles
-//moving onto the screen
-var forceXCombine = d3.forceX(width/2).strength(0.2)
-
-var forceYCombine = d3.forceY(height/2).strength(0.15)
-
-//prevents the circles from overlapping. Radius of force is scaled based on circle
-//size, so larger circles push others further from their center than smaller ones
-var forceCollide = d3.forceCollide(function(dot){
-  return radiusScale(dot.tweets) + 1 // +1 for distance between circles
-}).iterations(10); //the higher the iteration is, the more rigid the circle bounce is
-
-//simulation to determine proper location of each circle in group
-var simulation = d3.forceSimulation()
-                   .force('x', forceXCombine)
-                   .force('y', forceYCombine)
-                   .force('collide', forceCollide);
-
-var svg = d3.select('.chart')
-            .append('svg')
-            .attr('height', height)
-            .attr('width', width)
-            .append('g')
-            .attr('transform', 'translate(0,0)');
-            //TODO find a responsive solution
-
-//445 refers max tweets for one person
-var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
-var tooltip = d3.select('body')
-                .append('div')
-                .attr('class', 'tooltip')
-                .text('')
-
-//
-//turns back the string for number of tweets to an integer
-function stringToNb (data) {
-
-  data.forEach(function(dot){
-    dot.tweets = +dot.tweets
-  })
-  return data
-};
-
-//tooltip function
-var mouseover = function(dot){
-  tooltip.style('visibility','visible');
-  tooltip.html(dot.person + "<br> Trump tweets: " + dot.tweets)
-};
-
-var mouseout = function() {
-  tooltip.style('visibility', 'hidden')
-};
-
-var mousemove = function(){
-  tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
-};
-
-//starting forces simulation
-var startForces = function(data, circles) {
-  var ticked = function() {
-    circles.attr('cx', function(dot) { return dot.x })
-         .attr('cy', function(dot) { return dot.y })
-  }
-  simulation.nodes(data)
-            .on('tick', ticked)
-}
-
-var colorSplit = function(dot){
-    switch (dot.gender){
-      case 'm': return 'dodgerblue'
-      case 'f': return 'salmon'
-      case 'n': return 'lightgreen'
-    }
-}
-
-function makeCircles(data){
-  var circles = svg.selectAll('.target')
-                   .data(data)
-                   .enter().append('circle')
-                   .attr('class', 'target')
-                   .attr('r', function(dot){
-                      return radiusScale(dot.tweets)
-                   })
-                   .on('mouseout', mouseout)
-                   .on('mouseover', mouseover)
-                   .on('mousemove', mousemove)
-                   .style('fill', colorSplit);
-  return circles
 }
 
 //toggles
