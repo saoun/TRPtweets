@@ -75,47 +75,47 @@ function sortingFunction(unsortedArray){
 }
 
 //separating the circles along x and y axis for category
-var pageXCategorySpread = function(d){
-  if (d.category == sortedCategories[0].category) { return 0.2 }
-  if (d.category == sortedCategories[1].category) { return 0.4 }
-  if (d.category == sortedCategories[2].category) { return 0.6 }
-  if (d.category == sortedCategories[3].category) { return 0.8 }
-  if (d.category == sortedCategories[4].category) { return 0.2 }
-  if (d.category == sortedCategories[5].category) { return 0.4 }
-  if (d.category == sortedCategories[6].category) { return 0.6 }
-  if (d.category == sortedCategories[7].category) { return 0.8 }
-  if (d.category == sortedCategories[8].category) { return 0.2 }
-  if (d.category == sortedCategories[9].category) { return 0.4 }
-  if (d.category == sortedCategories[10].category) { return 0.6 }
-  if (d.category == sortedCategories[11].category) { return 0.8 }
+var pageXCategorySpread = function(dot){
+  if (dot.category == sortedCategories[0].category) { return 0.2 }
+  if (dot.category == sortedCategories[1].category) { return 0.4 }
+  if (dot.category == sortedCategories[2].category) { return 0.6 }
+  if (dot.category == sortedCategories[3].category) { return 0.8 }
+  if (dot.category == sortedCategories[4].category) { return 0.2 }
+  if (dot.category == sortedCategories[5].category) { return 0.4 }
+  if (dot.category == sortedCategories[6].category) { return 0.6 }
+  if (dot.category == sortedCategories[7].category) { return 0.8 }
+  if (dot.category == sortedCategories[8].category) { return 0.2 }
+  if (dot.category == sortedCategories[9].category) { return 0.4 }
+  if (dot.category == sortedCategories[10].category) { return 0.6 }
+  if (dot.category == sortedCategories[11].category) { return 0.8 }
 }
 
-var pageYCategorySpread = function(d){
-  if (d.category == sortedCategories[0].category) { return 0.25 }
-  if (d.category == sortedCategories[1].category) { return 0.25 }
-  if (d.category == sortedCategories[2].category) { return 0.25 }
-  if (d.category == sortedCategories[3].category) { return 0.25 }
-  if (d.category == sortedCategories[4].category) { return 0.5 }
-  if (d.category == sortedCategories[5].category) { return 0.5 }
-  if (d.category == sortedCategories[6].category) { return 0.5 }
-  if (d.category == sortedCategories[7].category) { return 0.5 }
-  if (d.category == sortedCategories[8].category) { return 0.75 }
-  if (d.category == sortedCategories[9].category) { return 0.75 }
-  if (d.category == sortedCategories[10].category) { return 0.75 }
-  if (d.category == sortedCategories[11].category) { return 0.75 }
+var pageYCategorySpread = function(dot){
+  if (dot.category == sortedCategories[0].category) { return 0.25 }
+  if (dot.category == sortedCategories[1].category) { return 0.25 }
+  if (dot.category == sortedCategories[2].category) { return 0.25 }
+  if (dot.category == sortedCategories[3].category) { return 0.25 }
+  if (dot.category == sortedCategories[4].category) { return 0.5 }
+  if (dot.category == sortedCategories[5].category) { return 0.5 }
+  if (dot.category == sortedCategories[6].category) { return 0.5 }
+  if (dot.category == sortedCategories[7].category) { return 0.5 }
+  if (dot.category == sortedCategories[8].category) { return 0.75 }
+  if (dot.category == sortedCategories[9].category) { return 0.75 }
+  if (dot.category == sortedCategories[10].category) { return 0.75 }
+  if (dot.category == sortedCategories[11].category) { return 0.75 }
 }
 
 //
-var forceXGenderSplit = d3.forceX(function(d){
-  return width * pageGenderSpread(d)
+var forceXGenderSplit = d3.forceX(function(dot){
+  return width * pageGenderSpread(dot)
   }).strength(0.2);
 
-var forceXCategorySplit = d3.forceX(function(d){
-  return width * pageXCategorySpread(d)
+var forceXCategorySplit = d3.forceX(function(dot){
+  return width * pageXCategorySpread(dot)
   }).strength(0.2);
 
-var forceYCategorySplit = d3.forceY(function(d){
-  return height * pageYCategorySpread(d)
+var forceYCategorySplit = d3.forceY(function(dot){
+  return height * pageYCategorySpread(dot)
 }).strength(0.2)
 
 //combining the circles along x axis at half the width of svg box.
@@ -127,8 +127,8 @@ var forceYCombine = d3.forceY(height/2).strength(0.15)
 
 //prevents the circles from overlapping. Radius of force is scaled based on circle
 //size, so larger circles push others further from their center than smaller ones
-var forceCollide = d3.forceCollide(function(d){
-  return radiusScale(d.tweets) + 1 // +1 for distance between circles
+var forceCollide = d3.forceCollide(function(dot){
+  return radiusScale(dot.tweets) + 1 // +1 for distance between circles
 }).iterations(10); //the higher the iteration is, the more rigid the circle bounce is
 
 //simulation to determine proper location of each circle in group
@@ -156,16 +156,16 @@ var tooltip = d3.select('body')
 //turns back the string for number of tweets to an integer
 function stringToNb (data) {
 
-  data.forEach(function(d){
-    d.tweets = +d.tweets
+  data.forEach(function(dot){
+    dot.tweets = +dot.tweets
   })
   return data
 };
 
 //tooltip function
-var mouseover = function(d){
+var mouseover = function(dot){
   tooltip.style('visibility','visible');
-  tooltip.html(d.person + "<br> Trump tweets: " + d.tweets)
+  tooltip.html(dot.person + "<br> Trump tweets: " + dot.tweets)
 };
 
 var mouseout = function() {
@@ -179,15 +179,15 @@ var mousemove = function(){
 //starting forces simulation
 var startForces = function(data, circles) {
   var ticked = function() {
-    circles.attr('cx', function(d) { return d.x })
-         .attr('cy', function(d) { return d.y })
+    circles.attr('cx', function(dot) { return dot.x })
+         .attr('cy', function(dot) { return dot.y })
   }
   simulation.nodes(data)
             .on('tick', ticked)
 }
 
-var colorSplit = function(d){
-    switch (d.gender){
+var colorSplit = function(dot){
+    switch (dot.gender){
       case 'm': return 'dodgerblue'
       case 'f': return 'salmon'
       case 'n': return 'lightgreen'
@@ -199,8 +199,8 @@ function makeCircles(data){
                    .data(data)
                    .enter().append('circle')
                    .attr('class', 'target')
-                   .attr('r', function(d){
-                      return radiusScale(d.tweets)
+                   .attr('r', function(dot){
+                      return radiusScale(dot.tweets)
                    })
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)
