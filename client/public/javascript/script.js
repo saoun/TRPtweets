@@ -264,6 +264,23 @@ function setupButtons(){
     })
 }
 
+
+//adding titles + info
+
+function placeCategoryTitles() {
+  var categoryTitlesData = d3.keys(sortedCategories.category);
+  var titles = svg.selectAll('.title')
+    .data(categoryTitlesData);
+
+    titles.enter().append('text')
+          .attr('class', 'title')
+          .attr('text-anchor', 'middle')
+          .text(function(title) { return title });
+}
+
+
+
+
 //readyyyyy
 function makeMagic(data){
   var parsedData = stringToNb(data)
@@ -271,6 +288,7 @@ function makeMagic(data){
   startForces(parsedData, circles)
   setupButtons()
   countCategoryTweets(data);
+  placeCategoryTitles();
 }
 
 
