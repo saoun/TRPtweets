@@ -7,7 +7,7 @@ $.ajax({
   type: 'GET',
 })
 .done(function(response) {
-  console.log(response);
+  //console.log(response);
   makeMagic(response);
 })
 .fail(function() {
@@ -208,6 +208,36 @@ var pageYCategorySpread = function(dot){
   if (dot.category == sortedCategories[11].category) { return 0.75 }
 }
 
+var titleXSpread = function(title) {
+  if (title == sortedCategories[0].category) { return 0.2 }
+  if (title == sortedCategories[1].category) { return 0.4 }
+  if (title == sortedCategories[2].category) { return 0.6 }
+  if (title == sortedCategories[3].category) { return 0.8 }
+  if (title == sortedCategories[4].category) { return 0.2 }
+  if (title == sortedCategories[5].category) { return 0.4 }
+  if (title == sortedCategories[6].category) { return 0.6 }
+  if (title == sortedCategories[7].category) { return 0.8 }
+  if (title == sortedCategories[8].category) { return 0.2 }
+  if (title == sortedCategories[9].category) { return 0.4 }
+  if (title == sortedCategories[10].category) { return 0.6 }
+  if (title == sortedCategories[11].category) { return 0.8 }
+}
+
+var titleYSpread = function(title) {
+  if (title == sortedCategories[0].category) { return 0.25 }
+  if (title == sortedCategories[1].category) { return 0.25 }
+  if (title == sortedCategories[2].category) { return 0.25 }
+  if (title == sortedCategories[3].category) { return 0.25 }
+  if (title == sortedCategories[4].category) { return 0.5 }
+  if (title == sortedCategories[5].category) { return 0.5 }
+  if (title == sortedCategories[6].category) { return 0.5 }
+  if (title == sortedCategories[7].category) { return 0.5 }
+  if (title == sortedCategories[8].category) { return 0.75 }
+  if (title == sortedCategories[9].category) { return 0.75 }
+  if (title == sortedCategories[10].category) { return 0.75 }
+  if (title == sortedCategories[11].category) { return 0.75 }
+}
+
 //toggles
 var pushRight = function(x) {
   atRight = x;
@@ -272,16 +302,16 @@ function placeCategoryTitles() {
   sortedCategories.forEach(function(object) {
     categoryTitlesData.push(object.category);
   });
-
+  //console.log("CAT DATA", categoryTitlesData)
   var titles = svg.selectAll('.title')
     .data(categoryTitlesData);
 
     titles.enter().append('text')
           .attr('class', 'title')
+          .attr('x', function(d) {return width * titleXSpread(d)})
+          .attr('y', function(d) {return height * titleYSpread(d)})
           .attr('text-anchor', 'middle')
           .text(function(title) { return title });
-
-    console.log(categoryTitlesData)
 }
 
 
@@ -295,6 +325,7 @@ function makeMagic(data){
   setupButtons()
   countCategoryTweets(data);
   placeCategoryTitles();
+  //console.log(sortedCategories)
 }
 
 
