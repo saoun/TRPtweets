@@ -275,8 +275,6 @@ var onClick = function(buttonId){
     placeCategoryTitles();
   } else if (buttonId == 'gender') {
     placeGenderTitles()
-  } else {
-    hideCategoryTitles()
   }
 
   simulation
@@ -327,6 +325,10 @@ function placeCategoryTitles() {
 
 
 function hideCategoryTitles() {
+   svg.selectAll('.titleGender').transition()
+   .style('opacity', '0')
+   .remove();
+
    svg.selectAll('.title').transition()
    .style('opacity', '0')
    .remove();
@@ -336,10 +338,10 @@ function placeGenderTitles(){
   var genderTitlesData = ['Male', 'Female', 'Media & Others'];
   var firstX = 0.1;
 
-  var titles = svg.selectAll('.title')
+  var titles = svg.selectAll('.titleGender')
     .data(genderTitlesData);
     titles.enter().append('text')
-          .attr('class', 'title')
+          .attr('class', 'titleGender')
           .attr('x', function(d) {
             firstX+=0.2
             return width * firstX
