@@ -15,10 +15,6 @@
 
 }
 
-button, button:visited, button:active {
-  color: #444;
-}
-
 .button {
   min-width: 130px;
   padding: 4px 5px;
