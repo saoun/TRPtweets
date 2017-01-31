@@ -319,11 +319,17 @@ function placeCategoryTitles() {
           .attr('x', function(d) {return width * titleXSpread(d)})
           .attr('y', function(d) {return height * titleYSpread(d)})
           .attr('text-anchor', 'middle')
-          .text(function(title) { return capitalize(title) });
+          .text(function(title) { return capitalize(title) })
+          .style('opacity', '0')
+          .transition().duration(1000)
+          .style('opacity', '1');
 }
 
+
 function hideCategoryTitles() {
-   svg.selectAll('.title').remove();
+   svg.selectAll('.title').transition()
+   .style('opacity', '0')
+   .remove();
 }
 
 function placeGenderTitles(){
@@ -340,7 +346,10 @@ function placeGenderTitles(){
           })
           .attr('y', height * 0.3)
           .attr('text-anchor', 'middle')
-          .text(function(title) { return title });
+          .text(function(title) { return title })
+          .style('opacity', '0')
+          .transition().duration(1000)
+          .style('opacity', '1');
 }
 
 // function hideGenderTitles(){
