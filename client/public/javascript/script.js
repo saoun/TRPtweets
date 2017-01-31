@@ -270,11 +270,13 @@ var chooseYForce = function(buttonId){
 }
 
 var onClick = function(buttonId){
-
-  if(buttonId != 'category') {
-    hideCategoriesTitles();
+  hideCategoryTitles()
+  if(buttonId == 'category') {
+    placeCategoryTitles();
+  } else if (buttonId == 'gender') {
+    placeGenderTitles()
   } else {
-    placeCategoryTitles()
+    hideCategoryTitles()
   }
 
   simulation
@@ -302,7 +304,6 @@ function setupButtons(){
 
 
 //adding titles + info
-
 function placeCategoryTitles() {
   var categoryTitlesData = [];
 
@@ -321,9 +322,32 @@ function placeCategoryTitles() {
           .text(function(title) { return capitalize(title) });
 }
 
-function hideCategoriesTitles() {
+function hideCategoryTitles() {
    svg.selectAll('.title').remove();
 }
+
+function placeGenderTitles(){
+  var genderTitlesData = ['Male', 'Female', 'Media & Others'];
+  var firstX = 0.1;
+
+  var titles = svg.selectAll('.title')
+    .data(genderTitlesData);
+    titles.enter().append('text')
+          .attr('class', 'title')
+          .attr('x', function(d) {
+            firstX+=0.2
+            return width * firstX
+          })
+          .attr('y', height * 0.3)
+          .attr('text-anchor', 'middle')
+          .text(function(title) { return title });
+}
+
+// function hideGenderTitles(){
+//   svg.selectAll('.title').remove();
+// }
+
+
 
 //capitalizing category titles
 function capitalize(string){
