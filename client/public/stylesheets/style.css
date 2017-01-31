@@ -15,7 +15,7 @@
 
 }
 
-a, a:visited, a:active {
+button, button:visited, button:active {
   color: #444;
 }
 
@@ -27,6 +27,7 @@ a, a:visited, a:active {
   font-size: 13px;
   border: 1px solid #e0e0e0;
   text-decoration: none;
+  background: white;
 }
 
 .button.active {
