@@ -270,6 +270,13 @@ var chooseYForce = function(buttonId){
 }
 
 var onClick = function(buttonId){
+
+  if(buttonId != 'category') {
+    hideCategoriesTitles();
+  } else {
+    placeCategoryTitles()
+  }
+
   simulation
   .force('x', chooseXForce(buttonId))
   .force('y', chooseYForce(buttonId))
@@ -314,6 +321,10 @@ function placeCategoryTitles() {
           .text(function(title) { return capitalize(title) });
 }
 
+function hideCategoriesTitles() {
+   svg.selectAll('.title').remove();
+}
+
 //capitalizing category titles
 function capitalize(string){
    var splitStr = string.toLowerCase().split(' ');
@@ -335,7 +346,6 @@ function makeMagic(data){
   startForces(parsedData, circles)
   setupButtons()
   countCategoryTweets(data);
-  placeCategoryTitles();
 }
 
 
