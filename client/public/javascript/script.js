@@ -224,18 +224,18 @@ var titleXSpread = function(title) {
 }
 
 var titleYSpread = function(title) {
-  if (title == sortedCategories[0].category) { return 0.25 }
-  if (title == sortedCategories[1].category) { return 0.25 }
-  if (title == sortedCategories[2].category) { return 0.25 }
-  if (title == sortedCategories[3].category) { return 0.25 }
-  if (title == sortedCategories[4].category) { return 0.5 }
-  if (title == sortedCategories[5].category) { return 0.5 }
-  if (title == sortedCategories[6].category) { return 0.5 }
-  if (title == sortedCategories[7].category) { return 0.5 }
-  if (title == sortedCategories[8].category) { return 0.75 }
-  if (title == sortedCategories[9].category) { return 0.75 }
-  if (title == sortedCategories[10].category) { return 0.75 }
-  if (title == sortedCategories[11].category) { return 0.75 }
+  if (title == sortedCategories[0].category) { return 0.35 }
+  if (title == sortedCategories[1].category) { return 0.35 }
+  if (title == sortedCategories[2].category) { return 0.35 }
+  if (title == sortedCategories[3].category) { return 0.35 }
+  if (title == sortedCategories[4].category) { return 0.6 }
+  if (title == sortedCategories[5].category) { return 0.6 }
+  if (title == sortedCategories[6].category) { return 0.6 }
+  if (title == sortedCategories[7].category) { return 0.6 }
+  if (title == sortedCategories[8].category) { return 0.85 }
+  if (title == sortedCategories[9].category) { return 0.85 }
+  if (title == sortedCategories[10].category) { return 0.85 }
+  if (title == sortedCategories[11].category) { return 0.85 }
 }
 
 //toggles
@@ -302,7 +302,7 @@ function placeCategoryTitles() {
   sortedCategories.forEach(function(object) {
     categoryTitlesData.push(object.category);
   });
-  //console.log("CAT DATA", categoryTitlesData)
+
   var titles = svg.selectAll('.title')
     .data(categoryTitlesData);
 
@@ -311,8 +311,19 @@ function placeCategoryTitles() {
           .attr('x', function(d) {return width * titleXSpread(d)})
           .attr('y', function(d) {return height * titleYSpread(d)})
           .attr('text-anchor', 'middle')
-          .text(function(title) { return title });
+          .text(function(title) { return capitalize(title) });
 }
+
+//capitalizing category titles
+function capitalize(string){
+   var splitStr = string.toLowerCase().split(' ');
+   for (var i = 0; i < splitStr.length; i++) {
+         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+       }
+   return splitStr.join(' ');
+}
+
+
 
 
 
@@ -325,7 +336,6 @@ function makeMagic(data){
   setupButtons()
   countCategoryTweets(data);
   placeCategoryTitles();
-  //console.log(sortedCategories)
 }
 
 
