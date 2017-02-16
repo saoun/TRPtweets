@@ -7,8 +7,8 @@ $.ajax({
   type: 'GET',
 })
 .done(function(response) {
-  //console.log(response);
-  makeMagic(response);
+  data = response;
+  makeMagic();
 })
 .fail(function() {
   console.log("error");
@@ -19,6 +19,7 @@ $.ajax({
 var width = window.innerWidth;
 var height = window.innerHeight;
 var data;
+var circles;
 var sortedCategories;
 
 //separating the circles along x axis for gender
@@ -31,36 +32,35 @@ var pageGenderSpread = function(d){
 }
 
 //
-var forceXGenderSplit = d3.forceX(function(dot){
-  return width * pageGenderSpread(dot)
-  }).strength(0.2);
 
-var forceXCategorySplit = d3.forceX(function(dot){
-  return width * pageXCategorySpread(dot)
-  }).strength(0.2);
+function TTForces() {
 
-var forceYCategorySplit = d3.forceY(function(dot){
-  return height * pageYCategorySpread(dot)
-}).strength(0.2)
+  //combining the circles along x axis at half the width of svg box.
+  //strength is defined between 0 and 1, and is the speed of circles
+  //moving onto the screen
+  this.forceXCombine = d3.forceX(Page.width/2).strength(0.2),
+  this.forceYCombine = d3.forceY(Page.height/2).strength(0.15),
+  //prevents the circles from overlapping. Radius of force is scaled based on circle
+  //size, so larger circles push others further from their center than smaller ones
+  this.forceCollide = d3.forceCollide(function(dot) {
+                                        return radiusScale(dot.tweets) + 1 // +1 for distance between circles
+                                      }).iterations(5), //the higher the iteration is, the more rigid the circle bounce is
+  this.forceXGenderSplit = d3.forceX(function(dot){
+                       return Page.width * pageGenderSpread(dot)
+                     }).strength(0.2),
+  this.forceXCategorySplit = d3.forceX(function(dot){
+                        return Page.width * pageXCategorySpread(dot)
+                       }).strength(0.2),
+  this.forceYCategorySplit = d3.forceY(function(dot){
+                         return Page.height * pageYCategorySpread(dot)
+                       }).strength(0.2),
+  this.simulation = d3.forceSimulation()
+                      .force('x', this.forceXCombine)
+                      .force('y', this.forceYCombine)
+                      .force('collide', this.forceCollide)
+}
 
-//combining the circles along x axis at half the width of svg box.
-//strength is defined between 0 and 1, and is the speed of circles
-//moving onto the screen
-var forceXCombine = d3.forceX(width/2).strength(0.2)
-
-var forceYCombine = d3.forceY(height/2).strength(0.15)
-
-//prevents the circles from overlapping. Radius of force is scaled based on circle
-//size, so larger circles push others further from their center than smaller ones
-var forceCollide = d3.forceCollide(function(dot){
-  return radiusScale(dot.tweets) + 1 // +1 for distance between circles
-}).iterations(10); //the higher the iteration is, the more rigid the circle bounce is
-
-//simulation to determine proper location of each circle in group
-var simulation = d3.forceSimulation()
-                   .force('x', forceXCombine)
-                   .force('y', forceYCombine)
-                   .force('collide', forceCollide);
+var ttForces = new TTForces;
 
 var svg = d3.select('.chart')
             .append('svg')
@@ -100,14 +100,16 @@ var mousemove = function(){
   tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
 };
 
-//starting forces simulation
-var startForces = function(data, circles) {
-  var ticked = function() {
+
+var ticked = function() {
     circles.attr('cx', function(dot) { return dot.x })
-         .attr('cy', function(dot) { return dot.y })
+           .attr('cy', function(dot) { return dot.y })
   }
-  simulation.nodes(data)
-            .on('tick', ticked)
+
+//starting forces simulation
+var startForces = function() {
+  ttForces.simulation.nodes(data)
+                     .on('tick', ticked)
 }
 
 var colorSplit = function(dot){
@@ -253,34 +255,36 @@ var atRight = true
 var chooseXForce = function(buttonId) {
   switch (buttonId){
     case "all":
-      return forceXCombine
+      return ttForces.forceXCombine
     case "gender":
-      return forceXGenderSplit
+      return ttForces.forceXGenderSplit
     case "category":
-      return forceXCategorySplit
+      return ttForces.forceXCategorySplit
   }
 }
 
 var chooseYForce = function(buttonId){
   if (buttonId === "category") {
-    return forceYCategorySplit
+    return ttForces.forceYCategorySplit
   } else {
-    return forceYCombine
+    return ttForces.forceYCombine
   }
 }
 
 var onClick = function(buttonId){
-  hideCategoryTitles()
-  if(buttonId == 'category') {
-    placeCategoryTitles();
-  } else if (buttonId == 'gender') {
-    placeGenderTitles()
-  }
 
-  simulation
+  hideCategoryTitles()
+  if(buttonId == 'category') { placeCategoryTitles(); }
+  else if (buttonId == 'gender') { placeGenderTitles(); }
+
+  ttForces.simulation
   .force('x', chooseXForce(buttonId))
   .force('y', chooseYForce(buttonId))
+  .force('collide', ttForces.forceCollide)
   .alpha(0.7)
+  .restart()
+
+
 }
 
 function setupButtons(){
@@ -375,10 +379,11 @@ function capitalize(string){
 
 
 //readyyyyy
-function makeMagic(data){
+function makeMagic(){
   var parsedData = stringToNb(data)
-  var circles = makeCircles(parsedData)
-  startForces(parsedData, circles)
+  data = parsedData
+  circles = makeCircles(data)
+  startForces()
   setupButtons()
   countCategoryTweets(data);
 }
