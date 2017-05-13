@@ -9,8 +9,8 @@ function TTForces() {
   //prevents the circles from overlapping. Radius of force is scaled based on circle
   //size, so larger circles push others further from their center than smaller ones
   this.forceCollide = d3.forceCollide(function(dot) {
-                                        return radiusScale(dot.tweets) + 1 // +1 for distance between circles
-                                      }).iterations(5), //the higher the iteration is, the more rigid the circle bounce is
+                                        return radiusScale(dot.count) + 1 // +1 for distance between circles
+                                      }).iterations(20), //the higher the iteration is, the more rigid the circle bounce is
   this.forceXGenderSplit = d3.forceX(function(dot){
                        return Page.width * pageGenderSpread(dot)
                      }.bind(this)).strength(0.2),

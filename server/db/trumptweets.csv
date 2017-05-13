@@ -1,4 +1,4 @@
-id,person,tweets,gender,title,category
+id,target,tweets,gender,title,category
 0,Hillary Clinton,446,f,democratic presidential nominee,democratic presidential candidates
 1,Ted Cruz,110,m,united states senator,republican presidential candidates
 2,The New York Times,102,n,newspaper,media organizations

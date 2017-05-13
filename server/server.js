@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var mustache = require('mustache-express');
 var csv = require('csvtojson')
+var fs = require('fs');
 
 app.engine('html',mustache()); //tell Express to use mustache templating engine
 app.set('view engine', 'html'); //tell Express to use html templates
@@ -10,16 +11,6 @@ app.use("/", express.static(__dirname+'/../client/public')); //tell Express wher
 
 //Define the port
 var port = 8080;
-var trumptweets
-
-csv()
-  .fromFile('./server/db/trumptweets.csv', function(error, results){
-    if (error){
-      console.log(error)
-    } else {
-      trumptweets = results
-    }
-  })
 
 //Define what happens then a user visits the root route
 app.get('/',function(req,res)
@@ -28,7 +19,9 @@ app.get('/',function(req,res)
 });
 
 app.get('/get-data', function(req, res){
-  res.json(trumptweets)
+  var contents = JSON.parse(fs.readFileSync(__dirname + "/db/trumptweets.json"));
+  // console.log(JSON.stringify(contents))
+  res.json(JSON.stringify(contents))
 })
 
 //Start the server on the defined port
@@ -36,4 +29,3 @@ app.listen(port, function()
 {
   console.log('Server running on port: '+port);
 })
-

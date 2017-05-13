@@ -7,7 +7,9 @@ $.ajax({
   type: 'GET',
 })
 .done(function(response) {
-  data = response;
+  data = JSON.parse(response);
+  // console.log(response)
+  console.log(data)
   makeMagic();
 })
 .fail(function() {
@@ -43,7 +45,7 @@ var tooltip = d3.select('body')
 function stringToNb (data) {
 
   data.forEach(function(dot){
-    dot.tweets = +dot.tweets
+    dot.count = +dot.count
   })
   return data
 };
@@ -51,7 +53,7 @@ function stringToNb (data) {
 //tooltip function
 var mouseover = function(dot){
   tooltip.style('visibility','visible');
-  tooltip.html(dot.person + "<br> Trump tweets: " + dot.tweets)
+  tooltip.html(dot.name + "<br> Trump tweets: " + dot.count)
 };
 
 var mouseout = function() {
@@ -62,11 +64,16 @@ var mousemove = function(){
   tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
 };
 
+var circleClick = function(e) {
+  var tweets = JSON.parse(e.tweets)
+  console.log(tweets)
+}
+
 
 var ticked = function() {
-    circles.attr('cx', function(dot) { return dot.x })
-           .attr('cy', function(dot) { return dot.y })
-  }
+  circles.attr('cx', function(dot) { return dot.x })
+         .attr('cy', function(dot) { return dot.y })
+}
 
 //starting forces simulation
 var startForces = function() {
@@ -85,14 +92,17 @@ var colorSplit = function(dot){
 function makeCircles(data){
   var circles = svg.selectAll('.target')
                    .data(data)
-                   .enter().append('circle')
+                   .enter()
+                   .append('circle')
                    .attr('class', 'target')
                    .attr('r', function(dot){
-                      return radiusScale(dot.tweets)
+                    //  console.log(dot.name, dot.count)
+                      return radiusScale(dot.count)
                    })
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)
                    .on('mousemove', mousemove)
+                   .on('click', circleClick)
                    .style('fill', colorSplit);
   return circles
 }
@@ -286,8 +296,7 @@ function capitalize(string){
 
 //readyyyyy
 function makeMagic(){
-  var parsedData = stringToNb(data)
-  data = parsedData
+  // data = stringToNb(data)
   circles = makeCircles(data)
   startForces()
   setupButtons()
@@ -296,17 +305,3 @@ function makeMagic(){
 
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
