@@ -289,11 +289,6 @@ function capitalize(string){
    return splitStr.join(' ');
 }
 
-
-
-
-
-
 //readyyyyy
 function makeMagic(){
   // data = stringToNb(data)
