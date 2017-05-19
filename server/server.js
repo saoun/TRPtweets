@@ -10,8 +10,6 @@ app.set('views', __dirname+'/../client/views'); //tell Express where to find the
 app.use("/", express.static(__dirname+'/../client/public')); //tell Express where find the other dynamic files like css/js
 
 //Define the port
-var port = 8080;
-$PORT = port;
 
 //Define what happens then a user visits the root route
 app.get('/',function(req,res)
@@ -26,7 +24,7 @@ app.get('/get-data', function(req, res){
 })
 
 //Start the server on the defined port
-app.listen(port, function()
+app.listen((process.env.port || 8080), function()
 {
   console.log('Server running on port: '+ port);
 })
