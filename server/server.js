@@ -26,5 +26,5 @@ app.get('/get-data', function(req, res){
 //Start the server on the defined port
 app.listen((process.env.port || 8080), function()
 {
-  console.log('Server running on port: '+ port);
+  console.log('Server running on port: ' + (process.env.port || 8080));
 })
