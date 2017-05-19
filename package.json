@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "d3 project",
   "main": "server.js",
+  "engines": {
+    "node": "7.9.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js"

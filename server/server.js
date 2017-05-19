@@ -11,6 +11,7 @@ app.use("/", express.static(__dirname+'/../client/public')); //tell Express wher
 
 //Define the port
 var port = 8080;
+$PORT = port;
 
 //Define what happens then a user visits the root route
 app.get('/',function(req,res)
@@ -27,5 +28,5 @@ app.get('/get-data', function(req, res){
 //Start the server on the defined port
 app.listen(port, function()
 {
-  console.log('Server running on port: '+port);
+  console.log('Server running on port: '+ port);
 })
