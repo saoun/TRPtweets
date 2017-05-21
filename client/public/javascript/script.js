@@ -16,7 +16,7 @@ $.ajax({
   console.log("error");
 });
 
-var unsortedArray;
+var sortedCategories;
 
 //declaring variables
 var width = window.innerWidth;

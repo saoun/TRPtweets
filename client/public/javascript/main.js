@@ -7,5 +7,5 @@ requirejs(["Spread"], function(util) {});
 
 
 require(['Data'], function(Data) {
-  console.log(Data.unsortedArray)
+  console.log(Data.unsortedCategories)
 })
