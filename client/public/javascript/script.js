@@ -23,6 +23,8 @@ var height = window.innerHeight;
 var data;
 var circles;
 
+var sortedCategories;
+
 //separating the circles along x axis for gender
 
 var ttForces = new TTForces;
