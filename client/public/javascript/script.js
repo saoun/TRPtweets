@@ -23,7 +23,7 @@ var height = window.innerHeight;
 var data;
 var circles;
 
-var sortedCategories;
+
 
 //separating the circles along x axis for gender
 
@@ -68,7 +68,32 @@ var mousemove = function(){
 
 var circleClick = function(e) {
   var tweets = JSON.parse(e.tweets)
-  console.log(tweets)
+  var tweetList = document.querySelector('.tweet-list')
+  tweetList.innerHTML = '';
+  toggleDisplay(document.querySelector('.display-buttons-1'))
+  toggleDisplay(document.querySelector('.display-buttons-2'))
+  toggleDisplay(document.querySelector('.tweet-list'))
+  toggleDisplay(document.querySelector('svg'))
+
+  var title = document.createElement('h2');
+  title.className+='tweet-title'
+  title.innerHTML = e.name
+  tweetList.append(title)
+  for(var i = 0; i < tweets.length; i++) {
+    var tweet = document.createElement('li')
+    tweet.className += 'tweet'
+    tweet.innerHTML = tweets[i]
+    tweetList.append(tweet)
+  }
+}
+
+function toggleDisplay(element) {
+  var style = getComputedStyle(element)
+  if (style.display != "none") {
+    element.style.display = "none"
+  } else {
+    element.style.display = "block"
+  }
 }
 
 
@@ -206,7 +231,7 @@ var onClick = function(buttonId){
 }
 
 function setupButtons(){
-  d3.select('#toolbar')
+  d3.select('.display-buttons-1')
     .selectAll('.button')
     .on('click', function(){
       // Remove active class from all buttons
@@ -219,6 +244,14 @@ function setupButtons(){
       var buttonId = button.attr('id');
       // call click switch function
       onClick(buttonId)
+    })
+
+  d3.select('#back')
+    .on('click', function() {
+      toggleDisplay(document.querySelector('.display-buttons-1'))
+      toggleDisplay(document.querySelector('.display-buttons-2'))
+      toggleDisplay(document.querySelector('.tweet-list'))
+      toggleDisplay(document.querySelector('svg'))
     })
 }
 

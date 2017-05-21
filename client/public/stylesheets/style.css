@@ -12,7 +12,11 @@
 }
 
 .target {
+  cursor: pointer;
+}
 
+.tweet {
+  
 }
 
 .button {
