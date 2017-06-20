@@ -1,13 +1,8 @@
 var onClick = function(buttonId){
 
-  if(buttonId == 'category') {
-    hideGenderTitles()
-    placeCategoryTitles()
-  }
-  else if (buttonId == 'gender') {
-    hideCategoryTitles()
-    placeGenderTitles()
-  }
+  hideCategoryTitles()
+  if(buttonId == 'category') { placeCategoryTitles(); }
+  else if (buttonId == 'gender') { placeGenderTitles(); }
 
   ttForces.simulation
   .force('x', chooseXForce(buttonId))
@@ -39,7 +34,6 @@ var circleClick = function(e) {
   // }
 }
 
-<<<<<<< HEAD
 var startDrop = function(e) {     
 	var dataMinusSingle = data.slice()
 	dataMinusSingle.splice(dataMinusSingle.indexOf(e), 1);
@@ -61,11 +55,6 @@ var startDrop = function(e) {
   .restart()  
 
   
-=======
-var startDrop = function() {
-  ttForceDrop.simulation.nodes(data)
-                     	 .on('tick', ticked)
->>>>>>> 019fdb43ba43bd63e062d5a04ca6b1e863a9d58b
 }
 
 var circleClickDrop = function(e) {
