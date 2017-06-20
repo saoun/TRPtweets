@@ -57,8 +57,8 @@ function DropForces() {
   //moving onto the screen
 
   this.forceDropX = d3.forceX(Page.width/2).strength(-0.03),
-  this.forceDropY = d3.forceY(function(dot){
-                         return Page.height - dot.vy
+  this.forceDropY = d3.forceY(function(dot) {
+                        return (Page.height - 26) - radiusScale(dot.count)
                        }).strength(function(dot) {
     return radiusScale(dot.count * 0.01)
   }),
