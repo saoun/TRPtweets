@@ -61,8 +61,8 @@ function makeCircles(data){
                    .append('circle')
                    .attr('class', 'target')
                    .attr('r', function(dot){
-                    //  console.log(dot.name, dot.count)
-                      return radiusScale(dot.count)
+                    
+                      return radiusScale(dot.count) // Sets size of circle depending on Tweet count
                    })
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)

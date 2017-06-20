@@ -36,13 +36,11 @@ function DropForces() {
   //strength is defined between 0 and 1, and is the speed of circles
   //moving onto the screen
 
-  this.forceDropX = d3.forceX(Page.width/2).strength(0),
-  this.forceDropY = d3.forceY(Page.height).strength(2),
+  this.forceDropX = d3.forceX(Page.width/2).strength(-0.25),
+  this.forceDropY = d3.forceY(Page.height).strength(0.8),
   //prevents the circles from overlapping. Radius of force is scaled based on circle
   //size, so larger circles push others further from their center than smaller ones
-  this.forceCollide = d3.forceCollide(function(dot) {
-                                        return radiusScale(2) + 1 // +1 for distance between circles
-                                      }).iterations(1), //the higher the iteration is, the more rigid the circle bounce is
+  this.forceCollide = d3.forceCollide(-1).iterations(10), //the higher the iteration is, the more rigid the circle bounce is
   
   this.simulation = d3.forceSimulation()
                       .force('x', this.forceDropX)
