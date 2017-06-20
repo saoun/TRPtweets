@@ -7,6 +7,7 @@ $.ajax({
   type: 'GET',
 })
 .done(function(response) {
+  Data.responseData = JSON.parse(response)
   data = JSON.parse(response);
   // console.log(response)
   console.log(data)

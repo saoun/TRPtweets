@@ -34,19 +34,33 @@ var circleClick = function(e) {
   // }
 }
 
-var startDrop = function() {     
-	 ttForces.simulation
+var startDrop = function(e) {     
+	var dataMinusSingle = data.slice()
+	dataMinusSingle.splice(dataMinusSingle.indexOf(e), 1);
+	ttForces.simulation
+	.nodes(dataMinusSingle)
   .force('x', ttForceDrop.forceDropX)
   .force('y', ttForceDrop.forceDropY)
   .force('collide', ttForceDrop.forceDropCollide)
   .alpha(0.7)
   .restart()
+
+  var bubble = [e]
+	singleBubble.simulation
+	.nodes(bubble)
+	.restart()
+	.force('x', ttForces.forceXHighlight)
+	.force('y', ttForces.forceYHighlight)
+	.alpha(0.7)
+  .restart()  
+
   
 }
 
 var circleClickDrop = function(e) {
-	console.log('click!')
-	startDrop()
+	startDrop(e)
+	
+
 	// make new simulation forces to drop the circles
 }
 

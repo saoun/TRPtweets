@@ -26,3 +26,8 @@ function toggleDisplay(element) {
     element.style.display = "block"
   }
 }
+
+function refreshData(elem) {
+	data.push(elem)
+}
+
