@@ -1,3 +1,6 @@
+var ttForces = new TTForces;
+var ttForceDrop = new DropForces;
+
 function TTForces() {
 
   //combining the circles along x axis at half the width of svg box.
@@ -25,5 +28,45 @@ function TTForces() {
                       .force('y', this.forceYCombine)
                       .force('collide', this.forceCollide)
 
+}
 
+function DropForces() {
+
+  //combining the circles along x axis at half the width of svg box.
+  //strength is defined between 0 and 1, and is the speed of circles
+  //moving onto the screen
+
+  this.forceDropX = d3.forceX(Page.width/2).strength(0),
+  this.forceDropY = d3.forceY(Page.height).strength(2),
+  //prevents the circles from overlapping. Radius of force is scaled based on circle
+  //size, so larger circles push others further from their center than smaller ones
+  this.forceCollide = d3.forceCollide(function(dot) {
+                                        return radiusScale(2) + 1 // +1 for distance between circles
+                                      }).iterations(1), //the higher the iteration is, the more rigid the circle bounce is
+  
+  this.simulation = d3.forceSimulation()
+                      .force('x', this.forceDropX)
+                      .force('y', this.forceDropY)
+                      .force('collide', this.forceCollide)
+
+
+}
+
+var chooseXForce = function(buttonId) {
+  switch (buttonId){
+    case "all":
+      return forceXCombine
+    case "gender":
+      return ttForces.forceXGenderSplit
+    case "category":
+      return ttForces.forceXCategorySplit
+  }
+}
+
+var chooseYForce = function(buttonId){
+  if (buttonId === "category") {
+    return ttForces.forceYCategorySplit
+  } else {
+    return ttForces.forceYCombine
+  }
 }

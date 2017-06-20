@@ -18,39 +18,18 @@ $.ajax({
 
 
 //declaring variables
-var width = window.innerWidth;
-var height = window.innerHeight;
-var data;
-var circles;
+
+
 
 
 
 //separating the circles along x axis for gender
-
-var ttForces = new TTForces;
-
-var svg = d3.select('.chart')
-            .append('svg')
-            .attr('height', height)
-            .attr('width', width)
-            .append('g')
-            .attr('transform', 'translate(0,0)');
-            //TODO find a responsive solution
 
 //445 refers max tweets for one person
 var tooltip = d3.select('body')
                 .append('div')
                 .attr('class', 'tooltip')
                 .text('')
-
-//turns back the string for number of tweets to an integer
-function stringToNb (data) {
-
-  data.forEach(function(dot){
-    dot.count = +dot.count
-  })
-  return data
-};
 
 //tooltip function
 var mouseover = function(dot){
@@ -66,54 +45,13 @@ var mousemove = function(){
   tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
 };
 
-var circleClick = function(e) {
-  var tweets = JSON.parse(e.tweets)
-  var tweetList = document.querySelector('.tweet-list')
-  tweetList.innerHTML = '';
-  toggleDisplay(document.querySelector('.display-buttons-1'))
-  toggleDisplay(document.querySelector('.display-buttons-2'))
-  toggleDisplay(document.querySelector('.tweet-list'))
-  toggleDisplay(document.querySelector('svg'))
-
-  var title = document.createElement('h2');
-  title.className+='tweet-title'
-  title.innerHTML = e.name
-  tweetList.append(title)
-  for(var i = 0; i < tweets.length; i++) {
-    var tweet = document.createElement('li')
-    tweet.className += 'tweet'
-    tweet.innerHTML = tweets[i]
-    tweetList.append(tweet)
-  }
-}
-
-function toggleDisplay(element) {
-  var style = getComputedStyle(element)
-  if (style.display != "none") {
-    element.style.display = "none"
-  } else {
-    element.style.display = "block"
-  }
-}
 
 
-var ticked = function() {
-  circles.attr('cx', function(dot) { return dot.x })
-         .attr('cy', function(dot) { return dot.y })
-}
 
 //starting forces simulation
 var startForces = function() {
   ttForces.simulation.nodes(data)
                      .on('tick', ticked)
-}
-
-var colorSplit = function(dot){
-    switch (dot.gender){
-      case 'm': return 'dodgerblue'
-      case 'f': return 'salmon'
-      case 'n': return 'lightgreen'
-    }
 }
 
 function makeCircles(data){
@@ -129,7 +67,7 @@ function makeCircles(data){
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)
                    .on('mousemove', mousemove)
-                   .on('click', circleClick)
+                   .on('click', circleClickDrop) // circleClick
                    .style('fill', colorSplit);
   return circles
 }
@@ -178,10 +116,6 @@ function sortingFunction(unsortedArray){
   })
 }
 
-//separating the circles along x and y axis for category
-
-
-
 
 //toggles
 var pushRight = function(x) {
@@ -194,136 +128,6 @@ var pushRight = function(x) {
 }
 
 var atRight = true
-
-var chooseXForce = function(buttonId) {
-  switch (buttonId){
-    case "all":
-      return ttForces.forceXCombine
-    case "gender":
-      return ttForces.forceXGenderSplit
-    case "category":
-      return ttForces.forceXCategorySplit
-  }
-}
-
-var chooseYForce = function(buttonId){
-  if (buttonId === "category") {
-    return ttForces.forceYCategorySplit
-  } else {
-    return ttForces.forceYCombine
-  }
-}
-
-var onClick = function(buttonId){
-
-  hideCategoryTitles()
-  if(buttonId == 'category') { placeCategoryTitles(); }
-  else if (buttonId == 'gender') { placeGenderTitles(); }
-
-  ttForces.simulation
-  .force('x', chooseXForce(buttonId))
-  .force('y', chooseYForce(buttonId))
-  .force('collide', ttForces.forceCollide)
-  .alpha(0.7)
-  .restart()
-
-
-}
-
-function setupButtons(){
-  d3.select('.display-buttons-1')
-    .selectAll('.button')
-    .on('click', function(){
-      // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
-      // Find the button just clicked
-      var button = d3.select(this);
-      // Set it as the active button
-      button.classed('active', true);
-      // Get the id of the button
-      var buttonId = button.attr('id');
-      // call click switch function
-      onClick(buttonId)
-    })
-
-  d3.select('#back')
-    .on('click', function() {
-      toggleDisplay(document.querySelector('.display-buttons-1'))
-      toggleDisplay(document.querySelector('.display-buttons-2'))
-      toggleDisplay(document.querySelector('.tweet-list'))
-      toggleDisplay(document.querySelector('svg'))
-    })
-}
-
-
-//adding titles + info
-function placeCategoryTitles() {
-  var categoryTitlesData = [];
-
-  sortedCategories.forEach(function(object) {
-    categoryTitlesData.push(object.category);
-  });
-
-  var titles = svg.selectAll('.title')
-    .data(categoryTitlesData);
-
-    titles.enter().append('text')
-          .attr('class', 'title')
-          .attr('x', function(d) {return width * titleXSpread(d)})
-          .attr('y', function(d) {return height * titleYSpread(d)})
-          .attr('text-anchor', 'middle')
-          .text(function(title) { return capitalize(title) })
-          .style('opacity', '0')
-          .transition().duration(1000)
-          .style('opacity', '1');
-}
-
-
-function hideCategoryTitles() {
-   svg.selectAll('.titleGender').transition()
-   .style('opacity', '0')
-   .remove();
-
-   svg.selectAll('.title').transition()
-   .style('opacity', '0')
-   .remove();
-}
-
-function placeGenderTitles(){
-  var genderTitlesData = ['Male', 'Female', 'Media & Others'];
-  var firstX = 0.1;
-
-  var titles = svg.selectAll('.titleGender')
-    .data(genderTitlesData);
-    titles.enter().append('text')
-          .attr('class', 'titleGender')
-          .attr('x', function(d) {
-            firstX+=0.2
-            return width * firstX
-          })
-          .attr('y', height * 0.3)
-          .attr('text-anchor', 'middle')
-          .text(function(title) { return title })
-          .style('opacity', '0')
-          .transition().duration(1000)
-          .style('opacity', '1');
-}
-
-// function hideGenderTitles(){
-//   svg.selectAll('.title').remove();
-// }
-
-
-
-//capitalizing category titles
-function capitalize(string){
-   var splitStr = string.toLowerCase().split(' ');
-   for (var i = 0; i < splitStr.length; i++) {
-         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-       }
-   return splitStr.join(' ');
-}
-
 
 
 

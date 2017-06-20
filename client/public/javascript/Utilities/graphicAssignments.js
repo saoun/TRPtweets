@@ -66,3 +66,11 @@ var titleYSpread = function(title) {
   if (title == sortedCategories[10].category) { return 0.85 }
   if (title == sortedCategories[11].category) { return 0.85 }
 }
+
+var colorSplit = function(dot){
+    switch (dot.gender){
+      case 'm': return 'dodgerblue'
+      case 'f': return 'salmon'
+      case 'n': return 'lightgreen'
+    }
+}
