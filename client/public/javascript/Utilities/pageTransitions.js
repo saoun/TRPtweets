@@ -23,7 +23,6 @@ function setupButtons() {
     })
 }
 
-
 //adding titles + info
 function placeCategoryTitles() {
   var categoryTitlesData = [];
@@ -48,11 +47,13 @@ function placeCategoryTitles() {
 
 
 function hideCategoryTitles() {
-   svg.selectAll('.titleGender').transition()
+   svg.selectAll('.title').transition()
    .style('opacity', '0')
    .remove();
+}
 
-   svg.selectAll('.title').transition()
+function hideGenderTitles() {
+    svg.selectAll('.titleGender').transition()
    .style('opacity', '0')
    .remove();
 }
