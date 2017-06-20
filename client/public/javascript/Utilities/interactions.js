@@ -1,8 +1,13 @@
 var onClick = function(buttonId){
 
-  hideCategoryTitles()
-  if(buttonId == 'category') { placeCategoryTitles(); }
-  else if (buttonId == 'gender') { placeGenderTitles(); }
+  if(buttonId == 'category') {
+    hideGenderTitles()
+    placeCategoryTitles()
+  }
+  else if (buttonId == 'gender') {
+    hideCategoryTitles()
+    placeGenderTitles()
+  }
 
   ttForces.simulation
   .force('x', chooseXForce(buttonId))
@@ -35,13 +40,8 @@ var circleClick = function(e) {
 }
 
 var startDrop = function() {
-	 ttForces.simulation
-  .force('x', ttForceDrop.forceDropX)
-  .force('y', ttForceDrop.forceDropY)
-  .force('collide', ttForceDrop.forceDropCollide)
-  .alpha(0.7)
-  .restart()
-
+  ttForceDrop.simulation.nodes(data)
+                     	 .on('tick', ticked)
 }
 
 var circleClickDrop = function(e) {
