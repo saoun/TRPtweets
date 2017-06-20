@@ -34,14 +34,14 @@ var circleClick = function(e) {
   // }
 }
 
-var startDrop = function() {     
+var startDrop = function() {
 	 ttForces.simulation
   .force('x', ttForceDrop.forceDropX)
   .force('y', ttForceDrop.forceDropY)
   .force('collide', ttForceDrop.forceDropCollide)
   .alpha(0.7)
   .restart()
-  
+
 }
 
 var circleClickDrop = function(e) {

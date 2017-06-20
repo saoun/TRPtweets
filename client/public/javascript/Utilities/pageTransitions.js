@@ -23,7 +23,6 @@ function setupButtons() {
     })
 }
 
-
 //adding titles + info
 function placeCategoryTitles() {
   var categoryTitlesData = [];
