@@ -1,5 +1,5 @@
 var Data = {
 	responseData: {},
-	data: {},
+	sliceData: {},
 	highlightedBubble: ''
 }

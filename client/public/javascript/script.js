@@ -33,7 +33,7 @@ var tooltip = d3.select('body')
                 .text('')
 
 //tooltip function
-var mouseover = function(dot){
+var mouseover = function(dot) {
   tooltip.style('visibility','visible');
   tooltip.html(dot.name + "<br> Trump tweets: " + dot.count)
 };

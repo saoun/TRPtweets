@@ -1,15 +1,33 @@
 var onClick = function(buttonId){
 
   hideCategoryTitles()
-  if(buttonId == 'category') { placeCategoryTitles(); }
-  else if (buttonId == 'gender') { placeGenderTitles(); }
+  if(buttonId == 'category') { 
+  	hideGenderTitles()
+  	placeCategoryTitles(); 
+  }
+  else if (buttonId == 'gender') { 
+  	hideCategoryTitles()
+  	placeGenderTitles(); 
+  }
 
-  ttForces.simulation
-  .force('x', chooseXForce(buttonId))
-  .force('y', chooseYForce(buttonId))
-  .force('collide', ttForces.forceCollide)
-  .alpha(0.7)
+  ttForces.simulation 
+	  .nodes(data)
+	  .alpha(0)
+	  .force('x', chooseXForce(buttonId))
+	  .force('y', chooseYForce(buttonId))
+	  .force('collide', ttForces.forceCollide)
+	  .alpha(1)
+	  .alphaDecay(0.01)
+	  .alphaTarget(0.01)
+	  .velocityDecay(0.6)
+	  .restart()
+	  .on('end', function() { console.log(' hi')})
+
+  singleBubble.simulation
+  .force('x', null)
+  .force('y', null)
   .restart()
+  
 
 }
 
@@ -35,26 +53,31 @@ var circleClick = function(e) {
 }
 
 var startDrop = function(e) {     
-	var dataMinusSingle = data.slice()
-	dataMinusSingle.splice(dataMinusSingle.indexOf(e), 1);
-	ttForces.simulation
-	.nodes(dataMinusSingle)
-  .force('x', ttForceDrop.forceDropX)
-  .force('y', ttForceDrop.forceDropY)
-  .force('collide', ttForceDrop.forceDropCollide)
-  .alpha(0.7)
-  .restart()
+	Data.sliceData = data.slice()
+	Data.sliceData.splice(Data.sliceData.indexOf(e), 1);
+	ttForces.simulation 
+		.nodes(Data.sliceData)
+	  .force('x', ttForces.forceDropX)
+	  .force('y', ttForces.forceDropY)
+	  .force('collide', ttForces.forceDropCollide)
+	  .alpha(1)
+	  .alphaDecay(0.1)
+	  .alphaTarget(0.01)
+	  .alphaMin(0.01)
+	  .velocityDecay(0.3)
+		.restart()
+		.on('end', function() { console.log(' hi')})
+
 
   var bubble = [e]
 	singleBubble.simulation
 	.nodes(bubble)
-	.restart()
 	.force('x', ttForces.forceXHighlight)
 	.force('y', ttForces.forceYHighlight)
-	.alpha(0.7)
+	.alpha(1)
+	.alphaDecay(0.02)
+	.alphaTarget(0.05)
   .restart()  
-
-  
 }
 
 var circleClickDrop = function(e) {
