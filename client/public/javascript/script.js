@@ -36,10 +36,6 @@ var mousemove = function(){
   tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
 };
 
-var highlightTitle = function(dot){
-
-}
-
 
 //starting forces simulation
 var startForces = function() {

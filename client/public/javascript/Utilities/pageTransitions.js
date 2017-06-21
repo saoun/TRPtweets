@@ -153,3 +153,18 @@ function placeGenderTitles(){
           .transition().duration(1000)
           .style('opacity', '1');
 }
+
+function placeTweetTitle(dot){
+    var title = [dot.name]
+    var tweetTitle = svg.selectAll('.tweetTitle')
+    .data(title)
+    tweetTitle.enter().append('text')
+          .attr('class', 'tweetTitle')
+          .attr('x', 100)
+          .attr('y', 50)
+          .attr('text-anchor', 'middle')
+          .text(dot.name)
+          .style('opacity', '0')
+          .transition().duration(1000)
+          .style('opacity', '1');
+}

@@ -31,7 +31,6 @@ var onClick = function(buttonId){
   .velocityDecay(0.001)
   .restart()
 
-
 }
 
 var circleClick = function(e) {
@@ -106,6 +105,7 @@ var circleClickDrop = function(e) {
 	startDrop(e)
 	clearTweets()
 	placeTweets(e)
+  placeTweetTitle(e)
 
 
 	// make new simulation forces to drop the circles
