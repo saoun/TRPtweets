@@ -26,15 +26,15 @@ function TTForces() {
   //strength is defined between 0 and 1, and is the speed of circles
   //moving onto the screen
 
-  this.forceXCombine = d3.forceX(Page.width/2).strength(0.05),
+  this.forceXCombine = d3.forceX(Page.width/2).strength(0.03),
   this.forceYCombine = d3.forceY(Page.height/2).strength(0.03),
   this.forceXHighlight = d3.forceX(100).strength(0.05)
   this.forceYHighlight = d3.forceY(100).strength(0.05)
   this.forceDropX = d3.forceX(Page.width / 2).strength(0),
   this.forceDropY = d3.forceY(function(dot) {
-                        return (Page.height - 20) - radiusScale(dot.count)
+                        return (Page.height - 30) - radiusScale(dot.count)
                        }).strength(function(dot) {
-                            return radiusScale(Math.max(dot.count * 0.0001, 0.003))
+                            return radiusScale(Math.max(dot.count * 0.00001, 0.00025))
                       }),
   //prevents the circles from overlapping. Radius of force is scaled based on circle
   //size, so larger circles push others further from their center than smaller ones
@@ -48,7 +48,7 @@ function TTForces() {
                       }).strength(0.8), //the higher the iteration is, the more rigid the circle bounce is
   this.forceXGenderSplit = d3.forceX(function(dot) {
                        return Page.width * pageGenderSpread(dot)
-                     }.bind(this)).strength(0.02),
+                     }.bind(this)).strength(0.015),
   this.forceXCategorySplit = d3.forceX(function(dot) {
                         return Page.width * pageXCategorySpread(dot)
                        }).strength(0.005),

@@ -64,9 +64,9 @@ var startDrop = function(e) {
 	  .force('collide', ttForces.forceDropCollide)
 	  .alpha(1)
 	  .alphaDecay(0.16)
-	  .alphaTarget(0.16)
+	  .alphaTarget(0.12)
 	  .alphaMin(0.005)
-	  .velocityDecay(0.08)
+	  .velocityDecay(0.03)
 		.restart()
 
 
