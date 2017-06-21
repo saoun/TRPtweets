@@ -63,7 +63,7 @@ function TTForces() {
                       .alpha(1)
                       .alphaDecay(0.2)
                       .alphaTarget(0.01)
-                      .velocityDecay(0.1)
+                      .velocityDecay(0.09)
                       .restart()
-                     
+
 }
