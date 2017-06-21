@@ -1,5 +1,6 @@
 var ttForces = new TTForces;
 var singleBubble = new TTForces;
+var singleDrop = new TTForces;
 
 var chooseXForce = function(buttonId) {
   switch (buttonId){
