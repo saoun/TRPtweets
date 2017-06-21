@@ -17,9 +17,9 @@ var onClick = function(buttonId){
 	  .force('y', chooseYForce(buttonId))
 	  .force('collide', ttForces.forceCollide)
 	  .alpha(1)
-	  .alphaDecay(0.01)
+	  .alphaDecay(0.1)
 	  .alphaTarget(0.01)
-	  .velocityDecay(0.6)
+	  .velocityDecay(0.2)
 	  .restart()
 	  .on('end', function() { console.log(' hi')})
 
@@ -61,10 +61,10 @@ var startDrop = function(e) {
 	  .force('y', ttForces.forceDropY)
 	  .force('collide', ttForces.forceDropCollide)
 	  .alpha(1)
-	  .alphaDecay(0.1)
-	  .alphaTarget(0.01)
+	  .alphaDecay(0.4)
+	  .alphaTarget(0.1)
 	  .alphaMin(0.01)
-	  .velocityDecay(0.3)
+	  .velocityDecay(0.1)
 		.restart()
 		.on('end', function() { console.log(' hi')})
 
@@ -77,6 +77,7 @@ var startDrop = function(e) {
 	.alpha(1)
 	.alphaDecay(0.02)
 	.alphaTarget(0.05)
+	.velocityDecay(0.4)
   .restart()  
 }
 
