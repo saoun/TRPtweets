@@ -61,11 +61,14 @@ function placeTweets(dot) {
 
                     return spaceY
                   })
-                  .text(function(tweet) {
-                    if (tweet.length > 60 && tweet.slice(61) != '”') {
-                      tweet = capitalize(tweet.substr(0, 60) + '...')
+                  .text(function(t) {
+                    if (t.tweet.length > 60 && t.tweet.slice(61) != '”') {
+                      t.tweet = capitalize(t.tweet.substr(0, 60) + '...')
                     }
-                    return capitalize(tweet)
+                    return capitalize(t.tweet)
+                  })
+                  .on('click', function(t){
+                    window.open(t.link)
                   })
 
 
