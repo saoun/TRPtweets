@@ -23,6 +23,29 @@ function setupButtons() {
     })
 }
 
+function clearTweets() {
+  svg.selectAll('text').remove()
+}
+
+function placeTweets(dot) {
+  console.log(typeof dot.tweets)
+  var tweetArray = JSON.parse(dot.tweets)
+  console.log(tweetArray)
+  var space = 0
+  var margin = 14
+  var tweets = svg.selectAll('.tweet')
+                  .data(tweetArray)
+                  .enter().append('text')
+                  .attr('class', 'tweet')
+                  .attr('x', 180)
+                  .attr('y', function(d) { 
+                    space += margin;
+                    return 100 + space
+                  })
+                  .text(function(tweet) { return capitalize(tweet) })
+
+}
+
 //adding titles + info
 function placeCategoryTitles() {
   var categoryTitlesData = [];

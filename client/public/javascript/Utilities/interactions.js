@@ -1,6 +1,7 @@
 var onClick = function(buttonId){
 
-  hideCategoryTitles()
+	clearTweets()
+
   if (buttonId == 'category') { 
   	hideGenderTitles()
   	placeCategoryTitles(); 
@@ -85,6 +86,8 @@ var startDrop = function(e) {
 var circleClickDrop = function(e) {
 	hideBothTitles()
 	startDrop(e)
+	clearTweets()
+	placeTweets(e)
 	
 
 	// make new simulation forces to drop the circles
