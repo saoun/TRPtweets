@@ -28,7 +28,7 @@ function clearTweets() {
 }
 
 function placeTweets(dot) {
-  var tweetArray = JSON.parse(dot.tweets)  
+  var tweetArray = JSON.parse(dot.tweets)
   var countX = 0
   var countY = 0
   var cards = d3.selectAll('.card')
@@ -52,20 +52,20 @@ function placeTweets(dot) {
                     }
                     return spaceX
                   })
-                  .attr('y', function(d) { 
+                  .attr('y', function(d) {
                     countY++
                     if (countY % 40 == 0) {
                       spaceY = 60
                     }
                     spaceY += marginY;
-                    
+
                     return spaceY
                   })
-                  .text(function(tweet) { 
+                  .text(function(tweet) {
                     if (tweet.length > 60 && tweet.slice(61) != '”') {
                       tweet = capitalize(tweet.substr(0, 60) + '...')
                     }
-                    return capitalize(tweet) 
+                    return capitalize(tweet)
                   })
 
 
@@ -76,9 +76,7 @@ function expandChart(columns) {
                 .attr('overflow-x', 'scroll')
 
   var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Page.width))
-
 }
-
 
 
 //adding titles + info
@@ -123,7 +121,7 @@ function hideBothTitles() {
 
 function placeGenderTitles(){
   var genderTitlesData = ['Male', 'Female', 'Media & Others'];
-  var firstX = 0.1;
+  //var firstX = 0.1;
 
   var titles = svg.selectAll('.titleGender')
     .data(genderTitlesData);
@@ -131,7 +129,7 @@ function placeGenderTitles(){
           .attr('class', 'titleGender')
           .attr('x', function(d) {
             switch (d) {
-              case 'Male': 
+              case 'Male':
                 return Page.width * 0.25
               break
 
@@ -143,7 +141,7 @@ function placeGenderTitles(){
                 return Page.width * 0.75
               break
             }
-            
+
           })
           .attr('y', Page.height * 0.3)
           .attr('text-anchor', 'middle')

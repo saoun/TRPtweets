@@ -17,16 +17,6 @@ $.ajax({
   console.log("error");
 });
 
-
-//declaring variables
-
-
-
-
-
-//separating the circles along x axis for gender
-
-//445 refers max tweets for one person
 var tooltip = d3.select('body')
                 .append('div')
                 .attr('class', 'tooltip')
@@ -46,7 +36,9 @@ var mousemove = function(){
   tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
 };
 
+var highlightTitle = function(dot){
 
+}
 
 
 //starting forces simulation
@@ -116,7 +108,6 @@ function sortingFunction(unsortedArray){
   })
 }
 
-
 //toggles
 var pushRight = function(x) {
   atRight = x;
@@ -128,9 +119,6 @@ var pushRight = function(x) {
 }
 
 var atRight = true
-
-
-
 
 
 //readyyyyy
