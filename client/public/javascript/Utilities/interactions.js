@@ -2,17 +2,17 @@ var onClick = function(buttonId){
 
 	clearTweets()
 
-  if (buttonId == 'category') { 
+  if (buttonId == 'category') {
   	hideGenderTitles()
-  	placeCategoryTitles(); 
-  } else if (buttonId == 'gender') { 
+  	placeCategoryTitles();
+  } else if (buttonId == 'gender') {
   	hideCategoryTitles()
-  	placeGenderTitles(); 
+  	placeGenderTitles();
   } else {
   	hideBothTitles()
   }
 
-  ttForces.simulation 
+  ttForces.simulation
 	  .nodes(data)
 	  .alpha(0)
 	  .force('x', chooseXForce(buttonId))
@@ -30,7 +30,7 @@ var onClick = function(buttonId){
   .force('y', null)
   .velocityDecay(0.001)
   .restart()
-  
+
 
 }
 
@@ -55,35 +55,50 @@ var circleClick = function(e) {
   // }
 }
 
-var startDrop = function(e) {     
+var startDrop = function(e) {
 	Data.sliceData = data.slice()
 
-	// Apply the DROP forces only to the OTHER bubbles (the ones that weren't clicked)
-	Data.sliceData.splice(Data.sliceData.indexOf(e), 1);
-	ttForces.simulation 
-		.nodes(Data.sliceData)
-	  .force('x', ttForces.forceDropX)
-	  .force('y', ttForces.forceDropY)
-	  .force('collide', ttForces.forceDropCollide)
-	  .alpha(1)
-	  .alphaDecay(0.16)
-	  .alphaTarget(0.12)
-	  .alphaMin(0.005)
-	  .velocityDecay(0.03)
-		.restart()
+  var highlightedBubble = [Data.highlightedBubble]
+  Data.sliceData.splice(Data.sliceData.indexOf(e), 1);
+  if (highlightedBubble != "") {
+    ttForces.simulation
+    .nodes(Data.sliceData)
+    .force('x', ttForces.forceDropX)
+    .force('y', ttForces.forceDropY)
+    .force('collide', ttForces.forceDropCollide)
+    .alpha(1)
+    .alphaDecay(0.16)
+    .alphaTarget(0.12)
+    .alphaMin(0.005)
+    .velocityDecay(0.08)
+    .restart()
+  } else {
+  // Apply the DROP forces only to the OTHER bubbles (the ones that weren't clicked)
+  ttForces.simulation
+    .nodes(Data.sliceData)
+    .force('x', ttForces.forceDropX)
+    .force('y', ttForces.forceDropY)
+    .force('collide', ttForces.forceDropCollide)
+    .alpha(1)
+    .alphaDecay(0.16)
+    .alphaTarget(0.12)
+    .alphaMin(0.005)
+    .velocityDecay(0.03)
+    .restart()
+  }
 
-
-	// Make the single bubble you clicked float.
+	// Make the single bubble you click float
   var bubble = [e]
 	singleBubble.simulation
-		.nodes(bubble)
-		.force('x', ttForces.forceXHighlight)
-		.force('y', ttForces.forceYHighlight)
-		.alpha(1)
-		.alphaDecay(0.02)
-		.alphaTarget(0.05)
-		.velocityDecay(0.4)
-	  .restart()  
+	.nodes(bubble)
+	.force('x', ttForces.forceXHighlight)
+	.force('y', ttForces.forceYHighlight)
+	.alpha(1)
+	.alphaDecay(0.02)
+	.alphaTarget(0.05)
+	.velocityDecay(0.4)
+  .restart()
+  Data.highlightedBubble = e
 }
 
 var circleClickDrop = function(e) {
@@ -91,7 +106,7 @@ var circleClickDrop = function(e) {
 	startDrop(e)
 	clearTweets()
 	placeTweets(e)
-	
+
 
 	// make new simulation forces to drop the circles
 }
