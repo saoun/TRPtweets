@@ -21,6 +21,11 @@ body {
 
 .tweet {
   font-size: 12px;
+  cursor: pointer;
+}
+
+.tweet:hover {
+  text-decoration: underline;
 }
 
 .button {
