@@ -2,9 +2,9 @@ var sortedCategories;
 
 var pageGenderSpread = function(d) {
                             switch (d.gender) {
-                              case 'm': return 0.3
+                              case 'm': return 0.25
                               case 'f': return 0.5
-                              case 'n': return 0.7
+                              case 'n': return 0.75
                           }
                         }
 

@@ -1,13 +1,14 @@
 var onClick = function(buttonId){
 
   hideCategoryTitles()
-  if(buttonId == 'category') { 
+  if (buttonId == 'category') { 
   	hideGenderTitles()
   	placeCategoryTitles(); 
-  }
-  else if (buttonId == 'gender') { 
+  } else if (buttonId == 'gender') { 
   	hideCategoryTitles()
   	placeGenderTitles(); 
+  } else {
+  	hideBothTitles()
   }
 
   ttForces.simulation 
@@ -17,15 +18,16 @@ var onClick = function(buttonId){
 	  .force('y', chooseYForce(buttonId))
 	  .force('collide', ttForces.forceCollide)
 	  .alpha(1)
-	  .alphaDecay(0.1)
-	  .alphaTarget(0.01)
-	  .velocityDecay(0.2)
+	  .alphaDecay(0.03)
+	  .alphaTarget(0.05)
+	  .velocityDecay(0.05)
 	  .restart()
 	  .on('end', function() { console.log(' hi')})
 
   singleBubble.simulation
   .force('x', null)
   .force('y', null)
+  .velocityDecay(0.001)
   .restart()
   
 
@@ -61,12 +63,11 @@ var startDrop = function(e) {
 	  .force('y', ttForces.forceDropY)
 	  .force('collide', ttForces.forceDropCollide)
 	  .alpha(1)
-	  .alphaDecay(0.4)
-	  .alphaTarget(0.1)
-	  .alphaMin(0.01)
-	  .velocityDecay(0.1)
+	  .alphaDecay(0.16)
+	  .alphaTarget(0.16)
+	  .alphaMin(0.005)
+	  .velocityDecay(0.08)
 		.restart()
-		.on('end', function() { console.log(' hi')})
 
 
   var bubble = [e]
@@ -82,6 +83,7 @@ var startDrop = function(e) {
 }
 
 var circleClickDrop = function(e) {
+	hideBothTitles()
 	startDrop(e)
 	
 

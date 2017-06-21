@@ -58,6 +58,11 @@ function hideGenderTitles() {
    .remove();
 }
 
+function hideBothTitles() {
+  hideCategoryTitles()
+  hideGenderTitles()
+}
+
 function placeGenderTitles(){
   var genderTitlesData = ['Male', 'Female', 'Media & Others'];
   var firstX = 0.1;
@@ -67,8 +72,20 @@ function placeGenderTitles(){
     titles.enter().append('text')
           .attr('class', 'titleGender')
           .attr('x', function(d) {
-            firstX+=0.2
-            return Page.width * firstX
+            switch (d) {
+              case 'Male': 
+                return Page.width * 0.25
+              break
+
+              case 'Female':
+                return Page.width * 0.5
+              break
+
+              case 'Media & Others':
+                return Page.width * 0.75
+              break
+            }
+            
           })
           .attr('y', Page.height * 0.3)
           .attr('text-anchor', 'middle')
