@@ -1,6 +1,6 @@
 var onClick = function(buttonId){
 
-	clearTweets()
+	hideTweets()
 
   if (buttonId == 'category') { 
   	hideGenderTitles()

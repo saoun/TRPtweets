@@ -28,21 +28,53 @@ function clearTweets() {
 }
 
 function placeTweets(dot) {
-  console.log(typeof dot.tweets)
-  var tweetArray = JSON.parse(dot.tweets)
-  console.log(tweetArray)
-  var space = 0
-  var margin = 14
+  var tweetArray = JSON.parse(dot.tweets)  
+  var countX = 0
+  var countY = 0
+  var cards = d3.selectAll('.card')
+  var index = 0
+  var currentcard = cards._groups[0][index]
+  var spaceX = 180;
+  var marginX = 500
+  var spaceY = 60
+  var marginY = 14
+  var columns = Math.ceil(tweetArray.length / 40)
+  expandChart(columns)
+
   var tweets = svg.selectAll('.tweet')
                   .data(tweetArray)
                   .enter().append('text')
                   .attr('class', 'tweet')
-                  .attr('x', 180)
-                  .attr('y', function(d) { 
-                    space += margin;
-                    return 100 + space
+                  .attr('x', function(d) {
+                    countX++
+                    if (countX % 40 == 0) {
+                      spaceX += marginX
+                    }
+                    return spaceX
                   })
-                  .text(function(tweet) { return capitalize(tweet) })
+                  .attr('y', function(d) { 
+                    if (countY % 40 == 0) {
+                      spaceY = 60
+                    }
+                    spaceY += marginY;
+                    countY++
+                    return spaceY
+                  })
+                  .text(function(tweet) { 
+                    if (tweet.length > 60 && tweet.slice(61) != '”') {
+                      tweet = capitalize(tweet.substr(0, 60) + '...')
+                    }
+                    return capitalize(tweet) 
+                  })
+
+
+}
+
+function expandChart(columns) {
+  var chart = d3.select('.chart')
+                .attr('overflow-x', 'scroll')
+
+  var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Page.width))
 
 }
 
