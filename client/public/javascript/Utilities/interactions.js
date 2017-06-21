@@ -76,14 +76,14 @@ var startDrop = function(e) {
 	// Make the single bubble you clicked float.
   var bubble = [e]
 	singleBubble.simulation
-	.nodes(bubble)
-	.force('x', ttForces.forceXHighlight)
-	.force('y', ttForces.forceYHighlight)
-	.alpha(1)
-	.alphaDecay(0.02)
-	.alphaTarget(0.05)
-	.velocityDecay(0.4)
-  .restart()  
+		.nodes(bubble)
+		.force('x', ttForces.forceXHighlight)
+		.force('y', ttForces.forceYHighlight)
+		.alpha(1)
+		.alphaDecay(0.02)
+		.alphaTarget(0.05)
+		.velocityDecay(0.4)
+	  .restart()  
 }
 
 var circleClickDrop = function(e) {

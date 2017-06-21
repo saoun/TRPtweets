@@ -53,11 +53,12 @@ function placeTweets(dot) {
                     return spaceX
                   })
                   .attr('y', function(d) { 
+                    countY++
                     if (countY % 40 == 0) {
                       spaceY = 60
                     }
                     spaceY += marginY;
-                    countY++
+                    
                     return spaceY
                   })
                   .text(function(tweet) { 
@@ -77,6 +78,8 @@ function expandChart(columns) {
   var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Page.width))
 
 }
+
+
 
 //adding titles + info
 function placeCategoryTitles() {
