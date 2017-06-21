@@ -1,6 +1,6 @@
 var onClick = function(buttonId){
 
-	hideTweets()
+	clearTweets()
 
   if (buttonId == 'category') { 
   	hideGenderTitles()
@@ -57,6 +57,8 @@ var circleClick = function(e) {
 
 var startDrop = function(e) {     
 	Data.sliceData = data.slice()
+
+	// Apply the DROP forces only to the OTHER bubbles (the ones that weren't clicked)
 	Data.sliceData.splice(Data.sliceData.indexOf(e), 1);
 	ttForces.simulation 
 		.nodes(Data.sliceData)
@@ -71,6 +73,7 @@ var startDrop = function(e) {
 		.restart()
 
 
+	// Make the single bubble you clicked float.
   var bubble = [e]
 	singleBubble.simulation
 	.nodes(bubble)
