@@ -1,4 +1,4 @@
-var onClick = function(buttonId){
+function buttonClicked(buttonId){
 
 	clearTweets()
 
@@ -12,12 +12,12 @@ var onClick = function(buttonId){
   	hideBothTitles()
   }
 
-  ttForces.simulation
-	  .nodes(data)
+  allBubbles.simulation
+	  .nodes(Data.all)
 	  .alpha(0)
-	  .force('x', chooseXForce(buttonId))
-	  .force('y', chooseYForce(buttonId))
-	  .force('collide', ttForces.forceCollide)
+	  .force('x', allBubbles.chooseXForce(buttonId))
+	  .force('y', allBubbles.chooseYForce(buttonId))
+	  .force('collide', allBubbles.forceCollide)
 	  .alpha(1)
 	  .alphaDecay(0.03)
 	  .alphaTarget(0.05)
@@ -33,38 +33,41 @@ var onClick = function(buttonId){
 
 }
 
-var circleClick = function(e) {
-  // var tweets = JSON.parse(e.tweets)
-  // var tweetList = document.querySelector('.tweet-list')
-  // tweetList.innerHTML = '';
-  // toggleDisplay(document.querySelector('.display-buttons-1'))
-  // toggleDisplay(document.querySelector('.display-buttons-2'))
-  // toggleDisplay(document.querySelector('.tweet-list'))
-  // toggleDisplay(document.querySelector('svg'))
 
-  // var title = document.createElement('h2');
-  // title.className+='tweet-title'
-  // title.innerHTML = e.name
-  // tweetList.append(title)
-  // for(var i = 0; i < tweets.length; i++) {
-  //   var tweet = document.createElement('li')
-  //   tweet.className += 'tweet'
-  //   tweet.innerHTML = tweets[i]
-  //   tweetList.append(tweet)
-  // }
+function circleClicked(e) {
+  makeButtonsInactive()
+  hideBothTitles()
+  startDrop(e)
+  clearTweets()
+  placeTweets(e)
+  placeTweetTitle(e)
 }
 
-var startDrop = function(e) {
-	Data.sliceData = data.slice()
+//tooltip function
+function mouseover(dot) {
+  tooltip.style('visibility','visible');
+  tooltip.html(dot.name + "<br> Trump tweets: " + dot.count)
+};
+
+function mouseout() {
+  tooltip.style('visibility', 'hidden')
+};
+
+function mousemove(){
+  tooltip.style('top', (event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px')
+};
+
+function startDrop(e) {
+	Data.slicedData = Data.all.slice()
 
   var highlightedBubble = [Data.highlightedBubble]
-  Data.sliceData.splice(Data.sliceData.indexOf(e), 1);
+  Data.slicedData.splice(Data.slicedData.indexOf(e), 1);
   if (highlightedBubble != "") {
-    ttForces.simulation
-    .nodes(Data.sliceData)
-    .force('x', ttForces.forceDropX)
-    .force('y', ttForces.forceDropY)
-    .force('collide', ttForces.forceDropCollide)
+    allBubbles.simulation
+    .nodes(Data.slicedData)
+    .force('x', allBubbles.forceDropX)
+    .force('y', allBubbles.forceDropY)
+    .force('collide', allBubbles.forceDropCollide)
     .alpha(1)
     .alphaDecay(0.16)
     .alphaTarget(0.12)
@@ -73,11 +76,11 @@ var startDrop = function(e) {
     .restart()
   } else {
   // Apply the DROP forces only to the OTHER bubbles (the ones that weren't clicked)
-  ttForces.simulation
-    .nodes(Data.sliceData)
-    .force('x', ttForces.forceDropX)
-    .force('y', ttForces.forceDropY)
-    .force('collide', ttForces.forceDropCollide)
+  allBubbles.simulation
+    .nodes(Data.slicedData)
+    .force('x', allBubbles.forceDropX)
+    .force('y', allBubbles.forceDropY)
+    .force('collide', allBubbles.forceDropCollide)
     .alpha(1)
     .alphaDecay(0.16)
     .alphaTarget(0.12)
@@ -90,24 +93,13 @@ var startDrop = function(e) {
   var bubble = [e]
 	singleBubble.simulation
 	.nodes(bubble)
-	.force('x', ttForces.forceXHighlight)
-	.force('y', ttForces.forceYHighlight)
+	.force('x', allBubbles.forceXHighlight)
+	.force('y', allBubbles.forceYHighlight)
 	.alpha(1)
 	.alphaDecay(0.02)
 	.alphaTarget(0.05)
 	.velocityDecay(0.4)
   .restart()
   Data.highlightedBubble = e
-}
-
-var circleClickDrop = function(e) {
-	hideBothTitles()
-	startDrop(e)
-	clearTweets()
-	placeTweets(e)
-  placeTweetTitle(e)
-
-
-	// make new simulation forces to drop the circles
 }
 
