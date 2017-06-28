@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "HELVETICA", sans-serif;
 }
 
 .tooltip {
@@ -20,12 +21,16 @@ body {
 }
 
 .tweet {
-  font-size: 12px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .tweet:hover {
   text-decoration: underline;
+}
+
+.tweetTitle {
+  font-size: 22px;
 }
 
 .button {

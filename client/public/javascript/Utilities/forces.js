@@ -15,8 +15,8 @@ function Forces() {
   // NOTE moving onto the screen
   this.forceXCombine = d3.forceX(Data.page.width/2).strength(0.04),
   this.forceYCombine = d3.forceY(Data.page.height/2).strength(0.04),
-  this.forceXHighlight = d3.forceX(100).strength(0.05)
-  this.forceYHighlight = d3.forceY(100).strength(0.05)
+  this.forceXHighlight = d3.forceX(80).strength(0.05)
+  this.forceYHighlight = d3.forceY(160).strength(0.05)
   this.forceDropX = d3.forceX(Data.page.width / 2).strength(0),
   this.forceDropY = d3.forceY(function(dot) {
                         return (Data.page.height - 30) - radiusScale(dot.count)

@@ -24,9 +24,10 @@ function placeTweets(dot) {
   var currentcard = cards._groups[0][index]
   var spaceX = 180;
   var marginX = 500
-  var spaceY = 60
-  var marginY = 14
-  var columns = Math.ceil(tweetArray.length / 40)
+  var marginTopY = 100
+  var marginY = 20
+  var tweetsPerColumn = 28
+  var columns = Math.ceil(tweetArray.length / tweetsPerColumn)
 
   var tweets = svg.selectAll('.tweet')
                   .data(tweetArray)
@@ -34,19 +35,19 @@ function placeTweets(dot) {
                   .attr('class', 'tweet')
                   .attr('x', function(d) {
                     countX++
-                    if (countX % 40 == 0) {
+                    if (countX % tweetsPerColumn == 0) {
                       spaceX += marginX
                     }
                     return spaceX
                   })
                   .attr('y', function(d) {
                     countY++
-                    if (countY % 40 == 0) {
-                      spaceY = 60
+                    if (countY % tweetsPerColumn == 0) {
+                      marginTopY = 100
                     }
-                    spaceY += marginY;
+                    marginTopY += marginY;
 
-                    return spaceY
+                    return marginTopY
                   })
                   .text(function(t) {
                     if (t.tweet.length > 60 && t.tweet.slice(61) != '”') {
@@ -149,9 +150,9 @@ function placeTweetTitle(dot){
     .data(title)
     tweetTitle.enter().append('text')
           .attr('class', 'tweetTitle')
-          .attr('x', 100)
+          .attr('x', 20)
           .attr('y', 50)
-          .attr('text-anchor', 'middle')
+          .attr('text-anchor', 'left')
           .text(dot.name)
           .style('opacity', '0')
           .transition().duration(1000)
