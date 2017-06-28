@@ -1,6 +1,3 @@
-
-
-
 // NOTE turns back the string for number of tweets to an integer
 function stringToNb (data) {
 
@@ -10,7 +7,7 @@ function stringToNb (data) {
   return data
 };
 
-//sorting categories by number of people
+// NOTE Makes sure the categories are sorted from largest to smallest. First count the number of data by category
 function countCategoryTweets(data) {
   data.forEach( function(item) {
     switch(item.category){
@@ -31,9 +28,9 @@ function countCategoryTweets(data) {
   sortingFunction()
 }
 
-//sorting them in order
-function sortingFunction(){
-  Data.categories = Data.categories.sort(function(a,b){
+// NOTE Sort the array in order from largest to smallest
+function sortingFunction() {
+  Data.categories = Data.categories.sort(function(a,b) {
     return (b.count - a.count)
   })
 }
