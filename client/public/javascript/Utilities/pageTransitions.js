@@ -1,31 +1,19 @@
 function setupButtons() {
   d3.select('.display-buttons-1')
     .selectAll('.button')
-    .on('click', function(){
-      // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
-      // Find the button just clicked
-      var button = d3.select(this);
-      // Set it as the active button
-      button.classed('active', true);
-      // Get the id of the button
-      var buttonId = button.attr('id');
-      // call click switch function
-      onClick(buttonId)
-    })
-
-  d3.select('#back')
     .on('click', function() {
-      toggleDisplay(document.querySelector('.display-buttons-1'))
-      toggleDisplay(document.querySelector('.display-buttons-2'))
-      toggleDisplay(document.querySelector('.tweet-list'))
-      toggleDisplay(document.querySelector('svg'))
+      var button = d3.select(this);
+      var buttonId = button.attr('id');
+      // Remove active class from all buttons
+      makeButtonsInactive()
+      // Set it as the active button
+      button.classed('active', true);       
+      // call click switch function
+      buttonClicked(buttonId)
     })
 }
 
-function clearTweets() {
-  svg.selectAll('text').remove()
-}
+function clearTweets() { svg.selectAll('text').remove() }
 
 function placeTweets(dot) {
   var tweetArray = JSON.parse(dot.tweets)
@@ -36,10 +24,10 @@ function placeTweets(dot) {
   var currentcard = cards._groups[0][index]
   var spaceX = 180;
   var marginX = 500
-  var spaceY = 60
-  var marginY = 14
-  var columns = Math.ceil(tweetArray.length / 40)
-  expandChart(columns)
+  var marginTopY = 100
+  var marginY = 20
+  var tweetsPerColumn = 28
+  var columns = Math.ceil(tweetArray.length / tweetsPerColumn)
 
   var tweets = svg.selectAll('.tweet')
                   .data(tweetArray)
@@ -47,19 +35,19 @@ function placeTweets(dot) {
                   .attr('class', 'tweet')
                   .attr('x', function(d) {
                     countX++
-                    if (countX % 40 == 0) {
+                    if (countX % tweetsPerColumn == 0) {
                       spaceX += marginX
                     }
                     return spaceX
                   })
                   .attr('y', function(d) {
                     countY++
-                    if (countY % 40 == 0) {
-                      spaceY = 60
+                    if (countY % tweetsPerColumn == 0) {
+                      marginTopY = 100
                     }
-                    spaceY += marginY;
+                    marginTopY += marginY;
 
-                    return spaceY
+                    return marginTopY
                   })
                   .text(function(t) {
                     if (t.tweet.length > 60 && t.tweet.slice(61) != '”') {
@@ -71,14 +59,14 @@ function placeTweets(dot) {
                     window.open(t.link)
                   })
 
-
+  expandChart(columns)
 }
 
 function expandChart(columns) {
   var chart = d3.select('.chart')
                 .attr('overflow-x', 'scroll')
 
-  var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Page.width))
+  var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Data.page.width))
 }
 
 
@@ -86,7 +74,7 @@ function expandChart(columns) {
 function placeCategoryTitles() {
   var categoryTitlesData = [];
 
-  sortedCategories.forEach(function(object) {
+  Data.categories.forEach(function(object) {
     categoryTitlesData.push(object.category);
   });
 
@@ -95,8 +83,8 @@ function placeCategoryTitles() {
 
     titles.enter().append('text')
           .attr('class', 'title')
-          .attr('x', function(d) {return Page.width * titleXSpread(d)})
-          .attr('y', function(d) {return Page.height * titleYSpread(d)})
+          .attr('x', function(d) {return Data.page.width * titleXSpread(d)})
+          .attr('y', function(d) {return Data.page.height * titleYSpread(d)})
           .attr('text-anchor', 'middle')
           .text(function(title) { return capitalize(title) })
           .style('opacity', '0')
@@ -104,6 +92,8 @@ function placeCategoryTitles() {
           .style('opacity', '1');
 }
 
+
+function makeButtonsInactive() { d3.selectAll('.button').classed('active', false); }
 
 function hideCategoryTitles() {
    svg.selectAll('.title').transition()
@@ -133,20 +123,20 @@ function placeGenderTitles(){
           .attr('x', function(d) {
             switch (d) {
               case 'Male':
-                return Page.width * 0.25
+                return Data.page.width * 0.25
               break
 
               case 'Female':
-                return Page.width * 0.5
+                return Data.page.width * 0.5
               break
 
               case 'Media & Others':
-                return Page.width * 0.75
+                return Data.page.width * 0.75
               break
             }
 
           })
-          .attr('y', Page.height * 0.3)
+          .attr('y', Data.page.height * 0.3)
           .attr('text-anchor', 'middle')
           .text(function(title) { return title })
           .style('opacity', '0')
@@ -160,9 +150,9 @@ function placeTweetTitle(dot){
     .data(title)
     tweetTitle.enter().append('text')
           .attr('class', 'tweetTitle')
-          .attr('x', 100)
+          .attr('x', 20)
           .attr('y', 50)
-          .attr('text-anchor', 'middle')
+          .attr('text-anchor', 'left')
           .text(dot.name)
           .style('opacity', '0')
           .transition().duration(1000)
