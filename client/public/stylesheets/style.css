@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background: #fbfbfb;
+  font-family: 'Yantramanav', sans-serif;
 }
 
 .tooltip {
@@ -38,7 +40,21 @@ body {
   text-decoration: none;
   background: white;
   outline: none;
+  border-radius: 20px;
 }
+
+.display-buttons-1 {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 25px;
+}
+
+h1{
+  font-family: 'Abril Fatface', cursive;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 25px;
+ }
 
 .button.active {
   background: #000;

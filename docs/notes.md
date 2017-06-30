@@ -3,6 +3,8 @@
 - chose not to, and then use script instead
 - working around server stuff for the csv, couldnt copy structure bc of github
 (learnjsdata.com/read_data.html)
+- original inspiration: https://proquestionasker.github.io/projects/MovieDialogue/
+
 
 REFACTORING NOTES
 In makeMagic()
