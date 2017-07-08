@@ -1,7 +1,7 @@
 var Data = {
 	all: {},
-	slicedData: {}, // All data minus the clicked button
-	highlightedBubble: '', // the clicked button
+	slicedData: {}, // All data minus the clicked bubble
+	highlightedBubble: '', // the clicked bubble
 	categories: [
     {category: 'democratic presidential candidates', count: 0},
     {category: 'republican presidential candidates', count: 0},
