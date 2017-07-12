@@ -5,7 +5,7 @@ var radiusScale = d3.scaleSqrt().domain([0, 445]).range([0,40])
 var svg = d3.select('.chart')
             .append('svg')
             .attr('class', 'canvas')
-            .attr('height', Data.page.height - 26)
+            .attr('height', Data.page.height - (document.querySelector('#menu').offsetHeight + document.querySelector('.display-buttons-1').offsetHeight) )
             .attr('width', Data.page.width)
             .append('g')
             .attr('transform', 'translate(0,0)');
