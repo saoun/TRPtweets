@@ -5,12 +5,18 @@ function requestData() {
 	  type: 'GET',
 	})
 	.done(function(response) {
+		console.log(response)
 	  Data.all = JSON.parse(response)
 	  data = JSON.parse(response);
 	  // console.log((Data.all)
-	  makeMagic();
+	  if (Data.all != {}) {
+	  	makeMagic();
+	  } else {
+	  	requestData()
+	  }
 	})
 	.fail(function() {
+		requestData()
 	  console.log("error");
 	});
 }
