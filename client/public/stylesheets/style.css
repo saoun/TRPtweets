@@ -114,17 +114,15 @@ h1{
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
+  display: fixed;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  z-index: 1;
 }
 
 #nav-icon2-container {
   width: 40px;
-}
-
-#nav-icon2 {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 20px;
 }
 
 #nav-icon2 span {
