@@ -1,7 +1,12 @@
+html {
+  overflow-y: hidden;
+}
+
 body {
   margin: 0;
   background: #fbfbfb; /* maybe gradient */
   font-family: 'Yantramanav', sans-serif;
+  height: 100vh;
 }
 
 .tooltip {
@@ -74,6 +79,8 @@ h1{
 }
 
 .chart {
-  height: 100vh;
+  /*height: 100vh;*/
   width: 100vw;
 }
+
+
