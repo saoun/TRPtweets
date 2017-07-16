@@ -7,7 +7,7 @@ function setupButtons() {
       // Remove active class from all buttons
       makeButtonsInactive()
       // Set it as the active button
-      button.classed('active', true);       
+      button.classed('active', true);
       // call click switch function
       buttonClicked(buttonId)
     })
@@ -24,7 +24,7 @@ function placeTweets(dot) {
   var currentcard = cards._groups[0][index]
   var spaceX = 180;
   var marginX = 500
-  var marginTopY = 100
+  var marginTopY = 170
   var marginY = 20
   var tweetsPerColumn = 28
   var columns = Math.ceil(tweetArray.length / tweetsPerColumn)
@@ -43,7 +43,7 @@ function placeTweets(dot) {
                   .attr('y', function(d) {
                     countY++
                     if (countY % tweetsPerColumn == 0) {
-                      marginTopY = 100
+                      marginTopY = 170
                     }
                     marginTopY += marginY;
 
@@ -91,7 +91,6 @@ function placeCategoryTitles() {
           .transition().duration(1000)
           .style('opacity', '1');
 }
-
 
 function makeButtonsInactive() { d3.selectAll('.button').classed('active', false); }
 
@@ -151,7 +150,7 @@ function placeTweetTitle(dot){
     tweetTitle.enter().append('text')
           .attr('class', 'tweetTitle')
           .attr('x', 20)
-          .attr('y', 50)
+          .attr('y', 150)
           .attr('text-anchor', 'left')
           .text(dot.name)
           .style('opacity', '0')

@@ -30,7 +30,6 @@ function buttonClicked(buttonId){
   .force('y', null)
   .velocityDecay(0.001)
   .restart()
-
 }
 
 
