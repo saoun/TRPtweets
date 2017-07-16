@@ -85,16 +85,16 @@ h1{
 
 #menu {
   display: inline;
-  position: absolute;
   text-align: center;
   width: 100%;
+  position: fixed;
 }
 
 #toolbar {
   display: inline;
-  position: absolute;
   margin-top: 70px;
   text-align: center;
   width: 100%;
+  position: fixed;
 }
 

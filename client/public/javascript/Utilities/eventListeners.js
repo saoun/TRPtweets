@@ -1,5 +1,7 @@
 function buttonClicked(buttonId){
 
+  window.scrollTo(0,0)
+
 	clearTweets()
 
   if (buttonId == 'category') {
@@ -31,7 +33,6 @@ function buttonClicked(buttonId){
   .velocityDecay(0.001)
   .restart()
 }
-
 
 function circleClicked(e) {
   makeButtonsInactive()
