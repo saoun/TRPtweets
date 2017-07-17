@@ -57,6 +57,10 @@ function Forces() {
       return this.forceYCombine
     }
   },
+  this.centerCircles = function() {
+    this.forceXCombine = d3.forceX(Data.page.width/2).strength(0.04)
+    this.forceYCombine = d3.forceY(Data.page.height/2).strength(0.04)
+  }.bind(this),
   this.simulation = d3.forceSimulation()
                       // .force('charge', d3.forceManyBody().strength(0.1))
                       .force('x', this.forceXCombine)

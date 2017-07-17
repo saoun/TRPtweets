@@ -14,23 +14,35 @@ function buttonClicked(buttonId){
   	hideBothTitles()
   }
 
-  allBubbles.simulation
-	  .nodes(Data.all)
-	  .alpha(0)
-	  .force('x', allBubbles.chooseXForce(buttonId))
-	  .force('y', allBubbles.chooseYForce(buttonId))
-	  .force('collide', allBubbles.forceCollide)
-	  .alpha(1)
-	  .alphaDecay(0.03)
-	  .alphaTarget(0.05)
-	  .velocityDecay(0.05)
-	  .restart()
-	  .on('end', function() { console.log(' hi')})
+  positionCircles(buttonId)
 
   singleBubble.simulation
   .force('x', null)
   .force('y', null)
   .velocityDecay(0.001)
+  .restart()
+}
+
+function getActiveButton() {
+  var buttons = document.getElementsByClassName('button')
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].classList.contains('active')) {
+      return buttons[i].getAttribute('id')
+    }
+  }
+}
+
+function positionCircles(buttonId) {
+  allBubbles.simulation
+  .nodes(Data.all)
+  .alpha(0)
+  .force('x', allBubbles.chooseXForce(buttonId))
+  .force('y', allBubbles.chooseYForce(buttonId))
+  .force('collide', allBubbles.forceCollide)
+  .alpha(1)
+  .alphaDecay(0.03)
+  .alphaTarget(0.05)
+  .velocityDecay(0.05)
   .restart()
 }
 
