@@ -11,6 +11,16 @@ function setupButtons() {
       // call click switch function
       buttonClicked(buttonId)
     })
+
+  document.querySelector('#nav-icon2').addEventListener('click', function(){
+   
+    if (document.querySelector('#nav-icon2').classList.contains('open')) {
+      document.querySelector('#nav-icon2').classList.remove('open')
+    } else {
+      document.querySelector('#nav-icon2').classList.add('open')
+    }
+    
+  });
 }
 
 function clearTweets() { svg.selectAll('text').remove() }
