@@ -1,3 +1,7 @@
+function setupPageListener() {
+  window.addEventListener('resize', windowResize)
+}
+
 function setupButtons() {
   d3.select('.display-buttons-1')
     .selectAll('.button')
@@ -11,6 +15,22 @@ function setupButtons() {
       // call click switch function
       buttonClicked(buttonId)
     })
+
+  document.querySelector('#nav-icon2').addEventListener('click', function(){
+   
+    if (document.querySelector('#nav-icon2').classList.contains('open')) {
+      document.querySelector('#nav-icon2').classList.remove('open')
+    } else { document.querySelector('#nav-icon2').classList.add('open') }
+    
+  });
+}
+
+function windowResize() {
+  Data.page.width = window.innerWidth
+  Data.page.height = window.innerHeight
+  document.querySelector('svg').setAttribute('width', Data.page.width)
+  allBubbles.centerCircles()
+  positionCircles(getActiveButton())
 }
 
 function clearTweets() { svg.selectAll('text').remove() }

@@ -5,7 +5,7 @@ function requestData() {
 	  type: 'GET',
 	})
 	.done(function(response) {
-		console.log(response)
+		// console.log(response)
 	  Data.all = JSON.parse(response)
 	  data = JSON.parse(response);
 	  // console.log((Data.all)
