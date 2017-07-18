@@ -4,6 +4,7 @@
 - working around server stuff for the csv, couldnt copy structure bc of github
 (learnjsdata.com/read_data.html)
 - original inspiration: https://proquestionasker.github.io/projects/MovieDialogue/
+- viz inspiration: https://proquestionasker.github.io/projects/MovieDialogueInteractive/
 
 
 REFACTORING NOTES
