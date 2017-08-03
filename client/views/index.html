@@ -4,38 +4,60 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Trump Tweets</title>
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/modal.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Yantramanav:300" rel="stylesheet">
 </head>
 <body>
 
-<div id="menu">
-  <h1 id="title">The People, Places, and Things Donald Trump Has Insulted on Twitter</h1>
-</div>
-<div id="nav-icon2">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-<div class="chart">
-  <div id="toolbar">
-    <div class="display-buttons-1">
-      <button id="all" class="button active">All Tweets</button>
-      <button id="gender" class="button">By Gender</button>
-      <button id="category" class="button">By Category</button>
-    </div>
-
-    <div class="display-buttons-2" style="display: none">
-      <button id="back" class="button active">Back</button>
-    </div>
-
+  <div id="menu">
+    <h1 id="title">The People, Places, and Things Donald Trump Has Insulted on Twitter</h1>
   </div>
-  <ul class="tweet-list" style="display:none;"></ul>
-</div>
+  <div id="nav-icon2">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- modal -->
+  <div class="modal-overlay">
+    <div class="modal">
+
+      <a class="close-modal">
+        <svg viewBox="0 0 20 20">
+          <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+        </svg>
+      </a><!-- close modal -->
+
+      <div class="modal-content">
+        <h3>Some content here</h3>
+      </div><!-- content -->
+
+    </div><!-- modal -->
+  </div><!-- overlay -->
+
+
+
+
+
+  <div class="chart">
+    <div id="toolbar">
+      <div class="display-buttons-1">
+        <button id="all" class="button active">All Tweets</button>
+        <button id="gender" class="button">By Gender</button>
+        <button id="category" class="button">By Category</button>
+      </div>
+
+      <div class="display-buttons-2" style="display: none">
+        <button id="back" class="button active">Back</button>
+      </div>
+
+    </div>
+    <ul class="tweet-list" style="display:none;"></ul>
+  </div>
 
 
 </body>
@@ -50,6 +72,7 @@
 <script src="javascript/Utilities/eventListeners.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="javascript/Utilities/dataHelpers.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="javascript/Utilities/pageTransitions.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="javascript/Utilities/modal.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="javascript/index.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="javascript/app.js" type="text/javascript" charset="utf-8" async defer></script>
 </html>
