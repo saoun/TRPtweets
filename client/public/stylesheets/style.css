@@ -103,9 +103,8 @@ h1{
 
 #nav-icon2 {
   width: 60px;
-  height: 45px;
   position: relative;
-  margin: 50px auto;
+  margin: 31px auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -115,9 +114,7 @@ h1{
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
-  display: fixed;
   position: absolute;
-  top: 20px;
   right: 20px;
   z-index: 1;
 }
@@ -129,9 +126,9 @@ h1{
 #nav-icon2 span {
   display: block;
   position: absolute;
-  height: 9px;
-  width: 50%;
-  background: #d3531a;
+  height: 5px;
+  width: 40%;
+  background: #fa8072;
   opacity: 1;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -149,7 +146,7 @@ h1{
 }
 
 #nav-icon2 span:nth-child(odd) {
-  left:0px;
+  left:6px;
   border-radius: 9px 0 0 9px;
 }
 
