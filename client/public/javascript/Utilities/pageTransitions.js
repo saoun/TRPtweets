@@ -17,11 +17,11 @@ function setupButtons() {
     })
 
   document.querySelector('#nav-icon2').addEventListener('click', function(){
-   
+
     if (document.querySelector('#nav-icon2').classList.contains('open')) {
       document.querySelector('#nav-icon2').classList.remove('open')
     } else { document.querySelector('#nav-icon2').classList.add('open') }
-    
+
   });
 }
 
@@ -155,7 +155,7 @@ function placeGenderTitles(){
             }
 
           })
-          .attr('y', Data.page.height * 0.3)
+          .attr('y', Data.page.height * 0.65)
           .attr('text-anchor', 'middle')
           .text(function(title) { return title })
           .style('opacity', '0')

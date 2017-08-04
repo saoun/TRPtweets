@@ -18,16 +18,18 @@
     margin: auto;
     padding: 0;
     border-radius: 13px;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 60%;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
     -webkit-animation-name: animatetop;
     animation-name: animatetop;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
+    animation-timing-function: ease;
+
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding: 17px 37px;
 }
 
 /* The Close Button */
@@ -55,8 +57,10 @@
 @keyframes animatetop {
   0% {
     transform: scale(.8);
+    opacity: 0;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
   }
 }
