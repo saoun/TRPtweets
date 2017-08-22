@@ -14,7 +14,7 @@
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-var btn = document.getElementsByClassName("titanic-menu-close");
+var btn = document.getElementById('nav-icon2');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
