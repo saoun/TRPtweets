@@ -105,6 +105,14 @@ p > a {
 }
 
 
+.titanic-menu-close{
+  height: 36px;
+    position: absolute;
+  margin: 31px auto;
+    right: 10px;
+  z-index: 1;
+}
+
 /* MENU Icon 2 */
 #nav-icon2 {
   width: 60px;
