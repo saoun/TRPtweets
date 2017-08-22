@@ -7,10 +7,13 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/modal.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Yantramanav:300" rel="stylesheet">
+  <script src="https://cdn.rawgit.com/icons8/titanic/master/dist/js/titanic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.5.9/bodymovin.min.js"></script>
 </head>
 <body>
 
   <div id="menu">
+    <div class='titanic titanic-chat'></div>
     <h1 id="title">The People, Places, and Things Donald Trump Has Insulted on Twitter</h1>
   </div>
   <div id="nav-icon2">
@@ -63,6 +66,9 @@
     <ul class="tweet-list" style="display:none;"></ul>
   </div>
 
+  <script>
+      var titanic = new Titanic('../dist/icons/')
+  </script>
 
 </body>
 <script src="https://d3js.org/d3.v4.js"></script>
