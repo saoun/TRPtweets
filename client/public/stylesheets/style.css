@@ -7,6 +7,7 @@ body {
   background: #fbfbfb; /* maybe gradient */
   font-family: 'Yantramanav', sans-serif;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 
 .tooltip {
@@ -62,7 +63,7 @@ body {
 
 h1{
   font-family: 'Abril Fatface', cursive;
-  margin: 0 auto;
+  margin: 0 50px;
   text-align: center;
   padding-top: 25px;
  }
@@ -116,7 +117,6 @@ p > a {
 /* MENU Icon 2 */
 #nav-icon2 {
   width: 60px;
-  position: relative;
   margin: 31px auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -127,7 +127,7 @@ p > a {
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   right: 10px;
   z-index: 1;
 }
