@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/saoun/TRPtweets#readme",
   "dependencies": {
+    "clipboard": "^1.7.1",
     "csvtojson": "^1.1.2",
     "d3": "^4.4.1",
     "express": "^4.14.0",

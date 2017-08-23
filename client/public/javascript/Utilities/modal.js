@@ -1,14 +1,3 @@
-// var elements = $('.modal-overlay, .modal');
-
-// $('#nav-icon2').click(function(){
-//     elements.addClass('active');
-//     console.log('hello')
-// });
-
-// $('.close-modal').click(function(){
-//     elements.removeClass('active');
-// });
-
 
 // Get the modal
 var modal = document.getElementById('myModal');

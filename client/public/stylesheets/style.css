@@ -15,7 +15,7 @@ body {
   visibility: hidden;
   color: white;
   padding: 8px;
-  background-color: rgba(105, 105, 105, 0.8);
+  background-color: rgba(105, 105, 105, 0.9);
   border-radius: 6px;
   font-size: 14px;
   font-family: helvetica;
@@ -107,14 +107,14 @@ p > a {
 
 .titanic-menu-close{
   height: 36px;
-    position: absolute;
+  position: absolute;
   margin: 31px auto;
-    right: 10px;
+  right: 20px;
   z-index: 1;
 }
 
 /* MENU Icon 2 */
-#nav-icon2 {
+/* #nav-icon2 {
   width: 60px;
   position: relative;
   margin: 31px auto;
@@ -128,7 +128,7 @@ p > a {
   transition: .5s ease-in-out;
   cursor: pointer;
   position: absolute;
-  right: 10px;
+  right: 20px;
   z-index: 1;
 }
 
@@ -217,5 +217,5 @@ p > a {
 #nav-icon2.open span:nth-child(6) {
   left: calc(50% - 5px);
   top: 23px;
-}
+} */
 

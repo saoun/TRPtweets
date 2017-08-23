@@ -58,7 +58,7 @@ function circleClicked(e) {
 //tooltip function
 function mouseover(dot) {
   tooltip.style('visibility','visible');
-  tooltip.html(dot.name + "<br> Trump tweets: " + dot.count)
+  tooltip.html(dot.name + "<br> Trump Tweets: " + dot.count)
 };
 
 function mouseout() {
