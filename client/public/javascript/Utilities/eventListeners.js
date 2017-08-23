@@ -1,7 +1,5 @@
 function buttonClicked(buttonId){
 
-  window.scrollTo(0,0)
-
 	clearTweets()
 
   if (buttonId == 'category') {
@@ -21,6 +19,12 @@ function buttonClicked(buttonId){
   .force('y', null)
   .velocityDecay(0.001)
   .restart()
+
+  resetScroll()
+}
+
+function resetScroll() {
+   window.scrollTo(0,0)
 }
 
 function getActiveButton() {
@@ -53,6 +57,7 @@ function circleClicked(e) {
   clearTweets()
   placeTweets(e)
   placeTweetTitle(e)
+  resetScroll()
 }
 
 //tooltip function
