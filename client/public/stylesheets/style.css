@@ -108,7 +108,7 @@ p > a {
 
 .titanic-menu-close{
   height: 36px;
-  position: absolute;
+  position: fixed;
   margin: 31px auto;
   right: 20px;
   z-index: 1;
