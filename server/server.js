@@ -8,7 +8,7 @@ app.engine('html',mustache()); //tell Express to use mustache templating engine
 app.set('view engine', 'html'); //tell Express to use html templates
 app.set('views', __dirname+'/../client/views'); //tell Express where to find the html files
 app.use("/", express.static(__dirname+'/../client/public')); //tell Express where find the other dynamic files like css/js
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (process.env.PORT || 4545));
 //Define the port
 
 //Define what happens then a user visits the root route

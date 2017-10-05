@@ -1,4 +1,11 @@
+var interactiveEvent = screen.width > 767 ? 'click' : 'touchstart'
+
+function chooseEvent() {
+  screen.width > 767 ? 'click' : 'touchstart'
+}
+
 function makeCircles(data) {
+
   var circles = svg.selectAll('.target')
                    .data(data)
                    .enter()
@@ -10,7 +17,7 @@ function makeCircles(data) {
                    .on('mouseout', mouseout)
                    .on('mouseover', mouseover)
                    .on('mousemove', mousemove)
-                   .on('click', circleClicked)
+                   .on(interactiveEvent, circleClicked)
                    .style('fill', colorSplit);
   return circles
 }

@@ -5,7 +5,7 @@ function setupPageListener() {
 function setupButtons() {
   d3.select('.display-buttons-1')
     .selectAll('.button')
-    .on('click', function() {
+    .on(interactiveEvent, function() {
       var button = d3.select(this);
       var buttonId = button.attr('id');
       // Remove active class from all buttons
@@ -16,7 +16,7 @@ function setupButtons() {
       buttonClicked(buttonId)
     })
 
-  document.querySelector('#nav-icon2').addEventListener('click', function(){
+  document.querySelector('#nav-icon2').addEventListener(event, function(){
 
     if (document.querySelector('#nav-icon2').classList.contains('open')) {
       document.querySelector('#nav-icon2').classList.remove('open')
@@ -75,7 +75,7 @@ function placeTweets(dot) {
                     }
                     return capitalize(t.tweet)
                   })
-                  .on('click', function(t){
+                  .on(interactiveEvent, function(t){
                     window.open(t.link)
                   })
 
