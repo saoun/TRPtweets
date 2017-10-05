@@ -2,13 +2,13 @@
   "name": "trptweets",
   "version": "1.0.0",
   "description": "d3 project",
-  "main": "server.js",
+  "main": "ttserver.js",
   "engines": {
     "node": "7.9.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/ttserver.js"
   },
   "repository": {
     "type": "git",
