@@ -120,6 +120,7 @@ p > a {
 
 @media only screen and (max-device-width: 767px) {
   .button {
+    min-width: 0px;
     font-size: 16px;
     margin: 4px;
   }
