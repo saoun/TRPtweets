@@ -55,10 +55,13 @@ body {
   font-size: 15px;
 }
 
+
+
+
 .display-buttons-1 {
   margin: 0 auto;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 h1{
@@ -112,6 +115,22 @@ p > a {
   margin: 31px auto;
   right: 20px;
   z-index: 1;
+}
+
+
+@media only screen and (max-device-width: 767px) {
+  .button {
+    font-size: 24px;
+    margin: 8px;
+  }
+
+  .display-buttons-1 {
+    padding-top: 60px;
+  }
+
+  #menu {
+    font-size: 12px;
+  }
 }
 
 /* MENU Icon 2 */
