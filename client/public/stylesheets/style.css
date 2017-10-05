@@ -132,6 +132,10 @@ p > a {
   #menu h1 {
     font-size: 16px;
   }
+
+  .titanic-menu-close {
+    right: 0px;
+  }
 }
 
 /* MENU Icon 2 */
