@@ -138,9 +138,9 @@ function placeGenderTitles(){
 
   var genderTitlesX = screen.width > 767 ?
     {
-      m: 0.65,
-      f: 0.65,
-      n: 0.65
+      m: 0.1,
+      f: 0.5,
+      n: 0.9
     } :
     {
       m: 0.2,
@@ -150,9 +150,9 @@ function placeGenderTitles(){
 
   var genderTitlesY = screen.width > 767 ?
       {
-        m: 0.25,
-        f: 0.5,
-        n: 0.75
+        m: 0.8,
+        f: 0.8,
+        n: 0.8
       } :
       {
         m: 0.3,
