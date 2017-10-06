@@ -7,7 +7,7 @@
   <meta property="og:title" content="Trump Tweets" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://trumptwittering.com" />
-  <meta property="og:description" 
+  <meta property="og:description"
   content="The people, places, and things Trump has insulted on twitter, in interactive charts." />
   <title>Trump Tweets</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/modal.css">
@@ -21,6 +21,18 @@
 
   <div id="menu">
     <h1 id="title">The People, Places, and Things Donald Trump Has Insulted on Twitter</h1>
+  </div>
+  <div id="toolbar">
+    <div class="display-buttons-1">
+      <button id="all" class="button active">All Tweets</button>
+      <button id="gender" class="button">By Gender</button>
+      <button id="category" class="button">By Category</button>
+    </div>
+
+    <div class="display-buttons-2" style="display: none">
+      <button id="back" class="button active">Back</button>
+    </div>
+
   </div>
 
   <div class="titanic titanic-menu-close" id="nav-icon2"></div>
@@ -60,18 +72,6 @@
 
 <!-- Buttons Menu -->
   <div class="chart">
-    <div id="toolbar">
-      <div class="display-buttons-1">
-        <button id="all" class="button active">All Tweets</button>
-        <button id="gender" class="button">By Gender</button>
-        <button id="category" class="button">By Category</button>
-      </div>
-
-      <div class="display-buttons-2" style="display: none">
-        <button id="back" class="button active">Back</button>
-      </div>
-
-    </div>
     <ul class="tweet-list" style="display:none;"></ul>
   </div>
 

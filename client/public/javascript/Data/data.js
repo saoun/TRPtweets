@@ -17,8 +17,8 @@ var Data = {
     {category: 'celebrities', count: 0}
   ],
   page: {
+		// subtract #menu and #toolbar height
   	width: window.innerWidth,
-  	height: window.innerHeight
+  	height: window.innerHeight - $('#menu').height() - $('#toolbar').height()
   }
 }
-

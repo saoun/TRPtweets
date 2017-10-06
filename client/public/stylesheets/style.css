@@ -90,18 +90,18 @@ h1{
 }
 
 #menu {
-  display: inline;
+  display: block;
   text-align: center;
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
 }
 
 #toolbar {
-  display: inline;
-  margin-top: 70px;
+  display: block;
+  /*margin-top: 70px;*/
   text-align: center;
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
 }
 
 p > a {
@@ -126,7 +126,7 @@ p > a {
   }
 
   .display-buttons-1 {
-    padding-top: 30px;
+    padding-top: 24px;
   }
 
   #menu h1 {

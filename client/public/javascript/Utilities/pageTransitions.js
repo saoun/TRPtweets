@@ -44,7 +44,7 @@ function placeTweets(dot) {
   var currentcard = cards._groups[0][index]
   var spaceX = 180;
   var marginX = 500
-  var marginTopY = 170
+  var marginTopY = 60
   var marginY = 20
   var tweetsPerColumn = 28
   var columns = Math.ceil(tweetArray.length / tweetsPerColumn)
@@ -63,7 +63,7 @@ function placeTweets(dot) {
                   .attr('y', function(d) {
                     countY++
                     if (countY % tweetsPerColumn == 0) {
-                      marginTopY = 170
+                      marginTopY = 60
                     }
                     marginTopY += marginY;
 
@@ -170,7 +170,7 @@ function placeTweetTitle(dot){
     tweetTitle.enter().append('text')
           .attr('class', 'tweetTitle')
           .attr('x', 20)
-          .attr('y', 150)
+          .attr('y', 20)
           .attr('text-anchor', 'left')
           .text(dot.name)
           .style('opacity', '0')
