@@ -53,18 +53,18 @@ var pageXCategorySpread = function(dot) {
   if (dot.category == Data.categories[11].category) { return screen.width > 767 ? 0.8 : 0.5 }
   }
 var pageYCategorySpread = function(dot){
-  if (dot.category == Data.categories[0].category) { return screen.width > 767 ? 0.3 : 5.8 }
-  if (dot.category == Data.categories[1].category) { return screen.width > 767 ? 0.3 : 5.3 }
-  if (dot.category == Data.categories[2].category) { return screen.width > 767 ? 0.3 : 4.8 }
-  if (dot.category == Data.categories[3].category) { return screen.width > 767 ? 0.3 : 4.3 }
-  if (dot.category == Data.categories[4].category) { return screen.width > 767 ? 0.55 : 3.8 }
-  if (dot.category == Data.categories[5].category) { return screen.width > 767 ? 0.55 : 3.3 }
-  if (dot.category == Data.categories[6].category) { return screen.width > 767 ? 0.55 : 2.8 }
-  if (dot.category == Data.categories[7].category) { return screen.width > 767 ? 0.55 : 2.3 }
-  if (dot.category == Data.categories[8].category) { return screen.width > 767 ? 0.8 : 1.8 }
-  if (dot.category == Data.categories[9].category) { return screen.width > 767 ? 0.8 : 1.3 }
-  if (dot.category == Data.categories[10].category) { return screen.width > 767 ? 0.8 : 0.8 }
-  if (dot.category == Data.categories[11].category) { return screen.width > 767 ? 0.8 : 0.3 }
+  if (dot.category == Data.categories[0].category) { return screen.width > 767 ? 0.2 : 5.8 }
+  if (dot.category == Data.categories[1].category) { return screen.width > 767 ? 0.2 : 5.3 }
+  if (dot.category == Data.categories[2].category) { return screen.width > 767 ? 0.2 : 4.8 }
+  if (dot.category == Data.categories[3].category) { return screen.width > 767 ? 0.2 : 4.3 }
+  if (dot.category == Data.categories[4].category) { return screen.width > 767 ? 0.45 : 3.8 }
+  if (dot.category == Data.categories[5].category) { return screen.width > 767 ? 0.45 : 3.3 }
+  if (dot.category == Data.categories[6].category) { return screen.width > 767 ? 0.45 : 2.8 }
+  if (dot.category == Data.categories[7].category) { return screen.width > 767 ? 0.45 : 2.3 }
+  if (dot.category == Data.categories[8].category) { return screen.width > 767 ? 0.7 : 1.8 }
+  if (dot.category == Data.categories[9].category) { return screen.width > 767 ? 0.7 : 1.3 }
+  if (dot.category == Data.categories[10].category) { return screen.width > 767 ? 0.7 : 0.8 }
+  if (dot.category == Data.categories[11].category) { return screen.width > 767 ? 0.7 : 0.3 }
 }
 
 var titleXSpread = function(title) {
