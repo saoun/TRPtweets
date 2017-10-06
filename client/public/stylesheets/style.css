@@ -135,8 +135,8 @@ p > a {
   }
 
   .titanic-menu-close {
-    top: 5px;
-    right: 5px;
+    top: 20px;
+    right: -40px;
     margin: 0px
   }
 }
