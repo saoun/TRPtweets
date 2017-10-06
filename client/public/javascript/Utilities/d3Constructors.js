@@ -14,9 +14,9 @@ function makeCircles(data) {
                    .attr('r', function(dot){
                       return radiusScale(dot.count) // Sets size of circle depending on Tweet count
                    })
-                   .on('mouseout', mouseout)
-                   .on('mouseover', mouseover)
-                   .on('mousemove', mousemove)
+                   .on( screen.width > 767 ? 'mouseout' : 'touchend', mouseout)
+                   .on( screen.width > 767 ? 'mouseover' : 'touchstart', mouseover)
+                   .on( screen.width > 767 ? 'mousemove' : null, mousemove)
                    .on(interactiveEvent, circleClicked)
                    .style('fill', colorSplit);
   return circles
