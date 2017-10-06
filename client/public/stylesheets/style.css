@@ -111,9 +111,9 @@ p > a {
 
 .titanic-menu-close{
   height: 36px;
-  position: fixed;
+  position: absolute;
   margin: 31px auto;
-  top: 2px;
+  top: 0px;
   right: 20px;
   z-index: 1;
 }

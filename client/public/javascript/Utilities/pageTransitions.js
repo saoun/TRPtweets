@@ -46,7 +46,7 @@ function placeTweets(dot) {
   var marginX = 500
   var marginTopY = 60
   var marginY = 20
-  var tweetsPerColumn = 28
+  var tweetsPerColumn = screen.width > 767 ? 28 : 16
   var columns = Math.ceil(tweetArray.length / tweetsPerColumn)
 
   var tweets = svg.selectAll('.tweet')
@@ -209,7 +209,7 @@ function placeTweetTitle(dot){
     tweetTitle.enter().append('text')
           .attr('class', 'tweetTitle')
           .attr('x', 20)
-          .attr('y', 20)
+          .attr('y', 40)
           .attr('text-anchor', 'left')
           .text(dot.name)
           .style('opacity', '0')
