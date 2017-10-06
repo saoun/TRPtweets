@@ -1,8 +1,40 @@
-var pageGenderSpread = function(d) {
+var genderSpacingX = screen.width > 767 ?
+  {
+    m: 0.1,
+    f: 0.5,
+    n: 0.9
+  } :
+  {
+    m: 0.7,
+    f: 0.7,
+    n: 0.7
+  }
+
+var genderSpacingY = screen.width > 767 ?
+    {
+      m: 0.5,
+      f: 0.5,
+      n: 0.5
+    } :
+    {
+      m: 0.25,
+      f: 0.5,
+      n: 0.75
+    }
+
+var pageGenderSpreadX = function(d) {
                             switch (d.gender) {
-                              case 'm': return 0.25
-                              case 'f': return 0.5
-                              case 'n': return 0.75
+                              case 'm': return genderSpacingX.m
+                              case 'f': return genderSpacingX.f
+                              case 'n': return genderSpacingX.n
+                          }
+                        }
+
+var pageGenderSpreadY = function(d) {
+                            switch (d.gender) {
+                              case 'm': return genderSpacingY.m
+                              case 'f': return genderSpacingY.f
+                              case 'n': return genderSpacingY.n
                           }
                         }
 

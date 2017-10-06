@@ -32,8 +32,11 @@ function Forces() {
                         return radiusScale(dot.count) + 1 // +1 for extra spacing between circles
                       }).strength(0.8),
   this.forceXGenderSplit = d3.forceX(function(dot) {
-                       return Data.page.width * pageGenderSpread(dot)
+                       return Data.page.width * pageGenderSpreadX(dot)
                      }.bind(this)).strength(0.015),
+ this.forceYGenderSplit = d3.forceY(function(dot) {
+                      return Data.page.height * pageGenderSpreadY(dot)
+                    }.bind(this)).strength(0.015),
   this.forceXCategorySplit = d3.forceX(function(dot) {
                         return Data.page.width * pageXCategorySpread(dot)
                        }).strength(0.005),
@@ -51,10 +54,13 @@ function Forces() {
                         }
                       },
   this.chooseYForce = function(buttonId) {
-    if (buttonId === "category") {
-      return this.forceYCategorySplit
-    } else {
-      return this.forceYCombine
+    switch (buttonId) {
+      case "all":
+        return this.forceYCombine
+      case "gender":
+        return this.forceYGenderSplit
+      case "category":
+        return this.forceYCategorySplit
     }
   },
   this.centerCircles = function() {

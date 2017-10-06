@@ -135,6 +135,30 @@ function placeGenderTitles(){
   var genderTitlesData = ['Male', 'Female', 'Media & Others'];
   //var firstX = 0.1;
 
+  var genderTitlesX = screen.width > 767 ?
+    {
+      m: 0.65,
+      f: 0.65,
+      n: 0.65
+    } :
+    {
+      m: 0.2,
+      f: 0.2,
+      n: 0.2
+    }
+
+  var genderTitlesY = screen.width > 767 ?
+      {
+        m: 0.25,
+        f: 0.5,
+        n: 0.75
+      } :
+      {
+        m: 0.2,
+        f: 0.5,
+        n: 0.8
+      }
+
   var titles = svg.selectAll('.titleGender')
     .data(genderTitlesData);
     titles.enter().append('text')
@@ -142,20 +166,34 @@ function placeGenderTitles(){
           .attr('x', function(d) {
             switch (d) {
               case 'Male':
-                return Data.page.width * 0.25
+                return Data.page.width * genderTitlesX.m
               break
 
               case 'Female':
-                return Data.page.width * 0.5
+                return Data.page.width * genderTitlesX.f
               break
 
               case 'Media & Others':
-                return Data.page.width * 0.75
+                return Data.page.width * genderTitlesX.n
               break
             }
 
           })
-          .attr('y', Data.page.height * 0.65)
+          .attr('y', function(d) {
+            switch (d) {
+              case 'Male':
+                return Data.page.height * genderTitlesY.m
+              break
+
+              case 'Female':
+                return Data.page.height * genderTitlesY.f
+              break
+
+              case 'Media & Others':
+                return Data.page.height * genderTitlesY.n
+              break
+            }
+          })
           .attr('text-anchor', 'middle')
           .text(function(title) { return title })
           .style('opacity', '0')
