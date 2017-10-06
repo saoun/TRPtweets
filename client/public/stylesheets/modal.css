@@ -36,7 +36,7 @@
 
 @media only screen and (max-device-width: 767px) {
   .modal {
-    padding-top: 60px;
+    padding-top: 20px;
   }
 
   .modal-content {
