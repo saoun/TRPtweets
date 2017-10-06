@@ -76,7 +76,7 @@ function placeTweets(dot) {
                     return capitalize(t.tweet)
                   })
                   .on('click', function(t){
-                    window.open(t.link)
+                    screen.width > 767 ? window.open(t.link) : window.location.href = t.link
                   })
 
   expandChart(columns)

@@ -1,4 +1,4 @@
-var interactiveEvent = screen.width > 767 ? 'click' : 'touchstart'
+var interactiveEvent = screen.width > 767 ? 'click' : 'touchend'
 
 function chooseEvent() {
   screen.width > 767 ? 'click' : 'touchstart'
