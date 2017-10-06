@@ -75,7 +75,7 @@ function placeTweets(dot) {
                     }
                     return capitalize(t.tweet)
                   })
-                  .on('click', function(t){
+                  .on(interactiveEvent, function(t){
                     screen.width > 767 ? window.open(t.link) : window.location.href = t.link
                   })
 
