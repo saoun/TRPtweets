@@ -113,6 +113,7 @@ p > a {
   height: 36px;
   position: fixed;
   margin: 31px auto;
+  top: 2px;
   right: 20px;
   z-index: 1;
 }
