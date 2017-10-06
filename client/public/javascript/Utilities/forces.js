@@ -32,17 +32,17 @@ function Forces() {
                         return radiusScale(dot.count) + 1 // +1 for extra spacing between circles
                       }).strength(0.8),
   this.forceXGenderSplit = d3.forceX(function(dot) {
-                       return Data.page.width * pageGenderSpreadX(dot)
+                       return $('body').width() * pageGenderSpreadX(dot)
                      }.bind(this)).strength(0.015),
  this.forceYGenderSplit = d3.forceY(function(dot) {
-                      return Data.page.height * pageGenderSpreadY(dot)
+                      return $('body').height() * pageGenderSpreadY(dot)
                     }.bind(this)).strength(0.015),
   this.forceXCategorySplit = d3.forceX(function(dot) {
-                        return Data.page.width * pageXCategorySpread(dot)
-                      }).strength(screen.width > 767 ? 0.005 : 0.2),
+                        return $('body').width() * pageXCategorySpread(dot)
+                      }).strength(screen.width > 767 ? 0.005 : 0.15),
   this.forceYCategorySplit = d3.forceY(function(dot) {
-                         return Data.page.height * pageYCategorySpread(dot)
-                       }).strength(screen.width > 767 ? 0.005 : 0.2),
+                         return $('body').height() * pageYCategorySpread(dot)
+                       }).strength(screen.width > 767 ? 0.005 : 0.15),
   this.chooseXForce = function(buttonId) {
                         switch (buttonId) {
                           case "all":
