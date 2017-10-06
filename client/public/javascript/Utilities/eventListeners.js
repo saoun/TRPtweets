@@ -5,11 +5,14 @@ function buttonClicked(buttonId){
   if (buttonId == 'category') {
   	hideGenderTitles()
   	placeCategoryTitles();
+		$('.canvas').css({height: pageSizes.height * 6})
   } else if (buttonId == 'gender') {
   	hideCategoryTitles()
   	placeGenderTitles();
+		$('.canvas').css({height: pageSizes.height * 1.6})
   } else {
   	hideBothTitles()
+		$('.canvas').css({height: pageSizes.height})
   }
 
   positionCircles(buttonId)
@@ -119,4 +122,3 @@ function startDrop(e) {
   .restart()
   Data.highlightedBubble = e
 }
-

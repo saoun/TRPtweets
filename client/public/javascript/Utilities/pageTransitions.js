@@ -85,6 +85,7 @@ function placeTweets(dot) {
 function expandChart(columns) {
   var chart = d3.select('.chart')
                 .attr('overflow-x', 'scroll')
+                .attr('overflow-y', 'scroll')
 
   var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Data.page.width))
 }
@@ -154,9 +155,9 @@ function placeGenderTitles(){
         n: 0.75
       } :
       {
-        m: 0.2,
-        f: 0.5,
-        n: 0.8
+        m: 0.3,
+        f: 0.8,
+        n: 1.3
       }
 
   var titles = svg.selectAll('.titleGender')
