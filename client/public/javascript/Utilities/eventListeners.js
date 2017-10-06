@@ -54,7 +54,7 @@ function positionCircles(buttonId) {
 }
 
 function circleClicked(e) {
-	e.preventDefault();
+	// e.preventDefault();
   // e.stopPropagation();
   makeButtonsInactive()
   hideBothTitles()
