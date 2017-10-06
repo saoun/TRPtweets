@@ -73,9 +73,9 @@ function Forces() {
                       .force('y', this.forceYCombine)
                       .force('collide', this.forceCollide)
                       .alpha(1)
-                      .alphaDecay(0.25)
-                      .alphaTarget(0.01)
-                      .velocityDecay(0.07)
+                      .alphaDecay(screen.width > 767 ? 0.25 : 0.5)
+                      .alphaTarget(screen.width > 767 ? 0.01 : 0)
+                      .velocityDecay(screen.width > 767 ? 0.07 : 0.1)
                       .restart()
 
 }
