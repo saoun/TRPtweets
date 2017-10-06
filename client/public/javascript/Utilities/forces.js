@@ -39,10 +39,10 @@ function Forces() {
                     }.bind(this)).strength(0.015),
   this.forceXCategorySplit = d3.forceX(function(dot) {
                         return Data.page.width * pageXCategorySpread(dot)
-                       }).strength(0.005),
+                      }).strength(screen.width > 767 ? 0.005 : 0.2),
   this.forceYCategorySplit = d3.forceY(function(dot) {
                          return Data.page.height * pageYCategorySpread(dot)
-                       }).strength(0.005),
+                       }).strength(screen.width > 767 ? 0.005 : 0.2),
   this.chooseXForce = function(buttonId) {
                         switch (buttonId) {
                           case "all":

@@ -75,7 +75,7 @@ function placeTweets(dot) {
                     }
                     return capitalize(t.tweet)
                   })
-                  .on(interactiveEvent, function(t){
+                  .on('click', function(t){
                     window.open(t.link)
                   })
 
