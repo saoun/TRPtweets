@@ -104,8 +104,8 @@ function placeCategoryTitles() {
 
     titles.enter().append('text')
           .attr('class', 'title')
-          .attr('x', function(d) {return Data.page.width * titleXSpread(d)})
-          .attr('y', function(d) {return Data.page.height * titleYSpread(d)})
+          .attr('x', function(d) {return $('.canvas').width() * titleXSpread(d)})
+          .attr('y', function(d) {return $('.canvas').height() * titleYSpread(d)})
           .attr('text-anchor', 'middle')
           .text(function(title) { return capitalize(title) })
           .style('opacity', '0')
@@ -155,9 +155,9 @@ function placeGenderTitles(){
         n: 0.8
       } :
       {
-        m: 0.3,
-        f: 0.8,
-        n: 1.3
+        m: 0.2,
+        f: 0.5,
+        n: 0.8
       }
 
   var titles = svg.selectAll('.titleGender')
@@ -167,15 +167,15 @@ function placeGenderTitles(){
           .attr('x', function(d) {
             switch (d) {
               case 'Male':
-                return Data.page.width * genderTitlesX.m
+                return $('.canvas').width() * genderTitlesX.m
               break
 
               case 'Female':
-                return Data.page.width * genderTitlesX.f
+                return $('.canvas').width() * genderTitlesX.f
               break
 
               case 'Media & Others':
-                return Data.page.width * genderTitlesX.n
+                return $('.canvas').width() * genderTitlesX.n
               break
             }
 
@@ -183,15 +183,15 @@ function placeGenderTitles(){
           .attr('y', function(d) {
             switch (d) {
               case 'Male':
-                return Data.page.height * genderTitlesY.m
+                return $('.canvas').height() * genderTitlesY.m
               break
 
               case 'Female':
-                return Data.page.height * genderTitlesY.f
+                return $('.canvas').height() * genderTitlesY.f
               break
 
               case 'Media & Others':
-                return Data.page.height * genderTitlesY.n
+                return $('.canvas').height() * genderTitlesY.n
               break
             }
           })
