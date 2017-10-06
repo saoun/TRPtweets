@@ -1,8 +1,8 @@
 var genderSpacingX = screen.width > 767 ?
   {
-    m: 0.1,
+    m: 0.2,
     f: 0.5,
-    n: 0.9
+    n: 0.8
   } :
   {
     m: 0.7,
