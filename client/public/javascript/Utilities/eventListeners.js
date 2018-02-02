@@ -3,13 +3,25 @@ function buttonClicked(buttonId){
 	clearTweets()
 
   if (buttonId == 'category') {
+    $('.canvas').attr('width', pageSizes.width)
+    if (screen.width < 768) {
+      $('.canvas').attr('height', pageSizes.height * 6)
+      $('.canvas').attr('width', pageSizes.width)
+    }
   	hideGenderTitles()
   	placeCategoryTitles();
   } else if (buttonId == 'gender') {
+    $('.canvas').attr('width', pageSizes.width)
+    if (screen.width < 768) {
+      $('.canvas').attr('height', pageSizes.height * 1.5)
+    }
   	hideCategoryTitles()
   	placeGenderTitles();
   } else {
   	hideBothTitles()
+		if (screen.width < 768) {
+			resetCanvasSize()
+		}
   }
 
   positionCircles(buttonId)
@@ -36,6 +48,11 @@ function getActiveButton() {
   }
 }
 
+function resetCanvasSize() {
+  $('.canvas').attr('height', pageSizes.height)
+  $('.canvas').attr('width', pageSizes.width)
+}
+
 function positionCircles(buttonId) {
   allBubbles.simulation
   .nodes(Data.all)
@@ -51,6 +68,11 @@ function positionCircles(buttonId) {
 }
 
 function circleClicked(e) {
+	// e.preventDefault();
+  // e.stopPropagation();
+
+  $('.canvas').attr('height', pageSizes.height)
+  $('.canvas').attr('width', pageSizes.width)
   makeButtonsInactive()
   hideBothTitles()
   startDrop(e)
@@ -119,4 +141,3 @@ function startDrop(e) {
   .restart()
   Data.highlightedBubble = e
 }
-

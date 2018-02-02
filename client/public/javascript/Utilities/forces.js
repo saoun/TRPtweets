@@ -13,13 +13,13 @@ function Forces() {
   // NOTE combining the circles along x axis at half the width of svg box.
   // NOTE strength is defined between 0 and 1, and is the speed of circles
   // NOTE moving onto the screen
-  this.forceXCombine = d3.forceX(Data.page.width/2).strength(0.04),
-  this.forceYCombine = d3.forceY(Data.page.height/2).strength(0.04),
+  this.forceXCombine = d3.forceX($('.canvas').width()/2).strength(0.04),
+  this.forceYCombine = d3.forceY($('.canvas').height()/2).strength(0.04),
   this.forceXHighlight = d3.forceX(80).strength(0.05)
   this.forceYHighlight = d3.forceY(200).strength(0.05)
-  this.forceDropX = d3.forceX(Data.page.width / 2).strength(0),
+  this.forceDropX = d3.forceX($('.canvas').width() / 2).strength(0),
   this.forceDropY = d3.forceY(function(dot) {
-                        return (Data.page.height - 10) - radiusScale(dot.count)
+                        return ($('.canvas').height() - 10) - radiusScale(dot.count)
                        }).strength(function(dot) {
                             return radiusScale(Math.max(dot.count * 0.00001, 0.00025))
                       }),
@@ -32,13 +32,16 @@ function Forces() {
                         return radiusScale(dot.count) + 1 // +1 for extra spacing between circles
                       }).strength(0.8),
   this.forceXGenderSplit = d3.forceX(function(dot) {
-                       return Data.page.width * pageGenderSpread(dot)
+                       return $('.canvas').width() * pageGenderSpreadX(dot)
                      }.bind(this)).strength(0.015),
+ this.forceYGenderSplit = d3.forceY(function(dot) {
+                      return $('.canvas').height() * pageGenderSpreadY(dot)
+                    }.bind(this)).strength(0.015),
   this.forceXCategorySplit = d3.forceX(function(dot) {
-                        return Data.page.width * pageXCategorySpread(dot)
-                       }).strength(0.005),
+                        return $('.canvas').width() * pageXCategorySpread(dot)
+                      }).strength(0.005),
   this.forceYCategorySplit = d3.forceY(function(dot) {
-                         return Data.page.height * pageYCategorySpread(dot)
+                         return $('.canvas').height() * pageYCategorySpread(dot)
                        }).strength(0.005),
   this.chooseXForce = function(buttonId) {
                         switch (buttonId) {
@@ -51,15 +54,18 @@ function Forces() {
                         }
                       },
   this.chooseYForce = function(buttonId) {
-    if (buttonId === "category") {
-      return this.forceYCategorySplit
-    } else {
-      return this.forceYCombine
+    switch (buttonId) {
+      case "all":
+        return this.forceYCombine
+      case "gender":
+        return this.forceYGenderSplit
+      case "category":
+        return this.forceYCategorySplit
     }
   },
   this.centerCircles = function() {
-    this.forceXCombine = d3.forceX(Data.page.width/2).strength(0.04)
-    this.forceYCombine = d3.forceY(Data.page.height/2).strength(0.04)
+    this.forceXCombine = d3.forceX($('.canvas').width()/2).strength(0.04)
+    this.forceYCombine = d3.forceY($('.canvas').height()/2).strength(0.04)
   }.bind(this),
   this.simulation = d3.forceSimulation()
                       // .force('charge', d3.forceManyBody().strength(0.1))

@@ -33,6 +33,7 @@
   padding: 17px 37px;
 }
 
+<<<<<<< HEAD
 
 #circle1 {
   width: 25px;
@@ -68,6 +69,20 @@
   display: inline-block;
   margin-left: 10px;
   margin-top: 0px;
+=======
+@media only screen and (max-device-width: 767px) {
+  .modal {
+    padding-top: 20px;
+  }
+
+  .modal-content {
+    width: 80%;
+  }
+
+  .modal-body {
+    padding: 17px 17px;
+  }
+>>>>>>> c3ff76859bad2dae00fee467fb4bb99775deb75c
 }
 
 /* The Close Button */

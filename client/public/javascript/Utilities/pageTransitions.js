@@ -5,7 +5,7 @@ function setupPageListener() {
 function setupButtons() {
   d3.select('.display-buttons-1')
     .selectAll('.button')
-    .on('click', function() {
+    .on(interactiveEvent, function() {
       var button = d3.select(this);
       var buttonId = button.attr('id');
       // Remove active class from all buttons
@@ -16,7 +16,7 @@ function setupButtons() {
       buttonClicked(buttonId)
     })
 
-  document.querySelector('#nav-icon2').addEventListener('click', function(){
+  document.querySelector('#nav-icon2').addEventListener(event, function(){
 
     if (document.querySelector('#nav-icon2').classList.contains('open')) {
       document.querySelector('#nav-icon2').classList.remove('open')
@@ -44,9 +44,9 @@ function placeTweets(dot) {
   var currentcard = cards._groups[0][index]
   var spaceX = 180;
   var marginX = 500
-  var marginTopY = 170
+  var marginTopY = 60
   var marginY = 20
-  var tweetsPerColumn = 28
+  var tweetsPerColumn = screen.width > 767 ? 28 : 16
   var columns = Math.ceil(tweetArray.length / tweetsPerColumn)
 
   var tweets = svg.selectAll('.tweet')
@@ -63,7 +63,7 @@ function placeTweets(dot) {
                   .attr('y', function(d) {
                     countY++
                     if (countY % tweetsPerColumn == 0) {
-                      marginTopY = 170
+                      marginTopY = 60
                     }
                     marginTopY += marginY;
 
@@ -75,8 +75,8 @@ function placeTweets(dot) {
                     }
                     return capitalize(t.tweet)
                   })
-                  .on('click', function(t){
-                    window.open(t.link)
+                  .on(interactiveEvent, function(t){
+                    screen.width > 767 ? window.open(t.link) : window.location.href = t.link
                   })
 
   expandChart(columns)
@@ -85,6 +85,7 @@ function placeTweets(dot) {
 function expandChart(columns) {
   var chart = d3.select('.chart')
                 .attr('overflow-x', 'scroll')
+                .attr('overflow-y', 'scroll')
 
   var svg = d3.select('.canvas').attr('width', Math.max(520 * (columns), Data.page.width))
 }
@@ -103,8 +104,8 @@ function placeCategoryTitles() {
 
     titles.enter().append('text')
           .attr('class', 'title')
-          .attr('x', function(d) {return Data.page.width * titleXSpread(d)})
-          .attr('y', function(d) {return Data.page.height * titleYSpread(d)})
+          .attr('x', function(d) {return $('.canvas').width() * titleXSpread(d)})
+          .attr('y', function(d) {return $('.canvas').height() * titleYSpread(d)})
           .attr('text-anchor', 'middle')
           .text(function(title) { return capitalize(title) })
           .style('opacity', '0')
@@ -135,6 +136,30 @@ function placeGenderTitles(){
   var genderTitlesData = ['Male', 'Female', 'Media & Others'];
   //var firstX = 0.1;
 
+  var genderTitlesX = screen.width > 767 ?
+    {
+      m: 0.2,
+      f: 0.5,
+      n: 0.8
+    } :
+    {
+      m: 0.2,
+      f: 0.2,
+      n: 0.2
+    }
+
+  var genderTitlesY = screen.width > 767 ?
+      {
+        m: 0.8,
+        f: 0.8,
+        n: 0.8
+      } :
+      {
+        m: 0.2,
+        f: 0.5,
+        n: 0.8
+      }
+
   var titles = svg.selectAll('.titleGender')
     .data(genderTitlesData);
     titles.enter().append('text')
@@ -142,20 +167,34 @@ function placeGenderTitles(){
           .attr('x', function(d) {
             switch (d) {
               case 'Male':
-                return Data.page.width * 0.25
+                return $('.canvas').width() * genderTitlesX.m
               break
 
               case 'Female':
-                return Data.page.width * 0.5
+                return $('.canvas').width() * genderTitlesX.f
               break
 
               case 'Media & Others':
-                return Data.page.width * 0.75
+                return $('.canvas').width() * genderTitlesX.n
               break
             }
 
           })
-          .attr('y', Data.page.height * 0.65)
+          .attr('y', function(d) {
+            switch (d) {
+              case 'Male':
+                return $('.canvas').height() * genderTitlesY.m
+              break
+
+              case 'Female':
+                return $('.canvas').height() * genderTitlesY.f
+              break
+
+              case 'Media & Others':
+                return $('.canvas').height() * genderTitlesY.n
+              break
+            }
+          })
           .attr('text-anchor', 'middle')
           .text(function(title) { return title })
           .style('opacity', '0')
@@ -170,7 +209,7 @@ function placeTweetTitle(dot){
     tweetTitle.enter().append('text')
           .attr('class', 'tweetTitle')
           .attr('x', 20)
-          .attr('y', 150)
+          .attr('y', 40)
           .attr('text-anchor', 'left')
           .text(dot.name)
           .style('opacity', '0')

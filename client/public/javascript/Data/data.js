@@ -1,3 +1,13 @@
+var pageSizes = screen.width > 767 ?
+	{
+		width: window.innerWidth,
+		height: window.innerHeight - $('#menu').height() - $('#toolbar').height()
+	} :
+	{
+		width: screen.width,
+		height: screen.height - $('#menu').height() - $('#toolbar').height()
+	}
+
 var Data = {
 	all: {},
 	slicedData: {}, // All data minus the clicked bubble
@@ -17,8 +27,8 @@ var Data = {
     {category: 'celebrities', count: 0}
   ],
   page: {
-  	width: window.innerWidth,
-  	height: window.innerHeight
+		// subtract #menu and #toolbar height
+  	width: pageSizes.width,
+  	height: pageSizes.height
   }
 }
-

@@ -55,10 +55,13 @@ body {
   font-size: 15px;
 }
 
+
+
+
 .display-buttons-1 {
   margin: 0 auto;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 h1{
@@ -87,18 +90,18 @@ h1{
 }
 
 #menu {
-  display: inline;
+  display: block;
   text-align: center;
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
 }
 
 #toolbar {
-  display: inline;
-  margin-top: 70px;
+  display: block;
+  /*margin-top: 70px;*/
   text-align: center;
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
 }
 
 p > a {
@@ -108,10 +111,34 @@ p > a {
 
 .titanic-menu-close{
   height: 36px;
-  position: fixed;
+  position: absolute;
   margin: 31px auto;
+  top: 0px;
   right: 20px;
   z-index: 1;
+}
+
+
+@media only screen and (max-device-width: 767px) {
+  .button {
+    min-width: 0px;
+    font-size: 16px;
+    margin: 4px;
+  }
+
+  .display-buttons-1 {
+    padding-top: 24px;
+  }
+
+  #menu h1 {
+    font-size: 16px;
+  }
+
+  .titanic-menu-close {
+    top: 40px;
+    right: -120px;
+    margin: 0px
+  }
 }
 
 /* MENU Icon 2 */
@@ -218,4 +245,3 @@ p > a {
   left: calc(50% - 5px);
   top: 23px;
 } */
-
