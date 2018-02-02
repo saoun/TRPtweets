@@ -67,6 +67,8 @@
   display: inline-block;
   margin-left: 10px;
   margin-top: 0px;
+  margin-bottom: 10px;
+  vertical-align: top;
 }
 
 /* The Close Button */
