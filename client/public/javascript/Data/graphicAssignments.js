@@ -67,8 +67,8 @@ var titleYSpread = function(title) {
 
 var colorSplit = function(dot){
     switch (dot.gender){
-      case 'm': return 'dodgerblue'
-      case 'f': return 'salmon'
+      case 'm': return 'salmon'
+      case 'f': return '#b76af1'
       case 'n': return 'lightgreen'
     }
 }

@@ -27,11 +27,47 @@
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
     animation-timing-function: ease;
-
 }
 
 .modal-body {
   padding: 17px 37px;
+}
+
+
+#circle1 {
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: salmon;
+  display: inline-block;
+}
+
+#circle2 {
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: #b76af1;
+  display: inline-block;
+}
+
+#circle3 {
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: lightgreen;
+  display: inline-block;
+}
+
+.legend {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 0px;
 }
 
 /* The Close Button */
