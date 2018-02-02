@@ -100,7 +100,7 @@ var titleYSpread = function(title) {
 var colorSplit = function(dot){
     switch (dot.gender){
       case 'm': return '#eb5c33de'
-      case 'f': return '#0f51a7de'
+      case 'f': return '#4982d8'
       case 'n': return '#62bf3dd1'
     }
 }
