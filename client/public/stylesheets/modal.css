@@ -33,15 +33,13 @@
   padding: 17px 37px;
 }
 
-<<<<<<< HEAD
-
 #circle1 {
   width: 25px;
   height: 25px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background: salmon;
+  background: #eb5c33de;
   display: inline-block;
 }
 
@@ -51,7 +49,7 @@
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background: #b76af1;
+  background: #4982d8;
   display: inline-block;
 }
 
@@ -61,7 +59,7 @@
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background: lightgreen;
+  background: #62bf3dd1;
   display: inline-block;
 }
 
@@ -69,20 +67,8 @@
   display: inline-block;
   margin-left: 10px;
   margin-top: 0px;
-=======
-@media only screen and (max-device-width: 767px) {
-  .modal {
-    padding-top: 20px;
-  }
-
-  .modal-content {
-    width: 80%;
-  }
-
-  .modal-body {
-    padding: 17px 17px;
-  }
->>>>>>> c3ff76859bad2dae00fee467fb4bb99775deb75c
+  margin-bottom: 10px;
+  vertical-align: top;
 }
 
 /* The Close Button */
